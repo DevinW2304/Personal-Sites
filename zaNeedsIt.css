@@ -1,0 +1,347 @@
+/* Global Reset + Font */
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  background-color: #181818;
+  color: #f0f0f0;
+}
+
+/* Header Nav Modernized */
+header {
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Modern Nav Bar */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+.brand {
+  font-size: 1.8rem;
+  color: #b9fbc0;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+nav a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #66bb6a;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active {
+  color: #66bb6a;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Hero Section */
+.hero {
+  background: url('https://images.unsplash.com/photo-1581091012184-7f6cfc495b8e') no-repeat center center/cover;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 8px #000;
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+/* Section Styling */
+.section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  color: #e0e0e0;
+}
+
+/* Product and Location Layout */
+.products, .locations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  height: 260px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #f0f0f0;
+  padding: 1.2rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-weight: 500;
+}
+
+/* Product Images */
+.bg-vape {
+  background-image: url('Images/thc-vape.jfif');
+}
+
+.bg-flower {
+  background-image: url('images/cannabis-buds.jpg');
+}
+
+.bg-edibles {
+  background-image: url('Images/thc\ edible.jpg');
+}
+
+/* Store Locations */
+.bg-store {
+  background-image: url('https://images.unsplash.com/photo-1585401398250-985d96c91c98');
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #2e7d32;
+  color: #fafafa;
+  margin-top: 2rem;
+  border-radius: 16px 16px 0 0;
+}
+
+.filter-bar {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.filter-bar button {
+  background: #388e3c;
+  color: white;
+  border: none;
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.filter-bar button:hover {
+  background: #66bb6a;
+}
+
+.cart-sidebar {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  background-color: #222;
+  color: #fff;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.6);
+  padding: 1.5rem;
+  transition: right 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-sidebar h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.cart-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.cart-sidebar li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #444;
+}
+
+.cart-sidebar button {
+  margin-top: 1.5rem;
+  background: #66bb6a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.category-banner {
+  position: relative;              /* needed for overlay positioning */
+  background: url('images/home_banner.png') no-repeat center center/cover;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #388e3c;
+  /* Remove the duplicate background with linear-gradient */
+}
+
+.category-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+  z-index: 0;
+  border-radius: inherit; /* if you want rounded corners */
+}
+
+.category-banner > * {
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+
+.category-banner h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.category-banner p {
+  font-size: 1.1rem;
+  color: #d0ffd0;
+}
+
+.age-verification-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Quicksand', sans-serif;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.age-verification-popup {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  padding: 2.5rem 3rem;
+  border-radius: 20px;
+  text-align: center;
+  color: #e0f2f1;
+  max-width: 360px;
+  box-shadow: 0 8px 24px rgba(43, 105, 30, 0.7);
+  transform: translateY(-30px);
+  animation: slideDown 0.4s ease forwards;
+}
+
+.age-verification-popup h2 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+}
+
+.age-verification-popup p {
+  margin-bottom: 2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #b9f6ca;
+}
+
+.age-verification-popup button {
+  background: #a5d6a7;
+  border: none;
+  color: #1b5e20;
+  padding: 0.7rem 2.2rem;
+  margin: 0 ; /* increased margin for more spacing */
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.age-verification-popup button:hover {
+  background: #81c784;
+  transform: scale(1.05);
+}
+.age-verification-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* space between buttons */
+  margin-bottom: 0; /* remove bottom margin if any */
+}
+
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideDown {
+  from {opacity: 0; transform: translateY(-30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
