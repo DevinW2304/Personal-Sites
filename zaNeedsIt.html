@@ -8,19 +8,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Age Verification -->
   <div id="age-verification" class="age-verification-overlay">
-  <div class="age-verification-popup">
-    <h2>Are you 21 or older?</h2>
-    <p>You must be 21+ to enter this site.</p>
-   <div class="age-verification-buttons">
-  <button id="age-yes">Yes, I am 21+</button>
-  <button id="age-no">No, I am under 21</button>
-</div>
-
+    <div class="age-verification-popup">
+      <h2>Are you 21 or older?</h2>
+      <p>You must be 21+ to enter this site.</p>
+      <div class="age-verification-buttons">
+        <button id="age-yes">Yes, I am 21+</button>
+        <button id="age-no">No, I am under 21</button>
+      </div>
+    </div>
   </div>
-</div>
 
-
+  <!-- Header + Nav -->
   <header>
     <div class="nav-container">
       <h1 class="brand">🌿 Green Elevation</h1>
@@ -29,19 +30,18 @@
         <a href="#locations">Locations</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-         <a href="#cart" id="cart-button">🛒 Cart (0)</a>
+        <a href="#cart" id="cart-button">🛒 Cart (0)</a>
       </nav>
     </div>
   </header>
+
+  <!-- Hero Banner -->
   <section class="category-banner">
-  <h2>🌿 Explore Our Premium THCa Products</h2>
-  <p>Top-shelf Flower & Potent Vapes — Curated for Quality</p>
-</section>
- 
+    <h2>🌿 Explore Our Premium THCa Products</h2>
+    <p>Top-shelf Flower & Potent Vapes — Curated for Quality</p>
+  </section>
 
-
-  
-
+  <!-- Product Cards -->
   <section id="products" class="section">
     <h2>Our Products</h2>
     <div class="products">
@@ -66,6 +66,7 @@
     </div>
   </section>
 
+  <!-- Store Locations -->
   <section id="locations" class="section">
     <h2>Find Us At</h2>
     <div class="locations">
@@ -90,6 +91,7 @@
     </div>
   </section>
 
+  <!-- About Section -->
   <section id="about" class="section">
     <h2>About Us</h2>
     <p>
@@ -97,16 +99,26 @@
     </p>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="section">
     <h2>Contact</h2>
     <p>Email: info@greenelevation.com</p>
     <p>Instagram: @greenelevation420</p>
   </section>
 
+  <!-- Footer -->
   <footer>
     &copy; 2025 Green Elevation. All rights reserved.
   </footer>
 
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <button onclick="alert('Checkout coming soon!')">Checkout</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="zaNeedsScript.js"></script>
 </body>
-<script src="zaNeedsScript.js"></script>
 </html>
