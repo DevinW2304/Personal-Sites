@@ -1,112 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Devin Washington | Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="default.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devin Washington | Portfolio</title>
+  <link rel="stylesheet" href="default.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script> <!-- replace with your FontAwesome kit -->
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Devin Washington</h1>
-            <p>Computer Science Major • Aspiring Software Engineer</p>
-        </div>
-    </header>
 
-    <nav class="navbar">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#certifications">Certifications</a></li>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Devin Washington</h1>
+      <p>CS @ UNC Charlotte • Android & AI Enthusiast • Human-Centered Design</p>
+      <a href="#projects" class="button">View My Work</a>
+    </div>
+  </header>
 
-        </ul>
-    </nav>
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a senior studying Computer Science with a concentration in Human-Computer Interaction at UNC Charlotte. 
+      With a background in full-stack development, UI/UX design, and machine learning, I am passionate about building 
+      intuitive, human-centered digital experiences.
+    </p>
+  </section>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I'm a Computer Science student passionate about solving problems and building innovative tools with clean, efficient code. My interests include Android development, artificial intelligence, and full-stack applications.
-        </p>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul class="skills-list">
-            <li>Java & Kotlin (Android)</li>
-            <li>Python & Flask</li>
-            <li>JavaScript, HTML & CSS</li>
-            <li>Git & GitHub</li>
-            <li>SQL / Room DB</li>
-            <li>OpenAI API integration</li>
-        </ul>
-    </section>
-
-    <section id="projects">
+  <!-- PROJECTS -->
+  <section id="projects">
     <h2>Projects</h2>
-
-    <div class="project-card-container">
-        <div class="project card">
-            <h3>🌿 PlantAi2.0</h3>
-            <p>An Android app that offers plant care suggestions using AI. Built with Kotlin, Room, and OpenAI’s API.</p>
-            <a class="button" href="https://github.com/DevinWashington/PlantAi2.0" target="_blank">View on GitHub</a>
-        </div>
-
-        <div class="project card">
-            <h3>💻 Personal Website</h3>
-            <p>This portfolio! Designed with clean HTML and CSS. Responsive, accessible, and easy to maintain.</p>
-        </div>
-
-      
-
+    <div class="projects-grid">
+      <div class="card fade-in">
+        <h3>Plant AI</h3>
+        <p>An Android app using Room DB + AI suggestions for plant growth.</p>
+      </div>
+      <div class="card fade-in">
+        <h3>UX Dashboard</h3>
+        <p>A React analytics dashboard with interactive visualizations.</p>
+      </div>
+      <div class="card fade-in">
+        <h3>Machine Learning Model</h3>
+        <p>Built and trained a CNN to classify images with >90% accuracy.</p>
+      </div>
     </div>
-</section>
-<section id="certifications">
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
     <h2>Certifications</h2>
-    <div class="cert-card-container">
-        <a href="https://www.credential.net/android-cert" target="_blank" class="cert-card">
-            <h3>Android Developer Certification</h3>
-            <p>Issued by Google</p>
-        </a>
-
-        <a href="https://coursera.org/verify/python-cert" target="_blank" class="cert-card">
-            <h3>Python for Everybody</h3>
-            <p>University of Michigan (Coursera)</p>
-        </a>
-
-        <a href="https://github.com/DevinWashington/OpenAI-Cert" target="_blank" class="cert-card">
-            <h3>OpenAI API Integration</h3>
-            <p>Self-paced Project</p>
-        </a>
-
-        <a href="https://www.codecademy.com/profiles/DevinWashington/certificates/git-cert" target="_blank" class="cert-card">
-            <h3>Git & GitHub</h3>
-            <p>Codecademy</p>
-        </a>
+    <div class="certifications-grid">
+      <div class="cert-card fade-in">
+        <h3>AWS Cloud Practitioner</h3>
+        <p>Validated cloud fundamentals, security, and architecture.</p>
+        <a href="#">View Proof</a>
+      </div>
+      <div class="cert-card fade-in">
+        <h3>Google UX Design</h3>
+        <p>Completed design thinking process, prototyping, and usability testing.</p>
+        <a href="#">View Proof</a>
+      </div>
+      <div class="cert-card fade-in">
+        <h3>TensorFlow Developer</h3>
+        <p>Developed and deployed ML models using TensorFlow/Keras.</p>
+        <a href="#">View Proof</a>
+      </div>
     </div>
-</section>
+  </section>
 
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Interested in working together? Let’s connect!</p>
+    <div class="socials">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="mailto:devin@example.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Devin Washington | Portfolio</p>
+  </footer>
 
-
-    <section id="resume">
-        <h2>Resume</h2>
-        <p>Download my current resume:</p>
-        <a class="button" href="DevinWashington_Resume.pdf" target="_blank">Download Resume</a>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:devin@example.com">devin@example.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-    </section>
-
-    <footer>
-        &copy; 2025 Devin Washington. Built with ❤️ and HTML.
-    </footer>
 </body>
 </html>
