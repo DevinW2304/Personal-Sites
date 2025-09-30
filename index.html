@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Devin Washington | Portfolio</title>
+  <meta name="description" content="Portfolio of Devin Washington, Computer Science @ UNC Charlotte. Specializing in UI/UX design, Android development, and AI-driven apps.">
   <link rel="stylesheet" href="default.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script> <!-- replace with your FontAwesome kit -->
+  <link rel="icon" href="favicon.ico">
+  <script src="https://kit.fontawesome.com/YOUR_KIT_ID.js" crossorigin="anonymous"></script> <!-- Replace with your FontAwesome kit ID -->
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar">
     <ul>
-      <li><a href="#about">About</a></li>
+      <li><a href="#about" class="active">About</a></li>
       <li><a href="#featured-project">Featured</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#certifications">Certifications</a></li>
@@ -43,8 +45,10 @@
   <!-- FEATURED PROJECT -->
   <section id="featured-project">
     <h2>Featured Project</h2>
-    <div class="featured-container fade-in">
-      <img src="plantai-mockup.png" alt="Plant AI App Screenshot" class="featured-img">
+    <div class="featured-container fade-in" style="--i:1">
+      <div class="featured-img-wrapper">
+        <img src="plantai-mockup.png" alt="Plant AI App Screenshot" class="featured-img">
+      </div>
       <div class="featured-text">
         <h3>🌱 Plant AI</h3>
         <p>
@@ -64,13 +68,13 @@
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="card fade-in">
+      <div class="card fade-in" style="--i:1">
         <h3>UX Dashboard</h3>
         <p>A React analytics dashboard with interactive visualizations.</p>
       </div>
-      <div class="card fade-in">
+      <div class="card fade-in" style="--i:2">
         <h3>Machine Learning Model</h3>
-        <p>Built and trained a CNN to classify images with >90% accuracy.</p>
+        <p>Built and trained a CNN to classify images with &gt;90% accuracy.</p>
       </div>
     </div>
   </section>
@@ -79,7 +83,11 @@
   <section id="certifications">
     <h2>Certifications</h2>
     <div class="certifications-grid">
-    
+      <div class="cert-card fade-in" style="--i:1">
+        <h3>Google UX Design</h3>
+        <p>Credential ID: 12345</p>
+        <a href="#">View Certificate</a>
+      </div>
     </div>
   </section>
 
@@ -87,11 +95,17 @@
   <section id="contact">
     <h2>Contact</h2>
     <p>Interested in working together? Let’s connect!</p>
-    <div class="socials">
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="mailto:devin@example.com"><i class="fas fa-envelope"></i></a>
-    </div>
+    <ul class="socials">
+      <li>
+        <a href="#"><i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span></a>
+      </li>
+      <li>
+        <a href="#"><i class="fab fa-github"></i><span class="sr-only">GitHub</span></a>
+      </li>
+      <li>
+        <a href="mailto:devin@example.com"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
+      </li>
+    </ul>
   </section>
 
   <!-- FOOTER -->
