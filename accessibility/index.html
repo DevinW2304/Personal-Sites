@@ -1,1 +1,61 @@
-<!-- accessibility index.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accessibility Lab — Devin Washington</title>
+  <meta name="description" content="Try inclusive modes and simulations: color vision, low vision, high contrast, reduced motion, dyslexia-friendly font." />
+  <link rel="icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/default.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+  <script defer src="/js/prefs.js"></script>
+  <script defer src="/js/includes.js"></script>
+  <script defer src="/js/a11y-lab.js"></script>
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+
+  <main class="container">
+    <section>
+      <h1>Accessibility Lab</h1>
+      <p>Toggle simulations and inclusive modes below. Preferences persist across the site.</p>
+
+      <form class="a11y-grid" id="a11y-form">
+        <fieldset>
+          <legend>Color Vision Simulation (approx)</legend>
+          <label><input type="radio" name="cvd" value="none" checked> None</label>
+          <label><input type="radio" name="cvd" value="protanopia"> Protanopia</label>
+          <label><input type="radio" name="cvd" value="deuteranopia"> Deuteranopia</label>
+          <label><input type="radio" name="cvd" value="tritanopia"> Tritanopia</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Low Vision Aids</legend>
+          <label><input type="checkbox" name="blur" value="on"> Slight Blur</label>
+          <label><input type="checkbox" name="largerText" value="on"> Larger Text</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Contrast & Motion</legend>
+          <label><input type="checkbox" name="highContrast" value="on"> High Contrast</label>
+          <label><input type="checkbox" name="reducedMotion" value="on"> Reduce Motion</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Reading Support</legend>
+          <label><input type="checkbox" name="dyslexiaFont" value="on"> Dyslexia-Friendly Font</label>
+        </fieldset>
+
+        <div class="a11y-actions">
+          <button type="button" class="button button-outline" id="a11y-reset">Reset</button>
+        </div>
+      </form>
+
+      <div class="sr-status" aria-live="polite" aria-atomic="true"></div>
+    </section>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+</body>
+</html>
