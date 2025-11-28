@@ -3,210 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Devin Washington | Portfolio</title>
-  <meta name="description" content="CS @ UNC Charlotte • Android & AI • HCI & UX Design" />
-  <link rel="icon" href="img/favicon.ico" />
-  <link rel="stylesheet" href="css/default.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
-  <script defer src="js/prefs.js"></script>
-  <script defer src="js/includes.js"></script>
-  <script defer src="js/motion.js"></script>
+  <title>Devin Washington | Portfolio Intro</title>
+  <link rel="stylesheet" href="css/intro.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div data-include="partials/header.html"></div>
+  <a class="skip-link" href="index.html">Skip intro and go to portfolio</a>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Devin Washington</h1>
-      <p>CS @ UNC Charlotte • Android & AI Enthusiast • Human-Centered Design</p>
-      <a href="#projects" class="button holo-border">View My Work</a>
-    </div>
+  <main class="intro-viewport">
+    <!-- Parallax layers -->
+    <div class="parallax-layer layer-back" data-depth="0.05" aria-hidden="true"></div>
+    <div class="parallax-layer layer-grid" data-depth="0.12" aria-hidden="true"></div>
 
-    <!-- Parallax hero layers (replace images with your own art) -->
-    <div class="hero-parallax" aria-hidden="true">
-      <img class="back" src="img/hero-back.png" alt="">
-      <img class="mid" src="img/hero-mid.png" alt="">
-      <img class="front" src="img/hero-front.png" alt="">
-    </div>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="section-underline"></div>
-    <p>
-      I am a senior studying Computer Science with a concentration in Human-Computer Interaction at UNC Charlotte. 
-      With a background in full-stack development, UI/UX design, and machine learning, I am passionate about building 
-      intuitive, human-centered digital experiences.
-    </p>
-
-    <p class="pullquote">
-      “I design interfaces that reduce cognitive overload and make complex systems feel effortless.”
-    </p>
-  </section>
-
-  <!-- FEATURED PROJECT (3D GOAT-style spotlight) -->
-  <section id="featured-project">
-    <h2>Featured Project</h2>
-    <div class="section-underline"></div>
-    <p class="section-tagline">Spotlight · Interactive Case Study</p>
-
-    <div class="featured-layout">
-      <!-- 3D card -->
-      <div class="card-3d-wrapper fade-in">
-        <article class="card-3d" id="feature3DCard">
-          <div class="card-3d-inner">
-            <header class="card-3d-header">
-              <p class="card-label">Android · AI · HCI</p>
-              <h3>🌱 Plant AI</h3>
-            </header>
-
-            <div class="card-3d-image">
-              <img src="img/plantai-mockup.png" alt="Plant AI App Screenshot">
-            </div>
-
-            <footer class="card-3d-footer">
-              <span>Personalized plant care · Room DB · Recommendations</span>
-              <span class="card-3d-chip">Case Study</span>
-            </footer>
+    <div class="parallax-layer layer-cards" data-depth="0.22" aria-hidden="true">
+      <div class="device-card device-left">
+        <div class="device-screen">
+          <div class="chip-row">
+            <span class="chip">Plant care</span>
+            <span class="chip">AI</span>
           </div>
-        </article>
+          <div class="screen-block screen-block-large"></div>
+          <div class="screen-block-row">
+            <div class="screen-block small"></div>
+            <div class="screen-block small"></div>
+          </div>
+        </div>
       </div>
 
-      <!-- Text content -->
-      <div class="featured-text fade-in">
-        <p>
-          Plant AI is an Android app that helps users grow healthier plants using
-          a mix of local data and AI-generated care suggestions. I designed the
-          interaction flows to feel calm and supportive, with clear affordances
-          and low-friction input.
+      <div class="device-card device-right">
+        <div class="device-screen">
+          <div class="screen-icon"></div>
+          <div class="screen-title-bar"></div>
+          <div class="screen-block screen-block-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Foreground content -->
+    <div class="parallax-layer layer-foreground" data-depth="0">
+      <section class="intro-content" aria-labelledby="intro-title">
+        <p class="eyebrow">HCI · Android · AI</p>
+        <h1 id="intro-title">Devin Washington</h1>
+        <p class="subtitle">
+          I design and build human-centered interfaces that make complex systems feel intuitive.
         </p>
-        <p>
-          The project explores the intersection of HCI, accessibility, and
-          everyday routines: how can we surface just enough intelligence to help,
-          without overwhelming users with notifications or jargon?
-        </p>
-        <p>
-          <span class="stamp">Android</span>
-          <span class="stamp">AI</span>
-          <span class="stamp">HCI</span>
-          <span class="stamp">Case Study</span>
-        </p>
-        <div class="featured-links">
-          <a href="https://github.com/DevinWashington/PlantAi2.0" target="_blank" class="button holo-border">
-            View Repository
+        <div class="button-row">
+          <a href="index.html" class="btn btn-primary">
+            Enter Portfolio
           </a>
+          <button class="btn btn-ghost" type="button" id="toggle-motion">
+            Toggle motion
+          </button>
         </div>
-      </div>
+        <p class="meta">
+          Scroll or move your cursor to explore the intro.  
+          Motion respects system “reduce motion” preferences.
+        </p>
+      </section>
     </div>
-  </section>
+  </main>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="section-underline"></div>
-    <p class="section-tagline">Selected Work · GOAT-inspired Layouts</p>
-
-    <!-- GOAT-style horizontal stack -->
-    <div class="card-stack" aria-label="Featured projects">
-      <!-- Card 1 -->
-      <article class="project-card fade-in">
-        <div class="project-card-media tilt">
-          <img src="img/project-ux-dashboard.png" alt="UX Dashboard mockups">
-        </div>
-        <div class="project-card-body">
-          <p class="project-card-label">Web · Analytics</p>
-          <h3>UX Analytics Dashboard</h3>
-          <p class="project-card-meta">
-            <span class="stamp">React</span>
-            <span class="stamp">Data Viz</span>
-          </p>
-          <p class="project-card-meta">
-            Responsive dashboard exploring how to visualize behavioral data in a way
-            that's actually readable and actionable for designers.
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="project-card fade-in">
-        <div class="project-card-media">
-          <img src="img/project-ml.png" alt="Machine Learning model interface">
-        </div>
-        <div class="project-card-body">
-          <p class="project-card-label">ML · Experiment</p>
-          <h3>Image Classification Sandbox</h3>
-          <p class="project-card-meta">
-            <span class="stamp">CNN</span>
-            <span class="stamp">Python</span>
-          </p>
-          <p class="project-card-meta">
-            CNN-based classifier wrapped in a simple UI to test how non-technical
-            users understand confidence, error, and feedback.
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 3 -->
-      <article class="project-card fade-in">
-        <div class="project-card-media">
-          <img src="img/project-accessibility.png" alt="Accessibility lab screens">
-        </div>
-        <div class="project-card-body">
-          <p class="project-card-label">Accessibility · HCI</p>
-          <h3>Accessibility Lab</h3>
-          <p class="project-card-meta">
-            <span class="stamp">A11y</span>
-            <span class="stamp">Education</span>
-          </p>
-          <p class="project-card-meta">
-            An interactive lab that simulates color vision, blur, and motion settings,
-            designed to teach developers how accessible design feels.
-          </p>
-        </div>
-      </article>
-    </div>
-
-    <!-- Simple secondary list -->
-    <div class="projects-grid">
-      <div class="card fade-in">
-        <h3>UX Dashboard</h3>
-        <p>A React analytics dashboard with interactive visualizations.</p>
-      </div>
-      <div class="card fade-in">
-        <h3>Machine Learning Model</h3>
-        <p>Built and trained a CNN to classify images with &gt;90% accuracy.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="section-underline"></div>
-    <div class="certifications-grid">
-      <div class="cert-card fade-in">
-        <h3>Google UX Design</h3>
-        <p>Credential ID: 12345</p>
-        <a href="#">View Certificate</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="section-underline"></div>
-    <p>Interested in working together? Let’s connect!</p>
-    <ul class="socials">
-      <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-      <li><a href="#"><i class="fab fa-github"></i></a></li>
-      <li><a href="mailto:devin@example.com"><i class="fas fa-envelope"></i></a></li>
-    </ul>
-  </section>
-
-  <div data-include="partials/footer.html"></div>
+  <script src="js/intro.js"></script>
 </body>
 </html>
