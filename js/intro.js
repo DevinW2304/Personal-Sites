@@ -6,13 +6,19 @@
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let motionEnabled = !prefersReduced.matches;
 
+  // Treat small screens as "no mouse parallax"
+  const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+
   const state = {
     mouseX: 0,
     mouseY: 0,
     scrollY: 0
   };
 
+  let ticking = false;
+
   function updateTransforms() {
+    ticking = false;
     if (!layers.length) return;
 
     if (!motionEnabled) {
@@ -30,27 +36,39 @@
       const offsetX = (state.mouseX - centerX) / centerX || 0;
       const offsetY = (state.mouseY - centerY) / centerY || 0;
 
-      const translateX = -offsetX * depth * 20;
-      const translateY = (state.scrollY * depth * 0.3) + (-offsetY * depth * 20);
+      const translateX = isDesktop ? -offsetX * depth * 16 : 0;
+      const translateY =
+        (state.scrollY * depth * 0.25) +
+        (isDesktop ? -offsetY * depth * 16 : 0);
 
       layer.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
     });
   }
 
+  function requestTick() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateTransforms);
+    }
+  }
+
   function onMouseMove(e) {
+    if (!isDesktop) return;
     state.mouseX = e.clientX;
     state.mouseY = e.clientY;
-    requestAnimationFrame(updateTransforms);
+    requestTick();
   }
 
   function onScroll() {
     state.scrollY = window.scrollY || window.pageYOffset || 0;
-    requestAnimationFrame(updateTransforms);
+    requestTick();
   }
 
   // Set up parallax listeners
   if (!prefersReduced.matches) {
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    if (isDesktop) {
+      window.addEventListener('mousemove', onMouseMove, { passive: true });
+    }
     window.addEventListener('scroll', onScroll, { passive: true });
   } else {
     updateTransforms();
@@ -80,21 +98,19 @@
   }
 
   if (splash) {
-    // Always allow user to click to skip immediately
+    // Click to dismiss instantly
     splash.addEventListener('click', hideSplash);
 
-    // Respect reduced motion: no splash delay
     if (prefersReduced.matches) {
       hideSplash();
     } else {
-      // Use DOMContentLoaded so it doesn't hang on slow 'load'
       document.addEventListener('DOMContentLoaded', () => {
         setTimeout(hideSplash, 900);
       });
     }
   }
 
-  // Keyboard shortcut: Enter or Space navigates to main.html
+  // Enter or Space navigates to main.html
   window.addEventListener('keydown', (e) => {
     const active = document.activeElement;
     const isTyping =
