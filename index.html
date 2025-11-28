@@ -8,9 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <a class="skip-link" href="index.html">Skip intro and go to portfolio</a>
+  <!-- Splash overlay -->
+  <div class="splash" aria-hidden="true">
+    <div class="splash-inner">
+      <div class="splash-mark">DW</div>
+      <p class="splash-sub">Portfolio</p>
+    </div>
+  </div>
+
+  <a class="skip-link" href="main.html">Skip intro and go to portfolio</a>
 
   <main class="intro-viewport">
+
     <!-- Parallax layers -->
     <div class="parallax-layer layer-back" data-depth="0.05" aria-hidden="true"></div>
     <div class="parallax-layer layer-grid" data-depth="0.12" aria-hidden="true"></div>
@@ -42,23 +51,74 @@
     <!-- Foreground content -->
     <div class="parallax-layer layer-foreground" data-depth="0">
       <section class="intro-content" aria-labelledby="intro-title">
-        <p class="eyebrow">HCI · Android · AI</p>
+        
+        <p class="eyebrow">Computer Science · HCI · Software Engineering</p>
+
         <h1 id="intro-title">Devin Washington</h1>
+
         <p class="subtitle">
-          I design and build human-centered interfaces that make complex systems feel intuitive.
+          CS student specializing in Human–Computer Interaction, while building strong experience across AI, mobile development, full-stack engineering, and modern user interface design.
         </p>
+
         <div class="button-row">
-          <a href="index.html" class="btn btn-primary">
+          <a href="main.html" class="btn btn-primary">
             Enter Portfolio
           </a>
           <button class="btn btn-ghost" type="button" id="toggle-motion">
             Toggle motion
           </button>
         </div>
+
         <p class="meta">
-          Scroll or move your cursor to explore the intro.  
-          Motion respects system “reduce motion” preferences.
+          Move your cursor or scroll to explore the intro. Motion follows your system’s “reduce motion” settings.
         </p>
+
+        <!-- Stats -->
+        <div class="stat-row">
+          <div class="stat-card">
+            <span class="stat-label">Strengths</span>
+            <span class="stat-value">HCI · UX · AI</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Engineering</span>
+            <span class="stat-value">Android · Web · Full-Stack</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Experience</span>
+            <span class="stat-value">Software Projects 6+</span>
+          </div>
+        </div>
+
+        <!-- Skills carousel -->
+        <div class="skills-carousel" aria-label="Key skills">
+          <div class="skills-track">
+            <span class="skill-pill">HCI &amp; UX</span>
+            <span class="skill-pill">Android (Kotlin)</span>
+            <span class="skill-pill">AI &amp; ML</span>
+            <span class="skill-pill">Full-Stack</span>
+            <span class="skill-pill">Accessibility</span>
+            <span class="skill-pill">UI Prototyping</span>
+            <span class="skill-pill">Data Structures &amp; Algorithms</span>
+
+            <!-- duplicate for seamless loop -->
+            <span class="skill-pill">HCI &amp; UX</span>
+            <span class="skill-pill">Android (Kotlin)</span>
+            <span class="skill-pill">AI &amp; ML</span>
+            <span class="skill-pill">Full-Stack</span>
+            <span class="skill-pill">Accessibility</span>
+            <span class="skill-pill">UI Prototyping</span>
+            <span class="skill-pill">Data Structures &amp; Algorithms</span>
+          </div>
+        </div>
+
+        <!-- Socials -->
+        <div class="social-inline">
+          <span class="social-label">Elsewhere</span>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+
       </section>
     </div>
   </main>

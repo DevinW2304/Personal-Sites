@@ -23,10 +23,72 @@ body {
   font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow: hidden; /* keeps the intro screen full bleed */
+  overflow: hidden;
 }
 
-/* Skip link for accessibility */
+/* Splash overlay */
+.splash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 10% 0%, #1f2937, #020617 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  pointer-events: auto; /* can intercept clicks while visible */
+}
+.splash-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* allow clicks to pass through */
+}
+
+.splash-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.splash-inner {
+  text-align: center;
+  animation: splash-pop 0.6s ease-out forwards;
+}
+.splash-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 1.5rem;
+  border: 2px solid rgba(148,163,184,0.7);
+  background:
+    radial-gradient(circle at 0 0, rgba(59,130,246,0.4), transparent 70%),
+    #020617;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+}
+.splash-sub {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+}
+
+@keyframes splash-pop {
+  from {
+    transform: translateY(8px) scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Skip link */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -44,7 +106,7 @@ body {
   top: 1rem;
 }
 
-/* Viewport wrapper */
+/* Viewport */
 .intro-viewport {
   position: relative;
   min-height: 100vh;
@@ -54,15 +116,21 @@ body {
   isolation: isolate;
 }
 
-/* Shared parallax layer styles */
 .parallax-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
   will-change: transform;
 }
+.layer-foreground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
 
-/* BACK LAYER: soft blobs + glow */
+
+/* Back layer */
 .layer-back {
   background:
     radial-gradient(circle at 10% 20%, rgba(59,130,246,0.5), transparent 60%),
@@ -72,7 +140,7 @@ body {
   filter: blur(2px);
 }
 
-/* GRID LAYER */
+/* Grid layer */
 .layer-grid {
   background-image:
     linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px),
@@ -82,7 +150,7 @@ body {
   opacity: 0.35;
 }
 
-/* DEVICE CARDS */
+/* Device cards */
 .layer-cards {
   display: flex;
   justify-content: center;
@@ -111,7 +179,6 @@ body {
   transform: rotate(8deg) translateY(-10px);
 }
 
-/* little notch / sensor bar effect */
 .device-card::before {
   content: "";
   position: absolute;
@@ -124,7 +191,6 @@ body {
   background: rgba(15,23,42,0.9);
 }
 
-/* screen faux UI */
 .device-screen {
   position: relative;
   width: 100%;
@@ -138,7 +204,6 @@ body {
   overflow: hidden;
 }
 
-/* chips and blocks are abstracted so no specific plant type is shown */
 .chip-row {
   display: flex;
   gap: 0.4rem;
@@ -178,7 +243,6 @@ body {
   background: rgba(30,64,175,0.9);
 }
 
-/* second phone / UI */
 .screen-icon {
   width: 40px;
   height: 40px;
@@ -194,7 +258,7 @@ body {
   background: rgba(248,250,252,0.9);
 }
 
-/* FOREGROUND CONTENT */
+/* Foreground content */
 .layer-foreground {
   display: flex;
   align-items: center;
@@ -286,7 +350,121 @@ h1 {
   color: rgba(156,163,175,0.9);
 }
 
-/* Responsive tweaks */
+/* Stats row */
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.stat-card {
+  flex: 1 1 0;
+  min-width: 110px;
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.9rem;
+  background: radial-gradient(circle at 0 0, rgba(59,130,246,0.45), transparent 70%);
+  border: 1px solid rgba(148,163,184,0.55);
+  box-shadow: 0 10px 25px rgba(15,23,42,0.65);
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.stat-value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Skills carousel */
+.skills-carousel {
+  margin: 0.5rem 0 1.25rem;
+  overflow: hidden;
+  position: relative;
+}
+.skills-carousel::before,
+.skills-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+.skills-carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg), transparent);
+}
+.skills-carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg), transparent);
+}
+
+.skills-track {
+  display: inline-flex;
+  gap: 0.6rem;
+  white-space: nowrap;
+  animation: skills-scroll 22s linear infinite;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.7);
+  background: rgba(15,23,42,0.7);
+  color: #e5e7eb;
+}
+
+@keyframes skills-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Socials */
+.social-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.social-label {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.7rem;
+  color: rgba(156,163,175,0.95);
+  margin-right: 0.25rem;
+}
+
+.social-inline a {
+  color: #e5e7eb;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.social-inline a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Responsive */
 @media (max-width: 860px) {
   .layer-cards {
     opacity: 0.6;
@@ -313,5 +491,18 @@ h1 {
   .button-row {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .stat-row {
+    flex-direction: column;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .skills-track {
+    animation: none;
+  }
+  .splash-inner {
+    animation: none;
   }
 }
