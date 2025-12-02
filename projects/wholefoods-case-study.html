@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Whole Foods Mobile Experience | Devin Washington</title>
+  <meta name="description" content="Case study for a Whole Foods-style mobile web experience: onboarding, browsing, cart, and payment flows." />
+  <link rel="icon" href="../img/favicon.ico" />
+  <link rel="stylesheet" href="../css/default.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+  <script defer src="../js/prefs.js"></script>
+  <script defer src="../js/includes.js"></script>
+  <script defer src="../js/motion.js"></script>
+
+  <style>
+    .case-hero {
+      padding-top: 5rem;
+      text-align: center;
+    }
+    .case-hero p {
+      max-width: 800px;
+      margin: 0.5rem auto 0;
+    }
+    .case-meta {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+    .case-meta span + span::before {
+      content: "·";
+      margin: 0 0.4rem;
+    }
+    .phone-demo-wrapper {
+      max-width: 420px;
+      margin: 2.5rem auto;
+    }
+    .phone-frame {
+      width: 100%;
+      max-width: 375px;
+      aspect-ratio: 375 / 812;
+      margin: 0 auto;
+      border-radius: 32px;
+      border: 10px solid #020617;
+      overflow: hidden;
+      box-shadow:
+        0 20px 40px rgba(15,23,42,0.8),
+        0 0 30px rgba(15,23,42,0.6);
+      background: #000;
+    }
+    .phone-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .demo-links {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+    .case-section {
+      text-align: left;
+    }
+    .case-section p,
+    .case-section ul,
+    .case-section ol {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .case-section ul,
+    .case-section ol {
+      text-align: left;
+    }
+    .pill-row {
+      margin-top: 0.5rem;
+      text-align: left;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pill-row .stamp {
+      margin-bottom: 0.25rem;
+    }
+    @media (max-width: 768px) {
+      .case-hero {
+        padding-top: 4rem;
+      }
+      .case-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div data-include="../partials/header.html"></div>
+
+  <!-- Case Study Hero -->
+  <section class="case-hero">
+    <h2>Whole Foods Mobile Experience</h2>
+    <div class="section-underline"></div>
+    <p class="section-tagline">Mobile Web · UX &amp; Data Modeling</p>
+    <p>
+      A mobile-first grocery shopping prototype that recreates key parts of the
+      Whole Foods experience: browsing, product details, cart, and a lightweight
+      payment flow, all powered by a custom JSON data layer.
+    </p>
+    <p class="case-meta">
+      <span>Role: UX / UI, Front-end dev</span>
+      <span>Timeline: ~2–3 weeks (course project)</span>
+      <span>Tech: HTML, CSS, JS, JSON</span>
+    </p>
+  </section>
+
+  <!-- Live Prototype -->
+  <section class="case-section">
+    <h3>Live Prototype</h3>
+    <div class="section-underline"></div>
+    <p>
+      You can interact with the prototype inside the phone frame below. It’s built
+      as a small “mobile app” running entirely in the browser, backed by JSON files
+      for products, inventory, stores, users, and delivery slots.
+    </p>
+
+    <div class="phone-demo-wrapper">
+      <div class="phone-frame">
+        <!-- Start at onboarding; you can swap to home.html if you prefer -->
+        <iframe src="wholefoods-app/onboarding.html" title="Whole Foods Mobile Prototype"></iframe>
+      </div>
+      <div class="demo-links">
+        <a href="wholefoods-app/home.html" target="_blank">Open full-screen demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem & Goals -->
+  <section class="case-section">
+    <h3>Problem &amp; Goals</h3>
+    <div class="section-underline"></div>
+    <p>
+      Modern grocery apps pack a lot of information into small screens: categories,
+      promotions, dietary filters, pickup vs. delivery, and personalized accounts.
+      For this project, the goal was to:
+    </p>
+    <ul>
+      <li>Design a mobile layout that feels calm instead of cluttered.</li>
+      <li>Let users move smoothly from browsing to cart and payment.</li>
+      <li>Model the data in a way that keeps the UI flexible and testable.</li>
+    </ul>
+    <div class="pill-row">
+      <span class="stamp">Mobile-first</span>
+      <span class="stamp">Information Architecture</span>
+      <span class="stamp">DataAPI</span>
+    </div>
+  </section>
+
+  <!-- User Research & Testing -->
+  <section class="case-section" id="user-studies">
+    <h3>User Research &amp; Testing</h3>
+    <div class="section-underline"></div>
+
+    <p>
+      Before locking in the flows, I ran a small round of user studies to understand how people
+      actually move through grocery apps and where they get stuck. The focus was on 
+      <strong>navigation clarity</strong>, <strong>cart visibility</strong>, and how confident
+      people felt about prices and product details.
+    </p>
+
+    <ul>
+      <li><strong>Participants:</strong> a small group of classmates and friends who shop for groceries online at least occasionally.</li>
+      <li><strong>Format:</strong> short task-based sessions (around 15–20 minutes) with think-aloud feedback.</li>
+      <li><strong>Prototype:</strong> an early version of the mobile web flow with categories, product detail, and cart.</li>
+    </ul>
+
+    <p><strong>Example tasks:</strong></p>
+    <ul>
+      <li>“Find a deli item you’d actually buy and add it to your cart.”</li>
+      <li>“Change the quantity of something in your cart without losing your place.”</li>
+      <li>“Check what time slots are available for pickup or delivery.”</li>
+    </ul>
+
+    <p><strong>What I heard:</strong></p>
+    <ul>
+      <li>People wanted a clearer separation between <em>category browsing</em> and <em>search</em>, instead of everything blending together.</li>
+      <li>Users kept looking for a persistent cart summary so they could see totals without committing to checkout.</li>
+      <li>Product cards needed more scannable info (price, size, tags) so people didn’t have to open each detail page to compare.</li>
+    </ul>
+
+    <p><strong>Changes I made based on testing:</strong></p>
+    <ul>
+      <li>Gave the <strong>cart</strong> a clearer entry point and a more obvious “Review order” step.</li>
+      <li>Adjusted the <strong>category layout</strong> and labels to make deli/produce/other sections easier to skim.</li>
+      <li>Updated product tiles to surface key info (price, unit, tags) directly in the list view.</li>
+    </ul>
+
+    <div class="pill-row">
+      <span class="stamp">Think-Aloud</span>
+      <span class="stamp">Task-Based Testing</span>
+      <span class="stamp">Rapid Iteration</span>
+    </div>
+  </section>
+
+  <!-- Phased Development -->
+  <section class="case-section" id="phases">
+    <h3>Phased Development</h3>
+    <div class="section-underline"></div>
+
+    <p>
+      I treated the project like a mini product cycle instead of a single sprint. Breaking it into
+      phases made it easier to keep the UX, data model, and visual design aligned.
+    </p>
+
+    <ol>
+      <li>
+        <strong>Phase 1 – Framing &amp; IA</strong><br>
+        Defined the core user journey (browse → product → cart → review) and sketched low-fidelity
+        screen flows. I also mapped out the key entities (products, stores, users, slots) that the
+        eventual DataAPI would need to support.
+      </li>
+      <li>
+        <strong>Phase 2 – Clickable Prototype &amp; User Studies</strong><br>
+        Built an early HTML/CSS prototype focused on category browsing and product detail pages.
+        Ran short user tests to understand navigation pain points and what information needed to be
+        visible at a glance.
+      </li>
+      <li>
+        <strong>Phase 3 – DataAPI &amp; Flow Integration</strong><br>
+        Implemented the JSON-backed DataAPI and wired it into the key screens: shop, category,
+        search, product detail, and cart. This phase turned the prototype into something that
+        behaves like a mini app instead of static mockups.
+      </li>
+      <li>
+        <strong>Phase 4 – Polish &amp; Microcopy</strong><br>
+        Refined spacing, hierarchy, and microcopy to keep the experience calm and legible on a
+        small screen. Tuned card layouts, button labels, and error states so the flows would
+        make sense without extra explanation.
+      </li>
+    </ol>
+
+    <div class="pill-row">
+      <span class="stamp">Phased Delivery</span>
+      <span class="stamp">Journey-First</span>
+      <span class="stamp">Data-Backed UI</span>
+    </div>
+  </section>
+
+  <!-- Key Flows -->
+  <section class="case-section">
+    <h3>Key Flows</h3>
+    <div class="section-underline"></div>
+    <ul>
+      <li><strong>Onboarding &amp; Access:</strong> entry screens that set expectations and route users to login or registration.</li>
+      <li><strong>Browse &amp; Search:</strong> category browsing and search pages that pull product data from a shared JSON layer.</li>
+      <li><strong>Product Detail:</strong> product pages that surface key info (price, inventory, tags) and let users add to cart.</li>
+      <li><strong>Cart &amp; Payment Preview:</strong> a review cart and simple payment preview to simulate checkout.</li>
+      <li><strong>Profile:</strong> a lightweight account area for basic user info and mock order history.</li>
+    </ul>
+  </section>
+
+  <!-- Implementation Details -->
+  <section class="case-section">
+    <h3>Implementation Details</h3>
+    <div class="section-underline"></div>
+    <p>
+      To keep things maintainable, I built a small internal DataAPI that sits on top
+      of a set of JSON files. Instead of hard-coding products into each page, the UI
+      pulls from:
+    </p>
+    <ul>
+      <li><strong>products.json</strong> – base product catalog with categories, prices, and tags.</li>
+      <li><strong>inventory.json</strong> – stock levels per store and product.</li>
+      <li><strong>stores.json</strong> – store locations and IDs.</li>
+      <li><strong>delivery_slots.json</strong> – pickup/delivery window data.</li>
+      <li><strong>promotions.json</strong> – deals that can be applied to products.</li>
+      <li><strong>users.json</strong> – simple mock users for login and profiles.</li>
+    </ul>
+    <p>
+      Each page calls <code>DataAPI.loadEverything()</code> once, then uses helper methods
+      like <code>getProductsByCategory()</code>, <code>searchProducts()</code>, and
+      <code>getEffectivePrice()</code> to render the UI. This mirrors a real-world
+      separation between data and presentation, even though everything is static.
+    </p>
+  </section>
+
+  <!-- What I Learned -->
+  <section class="case-section">
+    <h3>What I Learned</h3>
+    <div class="section-underline"></div>
+    <ul>
+      <li>How quickly grocery UI can become overwhelming if hierarchy and copy aren’t carefully tuned.</li>
+      <li>The value of modeling data first so that UI and flow changes don’t require rewriting everything.</li>
+      <li>How small user tests can surface very practical fixes, like clearer cart affordances and better product tiles.</li>
+      <li>Ways to bring an “app” feel into a pure HTML/CSS/JS prototype using a consistent mobile shell.</li>
+    </ul>
+  </section>
+
+  <div data-include="../partials/footer.html"></div>
+</body>
+</html>
