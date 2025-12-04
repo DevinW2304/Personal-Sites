@@ -12,6 +12,7 @@
   <script defer src="js/prefs.js"></script>
   <script defer src="js/includes.js"></script>
   <script defer src="js/motion.js"></script>
+
 </head>
 <body>
   <div data-include="partials/header.html"></div>
@@ -21,7 +22,7 @@
     <div class="hero-content">
       <h1>Devin Washington</h1>
       <p>CS @ UNC Charlotte · Android &amp; UX · Human-centered design</p>
-      <a href="#projects" class="button holo-border">View My Work</a>
+      <a href="" class="button holo-border">View My Work</a>
     </div>
   </header>
 
@@ -40,28 +41,30 @@
     </p>
   </section>
 
-  <!-- FEATURED PROJECT  -->
+  <!-- FEATURED PROJECT (Gift Guide) -->
   <section id="featured-project">
     <h2>Featured Project</h2>
     <div class="section-underline"></div>
-    <p class="section-tagline">Spotlight · Interactive Case Study</p>
+    <p class="section-tagline">Spotlight · Case Study</p>
 
     <div class="featured-layout">
+
       <!-- 3D card -->
       <div class="card-3d-wrapper fade-in">
         <article class="card-3d" id="feature3DCard">
           <div class="card-3d-inner">
             <header class="card-3d-header">
-              <p class="card-label">Android · Product Thinking</p>
-              <h3>🌱 Plant AI</h3>
+              <p class="card-label">Android · UX</p>
+              <h3>🎁 Gift Guide</h3>
             </header>
 
             <div class="card-3d-image">
-              <img src="img/plantai-mockup.png" alt="Plant AI App Screenshot">
+              <!-- Replace with your real image -->
+              <img src="img/project-giftguide.png" alt="Gift Guide App Screenshot">
             </div>
 
             <footer class="card-3d-footer">
-              <span>Plant care assistant · Local storage · Gentle reminders</span>
+              <span>Personalized recommendations · Guided input · Saved lists</span>
               <span class="card-3d-chip">Case Study</span>
             </footer>
           </div>
@@ -71,22 +74,26 @@
       <!-- Text content -->
       <div class="featured-text fade-in">
         <p>
-          Plant AI is an Android app that helps people keep their plants alive without having to remember every detail.
-          It combines simple schedules with light intelligence to suggest when to water and check in, based on the plants a user cares about.
+          Gift Guide is a Kotlin/Jetpack Compose Android app that helps people find thoughtful gift ideas—
+          not generic lists. Users describe who they’re shopping for, including interests, occasion, and budget,
+          and the app turns that into personalized suggestions that actually feel relevant.
         </p>
         <p>
-          I focused on keeping the flows relaxed and easy to read: clear hierarchy, friendly copy, and interactions that
-          feel more like a quiet assistant than a loud notification system.
+          The goal was to create a calmer, more human flow: conversational inputs, clear hierarchy, and saved lists
+          that support real-world planning—not endless scrolling.
         </p>
+
         <p>
           <span class="stamp">Android</span>
+          <span class="stamp">Jetpack Compose</span>
           <span class="stamp">Interaction Design</span>
           <span class="stamp">HCI</span>
-          <span class="stamp">Case Study</span>
         </p>
+
         <div class="featured-links">
-          <a href="https://github.com/DevinWashington/PlantAi2.0" target="_blank" class="button holo-border">
-            View Repository
+          <a href="projects/giftguide.html" class="button holo-border">View Case Study</a>
+          <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost">
+            Repository
           </a>
         </div>
       </div>
@@ -99,9 +106,35 @@
     <div class="section-underline"></div>
     <p class="section-tagline">Selected Work · Interfaces &amp; Experiments</p>
 
-    <!-- GOAT-style horizontal stack -->
+    <!-- Horizontal card stack -->
     <div class="card-stack" aria-label="Featured projects">
-      <!-- Card 1 -->
+
+      <!-- Project: Plant AI (moved here) -->
+      <article class="project-card fade-in">
+        <div class="project-card-media tilt">
+          <img src="img/plantai-mockup.png" alt="Plant AI mockups" loading="lazy">
+        </div>
+        <div class="project-card-body">
+          <p class="project-card-label">Android · Product Thinking</p>
+          <h3>Plant AI</h3>
+          <p class="project-card-meta">
+            <span class="stamp">Android</span>
+            <span class="stamp">Interaction Design</span>
+            <span class="stamp">HCI</span>
+          </p>
+          <p class="project-card-meta">
+            A gentle plant care assistant that helps users keep their plants alive with simple reminders,
+            readable schedules, and lightweight intelligence.
+          </p>
+          <p class="project-card-meta">
+            <a href="https://github.com/DevinWashington/PlantAi2.0" target="_blank" class="button holo-border">
+              View Repository
+            </a>
+          </p>
+        </div>
+      </article>
+
+      <!-- UX Dashboard -->
       <article class="project-card fade-in">
         <div class="project-card-media tilt">
           <img src="img/project-ux-dashboard.png" alt="UX Dashboard mockups" loading="lazy">
@@ -114,16 +147,15 @@
             <span class="stamp">Data Visualization</span>
           </p>
           <p class="project-card-meta">
-            A responsive dashboard that explores how to show behavior data in a way that’s actually useful for designers—
-            focusing on readability, clear comparisons, and avoiding chart clutter.
+            A responsive dashboard designed to make behavioral data readable and actually useful for designers.
           </p>
         </div>
       </article>
 
-      <!-- Card 2 -->
+      <!-- ML Playground -->
       <article class="project-card fade-in">
         <div class="project-card-media">
-          <img src="img/project-ml.png" alt="Machine Learning model interface" loading="lazy">
+          <img src="img/project-ml.png" alt="ML Playground UI" loading="lazy">
         </div>
         <div class="project-card-body">
           <p class="project-card-label">ML · Sandbox</p>
@@ -133,16 +165,15 @@
             <span class="stamp">Experiment</span>
           </p>
           <p class="project-card-meta">
-            A small image classification tool built as a way to learn about models and, more importantly,
-            how to present confidence and errors so non-technical users understand what’s going on.
+            An interactive tool for exploring how models interpret images, with an emphasis on explaining confidence and errors.
           </p>
         </div>
       </article>
 
-      <!-- Card 3 -->
+      <!-- Accessibility Lab -->
       <article class="project-card fade-in">
         <div class="project-card-media">
-          <img src="img/project-accessibility.png" alt="Accessibility lab screens" loading="lazy">
+          <img src="img/project-accessibility.png" alt="Accessibility Lab UI" loading="lazy">
         </div>
         <div class="project-card-body">
           <p class="project-card-label">Accessibility · HCI</p>
@@ -152,13 +183,12 @@
             <span class="stamp">Education</span>
           </p>
           <p class="project-card-meta">
-            An interactive lab that simulates color vision differences, blur, and motion settings,
-            designed to give developers a more hands-on feel for what accessible and inaccessible design is like.
+            An interactive lab that simulates color vision differences, blur, and motion settings to help developers design more empathetically.
           </p>
         </div>
       </article>
 
-      <!-- Card 4 – Whole Foods Mobile Experience -->
+      <!-- Whole Foods Flow -->
       <article class="project-card fade-in">
         <div class="project-card-media">
           <img src="img/project-wholefoods.png" alt="Whole Foods mobile prototype" loading="lazy">
@@ -172,36 +202,50 @@
             <span class="stamp">Data Modeling</span>
           </p>
           <p class="project-card-meta">
-            A mobile-first grocery shopping flow with a custom JSON DataAPI:
-            browse categories, view products, manage a cart, and step through
-            a checkout-style flow.
+            A mobile-first grocery shopping flow with browsing, cart management, and a JSON-backed DataAPI.
           </p>
           <p class="project-card-meta" style="margin-top: 0.75rem;">
             <a href="projects/wholefoods-case-study.html" class="button holo-border">
-              View Case Study &amp; Live Demo
+              View Case Study &amp; Demo
             </a>
           </p>
         </div>
       </article>
     </div>
 
-    <!-- Simple secondary list -->
+    <!-- Secondary project list -->
     <div class="projects-grid">
+
       <div class="card fade-in">
-        <h3>UX Dashboard</h3>
-        <p>A React analytics dashboard with interactive visualizations.</p>
-      </div>
-      <div class="card fade-in">
-        <h3>Machine Learning Model</h3>
-        <p>A CNN-based image classifier built as a learning project, with a simple interface to explore results.</p>
-      </div>
-      <div class="card fade-in">
-        <h3>Whole Foods Mobile Experience</h3>
+        <h3>Gift Guide</h3>
         <p>
-          A Whole Foods-style mobile shopping prototype with user-tested flows and
-          a JSON-backed DataAPI powering categories, products, and cart.
+          Guided inputs → personalized gift ideas → saved lists for planning.
+          <a href="giftguide.html">Read the case study →</a>
         </p>
       </div>
+
+      <div class="card fade-in">
+        <h3>Plant AI</h3>
+        <p>
+          A calm plant-care assistant built around habit support and lightweight intelligence.
+        </p>
+      </div>
+
+      <div class="card fade-in">
+        <h3>UX Dashboard</h3>
+        <p>A React analytics dashboard with interactive, readable data visualizations.</p>
+      </div>
+
+      <div class="card fade-in">
+        <h3>Machine Learning Model</h3>
+        <p>A CNN-based classifier with a simple UI for exploring predictions.</p>
+      </div>
+
+      <div class="card fade-in">
+        <h3>Whole Foods Prototype</h3>
+        <p>A mobile shopping experience built with a custom JSON DataAPI.</p>
+      </div>
+
     </div>
   </section>
 
