@@ -7,7 +7,7 @@
   <meta name="description" content="CS @ UNC Charlotte • Android & UX • Human-centered software projects." />
   <link rel="icon" href="img/favicon.ico" />
   <link rel="stylesheet" href="css/default.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
   <script defer src="js/prefs.js"></script>
   <script defer src="js/includes.js"></script>
@@ -18,30 +18,33 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-content">
+    <div class="hero-inner">
       <h1>Devin Washington</h1>
       <p>CS @ UNC Charlotte · Android &amp; UX · Human-centered design</p>
-      <a href="#featured-project" class="button holo-border">View My Work</a>
+      <div class="hero-actions">
+        <a href="#featured-project" class="button">View My Work</a>
+        <a href="#contact" class="button button-ghost">Get In Touch</a>
+      </div>
     </div>
   </header>
 
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="fade-in">
     <h2>About Me</h2>
     <div class="section-underline"></div>
     <p>
-      I’m a senior studying Computer Science with a concentration in Human-Computer Interaction at UNC Charlotte. 
+      I'm a senior studying Computer Science with a concentration in Human-Computer Interaction at UNC Charlotte. 
       I enjoy working across the stack—from Android and web apps to small ML experiments—but I care most about how
       the experience feels for the person using it.
     </p>
 
     <p class="pullquote">
-      “I like taking messy, technical problems and turning them into calm, understandable interfaces.”
+      I like taking messy, technical problems and turning them into calm, understandable interfaces.
     </p>
   </section>
 
   <!-- FEATURED PROJECT (Gift Guide) -->
-  <section id="featured-project">
+  <section id="featured-project" class="fade-in">
     <h2>Featured Project</h2>
     <div class="section-underline"></div>
     <p class="section-tagline">Spotlight · Case Study</p>
@@ -49,7 +52,7 @@
     <div class="featured-layout">
 
       <!-- 3D card -->
-      <div class="card-3d-wrapper fade-in">
+      <div class="card-3d-wrapper">
         <article class="card-3d" id="feature3DCard">
           <div class="card-3d-inner">
             <header class="card-3d-header">
@@ -57,10 +60,10 @@
               <h3>🎁 Gift Guide</h3>
             </header>
 
-            <!-- Summary content inside the parallax card -->
+            <!-- Summary content inside the card -->
             <div class="card-3d-summary">
               <p class="card-3d-tagline">
-                A calm little app that turns “I have no idea what to get them” into a short, guided flow and a handful of concrete gift ideas.
+                A calm little app that turns "I have no idea what to get them" into a short, guided flow and a handful of concrete gift ideas.
               </p>
               <p class="card-3d-pills">
                 <span class="stamp">Recipient intake</span>
@@ -88,10 +91,10 @@
       </div>
 
       <!-- Text content -->
-      <div class="featured-text fade-in">
+      <div class="featured-text">
         <p>
           Gift Guide is a Kotlin/Jetpack Compose Android app that helps people find thoughtful gift ideas—
-          not generic lists. Users describe who they’re shopping for, including interests, occasion, and budget,
+          not generic lists. Users describe who they're shopping for, including interests, occasion, and budget,
           and the app turns that into personalized suggestions that actually feel relevant.
         </p>
         <p>
@@ -106,8 +109,8 @@
           <span class="stamp">HCI</span>
         </p>
 
-        <div class="featured-links">
-          <a href="projects/giftguide.html" class="button holo-border">View Case Study</a>
+        <div class="featured-links" style="margin-top: 1.5rem;">
+          <a href="projects/giftguide.html" class="button">View Case Study</a>
           <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost">
             Repository
           </a>
@@ -117,7 +120,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
+  <section id="projects" class="fade-in">
     <h2>Projects</h2>
     <div class="section-underline"></div>
     <p class="section-tagline">Selected Work · Interfaces &amp; Experiments</p>
@@ -126,8 +129,8 @@
     <div class="card-stack" aria-label="Featured projects">
 
       <!-- Project: Plant AI -->
-      <article class="project-card fade-in">
-        <div class="project-card-media tilt">
+      <article class="project-card">
+        <div class="project-card-media">
           <img src="img/plantai-mockup.png" alt="Plant AI mockups" loading="lazy">
         </div>
         <div class="project-card-body">
@@ -143,7 +146,7 @@
             readable schedules, and lightweight intelligence.
           </p>
           <p class="project-card-meta">
-            <a href="https://github.com/DevinWashington/PlantAi2.0" target="_blank" class="button holo-border">
+            <a href="https://github.com/DevinWashington/PlantAi2.0" target="_blank" class="button">
               View Repository
             </a>
           </p>
@@ -151,8 +154,8 @@
       </article>
 
       <!-- UX Dashboard -->
-      <article class="project-card fade-in">
-        <div class="project-card-media tilt">
+      <article class="project-card">
+        <div class="project-card-media">
           <img src="img/project-ux-dashboard.png" alt="UX Dashboard mockups" loading="lazy">
         </div>
         <div class="project-card-body">
@@ -169,7 +172,7 @@
       </article>
 
       <!-- ML Playground -->
-      <article class="project-card fade-in">
+      <article class="project-card">
         <div class="project-card-media">
           <img src="img/project-ml.png" alt="ML Playground UI" loading="lazy">
         </div>
@@ -187,7 +190,7 @@
       </article>
 
       <!-- Accessibility Lab -->
-      <article class="project-card fade-in">
+      <article class="project-card">
         <div class="project-card-media">
           <img src="img/project-accessibility.png" alt="Accessibility Lab UI" loading="lazy">
         </div>
@@ -205,7 +208,7 @@
       </article>
 
       <!-- Whole Foods Flow -->
-      <article class="project-card fade-in">
+      <article class="project-card">
         <div class="project-card-media">
           <img src="img/project-wholefoods.png" alt="Whole Foods mobile prototype" loading="lazy">
         </div>
@@ -220,71 +223,38 @@
           <p class="project-card-meta">
             A mobile-first grocery shopping flow with browsing, cart management, and a JSON-backed DataAPI.
           </p>
-          <p class="project-card-meta" style="margin-top: 0.75rem;">
-            <a href="projects/wholefoods-case-study.html" class="button holo-border">
+          <p class="project-card-meta" style="margin-top: 1rem;">
+            <a href="projects/wholefoods-case-study.html" class="button">
               View Case Study &amp; Demo
             </a>
           </p>
         </div>
       </article>
     </div>
-
-    <!-- Secondary project list -->
-    <div class="projects-grid">
-      <div class="card fade-in">
-        <h3>Gift Guide</h3>
-        <p>
-          Guided inputs → personalized gift ideas → saved lists for planning.
-          <a href="projects/giftguide.html">Read the case study →</a>
-        </p>
-      </div>
-
-      <div class="card fade-in">
-        <h3>Plant AI</h3>
-        <p>
-          A calm plant-care assistant built around habit support and lightweight intelligence.
-        </p>
-      </div>
-
-      <div class="card fade-in">
-        <h3>UX Dashboard</h3>
-        <p>A React analytics dashboard with interactive, readable data visualizations.</p>
-      </div>
-
-      <div class="card fade-in">
-        <h3>Machine Learning Model</h3>
-        <p>A CNN-based classifier with a simple UI for exploring predictions.</p>
-      </div>
-
-      <div class="card fade-in">
-        <h3>Whole Foods Prototype</h3>
-        <p>A mobile shopping experience built with a custom JSON DataAPI.</p>
-      </div>
-    </div>
   </section>
 
   <!-- CERTIFICATIONS -->
-  <section id="certifications">
+  <section id="certifications" class="fade-in">
     <h2>Certifications</h2>
     <div class="section-underline"></div>
     <div class="certifications-grid">
-      <div class="cert-card fade-in">
+      <div class="cert-card">
         <h3>Google UX Design</h3>
         <p>Credential ID: 12345</p>
-        <a href="#">View Certificate</a>
+        <a href="#" class="button">View Certificate</a>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <h2>Contact</h2>
     <div class="section-underline"></div>
-    <p>If you’d like to chat about a project, internship, or collaboration, feel free to reach out.</p>
+    <p>If you'd like to chat about a project, internship, or collaboration, feel free to reach out.</p>
     <ul class="socials">
-      <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-      <li><a href="#"><i class="fab fa-github"></i></a></li>
-      <li><a href="mailto:devin@example.com"><i class="fas fa-envelope"></i></a></li>
+      <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+      <li><a href="mailto:devin@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
     </ul>
   </section>
 
