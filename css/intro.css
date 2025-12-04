@@ -1,36 +1,63 @@
-/* Base */
+/* THEME TOKENS – match main warm theme */
 :root {
-  --bg: #020617;
-  --accent: #3B82F6;
-  --accent-soft: #A855F7;
-  --text: #E5E7EB;
-  --muted: #9CA3AF;
+  --bg: #F8F3ED;
+  --text: #2A1F1A;
+  --heading: #1A110D;
+  --card-bg: #FFF9F5;
+  --accent: #B8653A;
+  --accent-soft: #EBD9CC;
+  --muted: #6B5448;
+  --btn-text: #FFF9F5;
+  --border: rgba(139, 92, 73, 0.25);
+  --card-shadow: rgba(24, 16, 12, 0.08);
+  --hover-shadow: rgba(24, 16, 12, 0.16);
 }
 
+/* Base reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
 body {
-  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text);
   overflow: hidden;
+  line-height: 1.6;
 }
 
-/* Splash overlay */
+/* Subtle paper texture like the main site */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">\
+<circle cx="25" cy="25" r="1" fill="rgba(139,92,73,0.045)"/>\
+<circle cx="75" cy="75" r="1" fill="rgba(139,92,73,0.045)"/>\
+<circle cx="75" cy="25" r="1" fill="rgba(139,92,73,0.045)"/>\
+<circle cx="25" cy="75" r="1" fill="rgba(139,92,73,0.045)"/>\
+</svg>');
+  background-size: 100px 100px;
+  z-index: -1;
+}
+
+/* Splash overlay – warm card instead of neon chip */
 .splash {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 10% 0%, #1f2937, #020617 70%);
+  background: radial-gradient(circle at top, #E9D6C5, #F8F3ED 60%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,29 +70,31 @@ body {
   visibility: hidden;
   pointer-events: none;
 }
+
 .splash-inner {
   text-align: center;
-  animation: splash-pop 0.6s ease-out forwards;
+  animation: splash-pop 0.5s ease-out forwards;
 }
+
 .splash-mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 1.5rem;
-  border: 2px solid rgba(148,163,184,0.7);
-  background:
-    radial-gradient(circle at 0 0, rgba(59,130,246,0.4), transparent 70%),
-    #020617;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: 0.12em;
+  font-size: 1.4rem;
+  letter-spacing: 0.18em;
+  color: var(--heading);
+  box-shadow: 0 8px 24px var(--card-shadow);
 }
 .splash-sub {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   color: var(--muted);
@@ -73,7 +102,7 @@ body {
 
 @keyframes splash-pop {
   from {
-    transform: translateY(8px) scale(0.94);
+    transform: translateY(8px) scale(0.95);
     opacity: 0;
   }
   to {
@@ -88,12 +117,14 @@ body {
   left: -999px;
   top: auto;
   padding: 0.5rem 1rem;
-  background: #fff;
-  color: #111827;
+  background: var(--card-bg);
+  color: var(--text);
   border-radius: 0.5rem;
   z-index: 1000;
   text-decoration: none;
   font-size: 0.9rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px var(--card-shadow);
 }
 .skip-link:focus-visible {
   left: 1rem;
@@ -106,7 +137,7 @@ body {
   min-height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: radial-gradient(circle at 10% 0%, #1F2937, #020617 60%);
+  background: radial-gradient(circle at top, #F1E0D3, #F8F3ED 65%);
   isolation: isolate;
 }
 
@@ -117,53 +148,50 @@ body {
   will-change: transform;
 }
 
-/* Back layer */
+/* Back layer – soft warm blobs instead of neon gradients */
 .layer-back {
   background:
-    radial-gradient(circle at 10% 20%, rgba(59,130,246,0.5), transparent 60%),
-    radial-gradient(circle at 80% 60%, rgba(168,85,247,0.5), transparent 60%),
-    radial-gradient(circle at 50% 110%, rgba(15,118,110,0.4), transparent 65%);
+    radial-gradient(circle at 10% 20%, rgba(184, 101, 58, 0.28), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(107, 84, 72, 0.25), transparent 60%);
   opacity: 0.9;
-  filter: blur(1px); /* slightly lighter blur */
 }
 
-/* Grid layer */
+/* Grid layer – very subtle lines */
 .layer-grid {
   background-image:
-    linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mix-blend-mode: screen;
-  opacity: 0.35;
+    linear-gradient(rgba(139, 92, 73, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 73, 0.06) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mix-blend-mode: multiply;
+  opacity: 0.3;
 }
 
-/* Device cards */
+/* Device cards – warm “desk sketch” style */
 .layer-cards {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: min(9vw, 4rem);
+  gap: min(7vw, 3rem);
 }
 
 .device-card {
-  width: min(230px, 44vw);
+  width: min(220px, 44vw);
   aspect-ratio: 9 / 18;
-  border-radius: 1.7rem;
-  background: linear-gradient(145deg, #020617, #0f172a);
-  border: 1px solid rgba(148,163,184,0.6);
-  box-shadow:
-    0 18px 40px rgba(15,23,42,0.75),
-    0 0 28px rgba(37,99,235,0.3);
+  border-radius: 1.1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 16px var(--card-shadow);
   padding: 0.6rem;
   position: relative;
   overflow: hidden;
 }
 
+/* soften the tilt a bit */
 .device-left {
-  transform: rotate(-10deg) translateY(10px);
+  transform: rotate(-6deg) translateY(8px);
 }
 .device-right {
-  transform: rotate(8deg) translateY(-10px);
+  transform: rotate(4deg) translateY(-6px);
 }
 
 .device-card::before {
@@ -172,69 +200,74 @@ body {
   top: 0.35rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
-  height: 0.32rem;
+  width: 42%;
+  height: 0.26rem;
   border-radius: 999px;
-  background: rgba(15,23,42,0.9);
+  background: rgba(0, 0, 0, 0.12);
 }
 
+/* inner “screen” more like a sketch card than glass UI */
 .device-screen {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 1.25rem;
-  background: radial-gradient(circle at 20% 10%, #1e293b, #020617 80%);
+  border-radius: 0.9rem;
+  background: #F5E7DB;
   padding: 0.7rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
   overflow: hidden;
+  border: 1px dashed rgba(139, 92, 73, 0.4);
 }
 
+/* chips */
 .chip-row {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.35rem;
   margin-bottom: 0.3rem;
 }
 .chip {
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  padding: 0.25rem 0.5rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.8);
-  color: #e5e7eb;
-  background: rgba(15,23,42,0.7);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: rgba(248, 243, 237, 0.9);
 }
 
+/* screen blocks – warm neutral instead of neon blue */
 .screen-block {
-  border-radius: 0.75rem;
-  background: linear-gradient(135deg, rgba(248,250,252,0.9), rgba(226,232,240,0.75));
+  border-radius: 0.7rem;
+  background: #F5E7DB;
 }
 .screen-block-large {
   height: 50%;
 }
 .screen-block-list {
   margin-top: auto;
-  height: 40%;
+  height: 38%;
 }
 
 .screen-block-row {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.35rem;
   margin-top: auto;
 }
 .screen-block-row .small {
   flex: 1 1 0;
   height: 0.9rem;
-  background: rgba(30,64,175,0.9);
+  background: #E0C7B3;
 }
 
+/* second device content */
 .screen-icon {
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  background: radial-gradient(circle at 30% 20%, #22c55e, #166534);
+  background: radial-gradient(circle at 30% 20%, #F0B48A, #B8653A);
   margin: 0.3rem auto 0.25rem;
 }
 .screen-title-bar {
@@ -242,7 +275,7 @@ body {
   border-radius: 999px;
   width: 70%;
   margin: 0 auto 0.6rem;
-  background: rgba(248,250,252,0.9);
+  background: #FDF7F2;
 }
 
 /* Foreground content */
@@ -255,44 +288,66 @@ body {
 
 .intro-content {
   position: relative;
-  padding: 2rem;
-  max-width: 460px;
+  padding: 2.25rem 2rem 2.3rem;
+  max-width: 480px;
   text-align: left;
   z-index: 2;
+  background: var(--card-bg);
+  border-radius: 0.9rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px var(--card-shadow);
 }
 
+/* subtle left accent strip */
+.intro-content::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+/* Eyebrow */
 .eyebrow {
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   color: var(--muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
+/* Title */
 h1 {
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
-  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-size: clamp(2.3rem, 4vw, 3rem);
   margin: 0 0 0.5rem;
+  color: var(--heading);
 }
 
+/* Subtitle */
 .subtitle {
   font-size: 0.98rem;
-  color: var(--muted);
+  color: var(--text);
   margin-bottom: 1.5rem;
   max-width: 32rem;
 }
 
+/* Buttons – flatter, less glowy */
 .button-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
 }
 
 .btn {
   border-radius: 999px;
-  padding: 0.7rem 1.5rem;
+  padding: 0.65rem 1.45rem;
   font-size: 0.9rem;
   font-weight: 600;
   border: 1px solid transparent;
@@ -302,58 +357,81 @@ h1 {
   align-items: center;
   justify-content: center;
   transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.15s ease,
-    border-color 0.25s ease;
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.08s ease,
+    border-color 0.15s ease;
 }
 
+/* primary button – no glow, just solid color */
 .btn-primary {
-  background:
-    linear-gradient(var(--accent), var(--accent)) padding-box,
-    linear-gradient(135deg, #3b82f6, #a855f7, #06b6d4) border-box;
-  border: 2px solid transparent;
-  color: #f9fafb;
-  box-shadow: 0 0 18px rgba(59,130,246,0.45);
+  background-color: var(--accent);
+  color: var(--btn-text);
+  border-color: var(--accent);
+  box-shadow: 0 2px 6px rgba(184, 101, 58, 0.35);
 }
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 26px rgba(59,130,246,0.65);
+  box-shadow: 0 4px 10px rgba(184, 101, 58, 0.45);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(184, 101, 58, 0.35);
 }
 
+/* ghost button – feels like a filter chip */
 .btn-ghost {
   background: transparent;
   color: var(--muted);
-  border-color: rgba(148,163,184,0.7);
+  border-color: var(--border);
+  box-shadow: none;
 }
 .btn-ghost:hover {
-  color: #e5e7eb;
-  border-color: rgba(148,163,184,1);
-  background: rgba(15,23,42,0.7);
+  color: var(--heading);
+  border-color: var(--accent);
+  background: rgba(248, 243, 237, 0.9);
+}
+.btn-ghost:active {
+  background: rgba(241, 224, 209, 0.9);
 }
 
+/* Meta */
 .meta {
-  font-size: 0.75rem;
-  color: rgba(156,163,175,0.9);
+  font-size: 0.78rem;
+  color: var(--muted);
 }
 
-/* Stats row */
+/* Stats row – warm mini cards */
 .stat-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 1.5rem 0 0.75rem;
+  margin: 1.5rem 0 0.9rem;
 }
 
 .stat-card {
   flex: 1 1 0;
-  min-width: 110px;
-  padding: 0.7rem 0.8rem;
-  border-radius: 0.9rem;
-  background: radial-gradient(circle at 0 0, rgba(59,130,246,0.45), transparent 70%);
-  border: 1px solid rgba(148,163,184,0.55);
-  box-shadow: 0 10px 25px rgba(15,23,42,0.65);
+  min-width: 130px;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 3px 8px var(--card-shadow);
+  position: relative;
+}
+
+/* small corner tick */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0.55rem;
+  right: 0.8rem;
+  width: 10px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.7;
 }
 
 .stat-label {
@@ -362,16 +440,17 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--muted);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
 .stat-value {
   display: block;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
+  color: var(--heading);
 }
 
-/* Skills carousel */
+/* Skills carousel – warm style */
 .skills-carousel {
   margin: 0.5rem 0 1.25rem;
   overflow: hidden;
@@ -389,11 +468,11 @@ h1 {
 }
 .skills-carousel::before {
   left: 0;
-  background: linear-gradient(90deg, var(--bg), transparent);
+  background: linear-gradient(90deg, rgba(248, 243, 237, 1), transparent);
 }
 .skills-carousel::after {
   right: 0;
-  background: linear-gradient(270deg, var(--bg), transparent);
+  background: linear-gradient(270deg, rgba(248, 243, 237, 1), transparent);
 }
 
 .skills-track {
@@ -406,12 +485,12 @@ h1 {
 .skill-pill {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.7rem;
+  padding: 0.25rem 0.8rem;
   font-size: 0.75rem;
   border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.7);
-  background: rgba(15,23,42,0.7);
-  color: #e5e7eb;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--muted);
 }
 
 @keyframes skills-scroll {
@@ -423,7 +502,7 @@ h1 {
   }
 }
 
-/* Socials */
+/* Socials – minimal inline links */
 .social-inline {
   display: flex;
   flex-wrap: wrap;
@@ -437,12 +516,12 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.7rem;
-  color: rgba(156,163,175,0.95);
+  color: var(--muted);
   margin-right: 0.25rem;
 }
 
 .social-inline a {
-  color: #e5e7eb;
+  color: var(--heading);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 0.2s ease, border-color 0.2s ease;
@@ -455,11 +534,11 @@ h1 {
 /* Responsive */
 @media (max-width: 860px) {
   .layer-cards {
-    opacity: 0.6;
+    opacity: 0.65;
   }
   .device-left,
   .device-right {
-    transform: scale(0.9);
+    transform: scale(0.9) rotate(-4deg);
   }
 }
 
@@ -471,9 +550,10 @@ h1 {
     min-height: 100vh;
   }
   .layer-cards {
-    opacity: 0.4;
+    opacity: 0.35;
   }
   .intro-content {
+    margin: 2.5rem 1.5rem;
     padding-inline: 1.5rem;
   }
   .button-row {
