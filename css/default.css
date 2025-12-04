@@ -293,19 +293,75 @@ section a:not(.button):hover {
   color: #E5E7EB;
 }
 
-/* image block pops forward slightly */
+/* summary text inside card */
+.card-3d-summary {
+  margin-top: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+.card-3d-tagline {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #E5E7EB;
+  opacity: 0.9;
+}
+.card-3d-pills {
+  margin-top: 0.6rem;
+}
+.card-3d-pills .stamp {
+  background: rgba(15,23,42,0.85);
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.6);
+  color: #E5E7EB;
+  font-size: 0.65rem;
+  padding: 0.18rem 0.6rem;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* image block pops forward slightly – app-icon framing */
 .card-3d-image {
-  border-radius: 1.1rem;
-  overflow: hidden;
-  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.9rem;
+  border-radius: 1.25rem;
+  background: radial-gradient(circle at top, rgba(248,250,252,0.18), rgba(15,23,42,0.95));
+  box-shadow:
+    inset 0 0 0 1px rgba(148,163,184,0.35),
+    0 16px 40px rgba(15,23,42,0.9);
   transform: translateZ(20px);
 }
-.card-3d-image img {
+
+/* clickable icon link */
+.card-3d-image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 230px;
-  object-fit: cover;
+  height: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+.card-3d-image-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 1.5rem;
+}
+
+/* app icon image */
+.card-3d-image img {
+  max-width: 140px;
+  width: 55%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   display: block;
-  transition: transform 0.6s ease;
+  border-radius: 1.8rem;
+  box-shadow: 0 12px 26px rgba(15,23,42,0.75);
+  transition:
+    transform 0.6s ease,
+    box-shadow 0.3s ease;
 }
 
 /* footer row */
@@ -326,9 +382,11 @@ section a:not(.button):hover {
   font-size: 0.7rem;
 }
 
-/* image zoom on hover for extra motion */
+/* tilt + zoom on hover */
+.card-3d-image-link:hover img,
 .card-3d:hover .card-3d-image img {
-  transform: scale(1.04);
+  transform: translateY(-2px) scale(1.06) rotateX(6deg);
+  box-shadow: 0 18px 40px rgba(15,23,42,0.95);
 }
 
 /* ---- GOAT-style project stack ---- */

@@ -12,7 +12,6 @@
   <script defer src="js/prefs.js"></script>
   <script defer src="js/includes.js"></script>
   <script defer src="js/motion.js"></script>
-
 </head>
 <body>
   <div data-include="partials/header.html"></div>
@@ -22,7 +21,7 @@
     <div class="hero-content">
       <h1>Devin Washington</h1>
       <p>CS @ UNC Charlotte · Android &amp; UX · Human-centered design</p>
-      <a href="" class="button holo-border">View My Work</a>
+      <a href="#featured-project" class="button holo-border">View My Work</a>
     </div>
   </header>
 
@@ -58,9 +57,26 @@
               <h3>🎁 Gift Guide</h3>
             </header>
 
+            <!-- Summary content inside the parallax card -->
+            <div class="card-3d-summary">
+              <p class="card-3d-tagline">
+                A calm little app that turns “I have no idea what to get them” into a short, guided flow and a handful of concrete gift ideas.
+              </p>
+              <p class="card-3d-pills">
+                <span class="stamp">Recipient intake</span>
+                <span class="stamp">Curated suggestions</span>
+                <span class="stamp">Saved lists</span>
+              </p>
+            </div>
+
             <div class="card-3d-image">
-              <!-- Replace with your real image -->
-              <img src="img/project-giftguide.png" alt="Gift Guide App Screenshot">
+              <a
+                href="projects/giftguide.html"
+                class="card-3d-image-link"
+                aria-label="View the Gift Guide case study"
+              >
+                <img src="img/giftguidelogo.png" alt="Gift Guide App icon">
+              </a>
             </div>
 
             <footer class="card-3d-footer">
@@ -79,8 +95,8 @@
           and the app turns that into personalized suggestions that actually feel relevant.
         </p>
         <p>
-          The goal was to create a calmer, more human flow: conversational inputs, clear hierarchy, and saved lists
-          that support real-world planning—not endless scrolling.
+          The focus is on keeping the experience calm and human: conversational inputs, clear hierarchy,
+          and saved lists that support real-world planning instead of endless scrolling.
         </p>
 
         <p>
@@ -109,7 +125,7 @@
     <!-- Horizontal card stack -->
     <div class="card-stack" aria-label="Featured projects">
 
-      <!-- Project: Plant AI (moved here) -->
+      <!-- Project: Plant AI -->
       <article class="project-card fade-in">
         <div class="project-card-media tilt">
           <img src="img/plantai-mockup.png" alt="Plant AI mockups" loading="lazy">
@@ -215,12 +231,11 @@
 
     <!-- Secondary project list -->
     <div class="projects-grid">
-
       <div class="card fade-in">
         <h3>Gift Guide</h3>
         <p>
           Guided inputs → personalized gift ideas → saved lists for planning.
-          <a href="giftguide.html">Read the case study →</a>
+          <a href="projects/giftguide.html">Read the case study →</a>
         </p>
       </div>
 
@@ -245,7 +260,6 @@
         <h3>Whole Foods Prototype</h3>
         <p>A mobile shopping experience built with a custom JSON DataAPI.</p>
       </div>
-
     </div>
   </section>
 
