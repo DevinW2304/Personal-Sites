@@ -325,7 +325,7 @@ h1 {
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
   font-size: clamp(2.3rem, 4vw, 3rem);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.35rem;
   color: var(--heading);
 }
 
@@ -333,8 +333,83 @@ h1 {
 .subtitle {
   font-size: 0.98rem;
   color: var(--text);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.9rem;
   max-width: 32rem;
+}
+
+/* === Quick Skills + Contact Section === */
+
+.quick-section {
+  margin: 1.4rem 0 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.quick-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.quick-label {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin: 0;
+}
+
+.quick-items {
+  display: grid;
+  gap: 0.75rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.quick-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  padding: 0.65rem 0.8rem;
+  box-shadow: 0 3px 8px var(--card-shadow);
+}
+
+.quick-title {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--heading);
+  margin-bottom: 0.1rem;
+}
+
+.quick-desc {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* Contact block */
+.quick-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  align-items: center;
+}
+
+.contact-link {
+  color: var(--heading);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.contact-sep {
+  color: var(--muted);
 }
 
 /* Buttons – flatter, less glowy */
@@ -342,7 +417,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.75rem;
 }
 
 .btn {
@@ -396,57 +471,33 @@ h1 {
   background: rgba(241, 224, 209, 0.9);
 }
 
-/* Meta */
+/* Meta line */
 .meta {
   font-size: 0.78rem;
   color: var(--muted);
+  margin-bottom: 1.1rem;
 }
 
-/* Stats row – warm mini cards */
-.stat-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 1.5rem 0 0.9rem;
-}
-
-.stat-card {
-  flex: 1 1 0;
-  min-width: 130px;
-  padding: 0.75rem 0.9rem;
+/* "Right now" card */
+.now-card {
+  margin-bottom: 1.4rem;
+  padding: 0.8rem 0.9rem;
   border-radius: 0.75rem;
-  background: var(--card-bg);
+  background: var(--accent-soft);
   border: 1px solid var(--border);
   box-shadow: 0 3px 8px var(--card-shadow);
-  position: relative;
 }
 
-/* small corner tick */
-.stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0.55rem;
-  right: 0.8rem;
-  width: 10px;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--accent);
-  opacity: 0.7;
-}
-
-.stat-label {
-  display: block;
+.now-label {
   font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: var(--muted);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
-.stat-value {
-  display: block;
+.now-body {
   font-size: 0.9rem;
-  font-weight: 600;
   color: var(--heading);
 }
 
@@ -560,8 +611,12 @@ h1 {
     flex-direction: column;
     align-items: flex-start;
   }
-  .stat-row {
-    flex-direction: column;
+}
+
+/* Mobile tweaks for quick section */
+@media (max-width: 500px) {
+  .quick-items {
+    grid-template-columns: 1fr;
   }
 }
 
