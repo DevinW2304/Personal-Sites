@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Whole Foods Mobile Experience | Devin Washington</title>
-  <meta name="description" content="Case study for a Whole Foods-style mobile web experience: onboarding, browsing, cart, and payment flows." />
+  <meta name="description" content="Case study for a Whole Foods-style mobile web experience: onboarding, browsing, cart, order tracking, and payment flows." />
   <link rel="icon" href="../img/favicon.ico" />
   <link rel="stylesheet" href="../css/default.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
@@ -159,56 +159,54 @@
       font-size: 0.9rem;
     }
 
-   .demo-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
-  gap: 3rem;
-  justify-content: center;
-  align-items: center; /* Key change: vertically centers both columns */
-  max-width: 1000px;
-  margin-top: 2.5rem;
-}
+    .demo-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+      gap: 3rem;
+      justify-content: center;
+      align-items: center;
+      max-width: 1000px;
+      margin-top: 2.5rem;
+    }
 
-.demo-phone {
-  text-align: center;
-}
+    .demo-phone {
+      text-align: center;
+    }
 
-.demo-info-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  padding: 1.8rem 1.6rem;
-  border-radius: 0.9rem;
-  box-shadow: 0 4px 15px var(--card-shadow);
-  transform: translateY(10px); /* Optional: fine-tune vertical balance */
-}
+    .demo-info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1.8rem 1.6rem;
+      border-radius: 0.9rem;
+      box-shadow: 0 4px 15px var(--card-shadow);
+      transform: translateY(10px);
+    }
 
-.demo-info-card h3 {
-  margin-top: 0;
-  color: var(--heading);
-  font-size: 1.2rem;
-  margin-bottom: 0.75rem;
-}
+    .demo-info-card h3 {
+      margin-top: 0;
+      color: var(--heading);
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
 
-.demo-info-card ul {
-  margin: 0.75rem 0 0;
-  padding-left: 1.2rem;
-  color: var(--text);
-}
+    .demo-info-card ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--text);
+    }
 
-@media (max-width: 900px) {
-  .demo-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+    @media (max-width: 900px) {
+      .demo-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
 
-  .demo-info-card {
-    transform: none; /* Reset when stacked */
-    max-width: 420px;
-    margin: 0 auto;
-  }
-}
-
-
+      .demo-info-card {
+        transform: none;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+    }
 
     .demo-links a {
       font-weight: 500;
@@ -314,10 +312,11 @@
     <section class="case-hero">
       <span class="stamp">Case Study</span>
       <h1>Whole Foods Mobile Experience</h1>
-      <p class="section-tagline">Mobile web · UX &amp; data modeling</p>
+      <p class="section-tagline">Mobile web · UX, data modeling &amp; order tracking</p>
       <p class="lead">
-        A mobile-first grocery shopping prototype that recreates the Whole Foods experience:
-        onboarding, product discovery, cart, and a lightweight payment flow, all powered by a custom JSON-based DataAPI.
+        Our team designed and built a mobile-first grocery shopping experience modeled after Whole Foods:
+        onboarding, product discovery, cart, and a Supabase-backed order history and tracking flow layered on
+        top of a custom JSON-driven DataAPI.
       </p>
 
       <div class="case-meta-grid" aria-label="Project overview">
@@ -335,9 +334,8 @@
         </div>
         <div class="case-meta-item">
           <h4>Duration</h4>
-          <p>User Research and Prototyping: 11 Weeks</p>
-                    <p>Implementation: 3 Weeks</p>
-
+          <p>User Research &amp; Prototyping: 11 Weeks</p>
+          <p>Implementation (Sprints 1–3): 3 Weeks</p>
         </div>
         <div class="case-meta-item">
           <h4>Links</h4>
@@ -346,64 +344,67 @@
               <i class="fa-brands fa-figma"></i>
               Figma prototype
             </a>
-           <a class="link-pill" href="https://itis-4390.vercel.app/screens/onboarding.html" target="_blank" rel="noreferrer">
-  <i class="fa-solid fa-link"></i>
-  Live site
-</a>
-
+            <a class="link-pill" href="https://itis-4390.vercel.app/screens/onboarding.html" target="_blank" rel="noreferrer">
+              <i class="fa-solid fa-link"></i>
+              Live site
+            </a>
+            <a class="link-pill" href="https://devinwashington.xyz/projects/wholefoods-case-study.html" target="_blank" rel="noreferrer">
+              <i class="fa-solid fa-briefcase"></i>
+              Portfolio entry
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-   <section class="case-section">
-  <h2>Live Prototype</h2>
-  <div class="section-underline"></div>
+    <section class="case-section">
+      <h2>Live Prototype</h2>
+      <div class="section-underline"></div>
 
-  <p>
-    The project is built as a small mobile web app, fully running in the browser and backed 
-    by a JSON-powered DataAPI. Try the live version below or open it full screen.
-  </p>
-
-  <div class="demo-layout">
-    
-    <!-- PHONE PREVIEW -->
-    <div class="demo-phone">
-      <div class="phone-frame">
-        <iframe 
-          src="https://itis-4390.vercel.app/screens/onboarding.html"
-          title="Whole Foods Mobile Prototype">
-        </iframe>
-      </div>
-
-      <div class="demo-links">
-        <a 
-          href="https://itis-4390.vercel.app/screens/onboarding.html" 
-          target="_blank" 
-          rel="noreferrer"
-        >
-          Open full-screen demo
-        </a>
-      </div>
-    </div>
-
-    <!-- LOGIN PANEL -->
-    <div class="demo-info-card">
-      <h3>Demo Login</h3>
-      <p>You can sign in using the test account below:</p>
-
-      <ul>
-        <li><strong>Email:</strong> demo@example.com</li>
-        <li><strong>Password:</strong> password123</li>
-      </ul>
-
-      <p style="margin-top: 1rem;">
-        This login allows access to the prototype's full flow, including browsing, cart, and profile pages.
+      <p>
+        We built the project as a small mobile web app that runs entirely in the browser. The core browsing and
+        product views are powered by a JSON-based DataAPI, and we layered in Supabase so people can log in,
+        place orders, and later see those orders show up in their profile.
       </p>
-    </div>
 
-  </div>
-</section>
+      <div class="demo-layout">
+        <!-- PHONE PREVIEW -->
+        <div class="demo-phone">
+          <div class="phone-frame">
+            <iframe
+              src="https://itis-4390.vercel.app/screens/onboarding.html"
+              title="Whole Foods Mobile Prototype">
+            </iframe>
+          </div>
+
+          <div class="demo-links">
+            <a
+              href="https://itis-4390.vercel.app/screens/onboarding.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open full-screen demo
+            </a>
+          </div>
+        </div>
+
+        <!-- LOGIN PANEL -->
+        <div class="demo-info-card">
+          <h3>Demo Login</h3>
+          <p>Use this test account to walk through the full flow the way we intended it:</p>
+
+          <ul>
+            <li><strong>Email:</strong> demo@example.com</li>
+            <li><strong>Password:</strong> password123</li>
+          </ul>
+
+          <p style="margin-top: 1rem;">
+            This account is wired into Supabase so you can see a realistic flow for login,
+            updating preferences, placing orders, and checking your order history and tracking status.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <section class="case-section" id="contributions">
       <h2>Your Contributions</h2>
@@ -412,20 +413,30 @@
       <div class="two-col">
         <div>
           <p>
-            I owned this project end-to-end, from shaping the information architecture and designing the screens
-            to structuring the JSON data and writing the front-end code. The goal was a calm, trustworthy grocery
-            experience that still exposes rich product data.
+            I worked as a team lead on this project, but everything here is the result of a group effort.
+            Together we moved from rough flows and disconnected screens to an app that actually feels
+            like something you could use on your phone. On my end, I focused on the data layer, front-end
+            structure, and making sure the pieces our team built fit together cleanly.
           </p>
 
-          <p><strong>Features I built:</strong></p>
+          <p><strong>What we shipped together:</strong></p>
           <ul>
-            <li>Onboarding → login → sign-up flow using a consistent mobile shell.</li>
-            <li>Shop and category browsing with horizontal category chips and featured items.</li>
-            <li>Search view that queries the JSON catalog and renders responsive results.</li>
+            <li>Onboarding → login → sign-up flow inside a shared mobile shell.</li>
+            <li>Shop and category browsing powered by a JSON catalog through a reusable DataAPI.</li>
             <li>Product detail pages with price, unit, tags, dietary info, and nutrition pulled from JSON.</li>
-            <li>Cart screen with editable quantities, line-item totals, and an order summary.</li>
-            <li>Payment preview and a lightweight profile area with mock order history.</li>
-            <li>A reusable <strong>DataAPI</strong> wrapper that loads and normalizes all JSON data.</li>
+            <li>Cart screen with editable quantities, line-item totals, and a simple summary panel.</li>
+            <li>
+              A preferences page and profile area tied to authenticated users, including order history tiles
+              that pull in real orders from Supabase.
+            </li>
+            <li>
+              Order placement and tracking flow: orders saved under each user’s ID and surfaced in a
+              horizontally scrollable history carousel.
+            </li>
+            <li>
+              Shared CSS improvements in Sprint 3 (fixing clipping, smoothing scrolling, and tightening the
+              color system so the app felt consistent across screens).
+            </li>
           </ul>
 
           <div class="pill-row">
@@ -433,6 +444,7 @@
             <span class="stamp">CSS</span>
             <span class="stamp">Vanilla JS</span>
             <span class="stamp">JSON</span>
+            <span class="stamp">Supabase</span>
             <span class="stamp">UX / UI</span>
           </div>
         </div>
@@ -440,10 +452,11 @@
         <aside class="callout">
           <h3>Tech &amp; Tools</h3>
           <ul>
-            <li><strong>Front-end:</strong> Semantic HTML, custom CSS, light utility classes.</li>
-            <li><strong>Data:</strong> JSON for products, categories, stores, inventory, promotions, users.</li>
-            <li><strong>Abstraction:</strong> Single <code>DataAPI</code> module for loading and querying data.</li>
-            <li><strong>Design:</strong> Figma for flows, layouts, and visual system.</li>
+            <li><strong>Front-end:</strong> Semantic HTML, custom CSS, Tailwind-inspired utility patterns.</li>
+            <li><strong>Data:</strong> JSON for products, categories, stores, inventory, promotions, and users.</li>
+            <li><strong>Abstraction:</strong> A shared <code>DataAPI</code> module for loading and querying JSON.</li>
+            <li><strong>Backend:</strong> Supabase (Auth + Postgres) for user accounts and order storage.</li>
+            <li><strong>Design:</strong> Figma for flows, component exploration, and visual system decisions.</li>
           </ul>
         </aside>
       </div>
@@ -455,61 +468,68 @@
 
       <div class="two-col">
         <div>
-          <h3>Research &amp; User Studies</h3>
+          <h3>From rough prototype to connected product</h3>
           <p>
-            Before locking in the flows, I ran short task-based studies with classmates and friends who shop
-            for groceries online at least occasionally. Each session lasted about 15–20 minutes with think-aloud feedback.
+            At the start, our app was basically a collection of static pages and a small JSON catalog.
+            It definitely felt rough, but that stage helped us nail down the user flow without getting
+            too hung up on implementation details. We could quickly sketch how someone would move from
+            onboarding into browsing, picking items, and checking out.
           </p>
 
-          <p><strong>Example tasks:</strong></p>
-          <ul>
-            <li>“Find a deli item you’d actually buy and add it to your cart.”</li>
-            <li>“Change the quantity of something in your cart without losing your place.”</li>
-            <li>“Check what pickup or delivery time slots are available tonight.”</li>
-          </ul>
-
-          <p><strong>Key insights:</strong></p>
-          <ul>
-            <li>People wanted a clear separation between browsing and search.</li>
-            <li>Users kept looking for a persistent cart summary with total and item count.</li>
-            <li>Product tiles needed more scannable info so people didn’t have to open every detail page.</li>
-          </ul>
+          <p>
+            As we moved into later sprints, we introduced a mock DataAPI to keep all of our product,
+            category, and store data in one place. From there, the focus shifted to wiring everything
+            together—reusing the same data methods across screens, layering in a Supabase-backed order
+            model, and cleaning up transitions so the experience felt like one app instead of a bunch
+            of separate pages.
+          </p>
 
           <h3>Phased Development</h3>
           <ol>
             <li>
-              <strong>Phase 1 – Framing &amp; IA:</strong> Defined the core journey
-              (browse → product → cart → review) and mapped entities like products, categories,
-              stores, inventory, users, and delivery slots.
+              <strong>Sprint 1 – Core Flows &amp; IA:</strong>
+              As a team, we defined the core journey (onboarding → browse → product → cart → review),
+              mapped out entities like products, users, and orders, and built our first round of
+              static HTML/CSS screens so everyone could see the experience end-to-end.
             </li>
             <li>
-              <strong>Phase 2 – Clickable Prototype &amp; Testing:</strong> Built early HTML/CSS pages and
-              iterated based on navigation confusion and content gaps.
+              <strong>Sprint 2 – DataAPI &amp; Prototype Integration:</strong>
+              We pulled our JSON data into a shared DataAPI and hooked it up to the shop, category,
+              search, and product screens. This was the moment the app started to feel connected instead
+              of like six different prototypes. We also ran quick hallway tests to surface navigation
+              issues and missing content.
             </li>
             <li>
-              <strong>Phase 3 – DataAPI &amp; Integration:</strong> Implemented the JSON-backed DataAPI and wired
-              it into shop, category, search, product, and cart screens.
-            </li>
-            <li>
-              <strong>Phase 4 – Polish &amp; Microcopy:</strong> Tuned spacing, hierarchy, and labels so the
-              experience felt calm instead of cluttered on a small screen.
+              <strong>Sprint 3 – Supabase, Orders &amp; Polish:</strong>
+              In the final sprint, we focused on “making it real”: wiring Supabase into login and orders,
+              saving orders by user ID, surfacing them in profile as history/tracking, and fixing bugs,
+              layout glitches, and scrolling behavior together so the app was stable enough to demo live.
             </li>
           </ol>
         </div>
 
         <aside class="callout">
-          <h3>What I Learned</h3>
+          <h3>What We Learned</h3>
           <ul>
-            <li>Grocery UI becomes overwhelming quickly without strong hierarchy and clear copy.</li>
-            <li>Modeling the data early makes design changes less painful later.</li>
-            <li>Small usability tests can surface high-impact issues like cart affordance and label clarity.</li>
+            <li>
+              Working in sprints kept the project manageable and gave us clear goals for each week instead
+              of trying to build everything at once.
+            </li>
+            <li>
+              A structured data layer (DataAPI + Supabase models) made it much easier for different team
+              members to build screens without stepping on each other’s toes.
+            </li>
+            <li>
+              Even small usability check-ins with friends/classmates were enough to catch confusing labels,
+              missing summaries, or broken navigation paths early.
+            </li>
           </ul>
 
           <h3>Challenges &amp; Skills Gained</h3>
           <ul>
-            <li>Balancing realistic data and flows with a front-end-only scope.</li>
-            <li>Designing for thumb reach and one-handed use on a mobile viewport.</li>
-            <li>Writing small, reusable JS helpers instead of mixing logic into each page.</li>
+            <li>Balancing realistic order flows with the time and stack constraints of a class project.</li>
+            <li>Debugging cross-page issues where one small change broke another part of the journey.</li>
+            <li>Connecting a mobile-style UI to a shared Supabase backend and reasoning through user IDs, orders, and history.</li>
           </ul>
         </aside>
       </div>
@@ -520,10 +540,12 @@
       <div class="section-underline"></div>
       <ul>
         <li><strong>Onboarding &amp; Access:</strong> Clear entry into login, sign-up, or continue as guest.</li>
-        <li><strong>Browse &amp; Search:</strong> Category chips and search UI hitting the same JSON product data.</li>
-        <li><strong>Product Detail:</strong> Rich cards with price, unit, tags, dietary flags, and nutrition.</li>
-        <li><strong>Cart &amp; Payment Preview:</strong> Editable cart with totals plus a payment info view.</li>
-        <li><strong>Profile:</strong> Lightweight profile and mock order history to suggest future personalization.</li>
+        <li><strong>Browse &amp; Search:</strong> Category chips and search UI that both hit the same JSON product data.</li>
+        <li><strong>Product Detail:</strong> Rich cards with price, unit, tags, dietary flags, and nutrition information.</li>
+        <li><strong>Cart &amp; Review:</strong> Editable cart with quantities, line-item prices, and a simple order summary.</li>
+        <li><strong>Profile &amp; Preferences:</strong> User profile tied to Supabase auth, with a preferences screen.</li>
+        <li><strong>Order History &amp; Tracking:</strong> Orders stored per user and presented as a scrollable history,
+            with basic tracking states to show progress after checkout.</li>
       </ul>
     </section>
 
@@ -533,34 +555,45 @@
 
       <div class="visual-grid">
         <figure>
-          <img src="../img/case-wholefoods-home.png" alt="Whole Foods mobile home screen with category chips and featured products">
+          <img src="../img/demoScreen2.PNG" alt="Whole Foods mobile home screen with category chips and featured products">
           <figcaption>
-            Final home and shop layout: horizontal category chips, featured items, and a clear path into cart and profile.
+            Final home and shop layout: horizontal category chips, featured items, and a clear path into cart,
+            profile, and order history.
           </figcaption>
         </figure>
 
         <div>
           <p>
-            The final UI closely mirrors my Figma prototype. I kept the palette warm and neutral and leaned on spacing,
-            typography, and small accents to make dense information (prices, sizes, tags) feel approachable on a phone screen.
+            The final UI is close to what we planned in Figma, but it definitely evolved in Sprint 3 after we
+            saw things running on an actual phone. We adjusted spacing, fixed clipping and scroll issues, and
+            kept the palette calm and neutral so all of the details (prices, units, tags, status) stayed easy
+            to scan on a small screen.
           </p>
 
-          <p><strong>Representative code snippet (DataAPI usage):</strong></p>
-          <pre class="code-snippet"><code>// Load all JSON once on app start
+          <p><strong>Representative code snippet (DataAPI + orders):</strong></p>
+          <pre class="code-snippet"><code>// Load catalog data on app start
 await DataAPI.loadEverything();
 
 // Category view
-const produceItems = DataAPI.getProductsByCategory('produce');
+const produceItems = DataAPI.getProductsByCategory(1);
 
 // Search view
 const searchResults = DataAPI.searchProducts('coffee');
 
 // Pricing helper
 const firstResult = searchResults[0];
-const effectivePrice = DataAPI.getEffectivePrice(firstResult);</code></pre>
+const effectivePrice = DataAPI.getEffectivePrice(firstResult);
+
+// Supabase-backed order fetch (conceptual)
+const { data: orders } = await supabase
+  .from('orders')
+  .select('*')
+  .eq('user_id', user.id)
+  .order('created_at', { ascending: false });</code></pre>
           <p>
-            This mirrors how a real API-driven app might work, but everything stays front-end only,
-            which makes the project lightweight enough to host as part of my portfolio.
+            This setup is pretty close to how a production app might run: JSON and the DataAPI keep the
+            catalog simple and fast, while Supabase takes care of anything that needs to be tied to a specific
+            person or change over time—like accounts, orders, and preferences.
           </p>
         </div>
       </div>
@@ -570,19 +603,27 @@ const effectivePrice = DataAPI.getEffectivePrice(firstResult);</code></pre>
       <h2>Implementation Details</h2>
       <div class="section-underline"></div>
       <p>
-        Under the hood, the experience is backed by a set of JSON files that describe products, categories,
-        inventory, stores, promotions, delivery windows, and mock users. The DataAPI wrapper handles loading
-        and exposes helpers so each screen can focus on layout and interaction:
+        Under the hood, the experience is backed by a set of JSON files for the product catalog and a
+        Supabase backend for user-specific data. The DataAPI wrapper handles loading the static content
+        and exposes helpers so each screen can stay focused on layout and interaction, while Supabase stores
+        persistent state like accounts and orders:
       </p>
       <ul>
         <li><strong>products.json</strong> – base catalog with categories, prices, tags, and nutrition.</li>
-        <li><strong>categories.json</strong> – maps categories to IDs used throughout the UI.</li>
-        <li><strong>stores.json</strong> – store IDs, names, and location data.</li>
+        <li><strong>categories.json</strong> – maps category IDs used across shop, search, and product pages.</li>
+        <li><strong>stores.json</strong> – store IDs, names, and basic location data.</li>
         <li><strong>inventory.json</strong> – stock levels per store and product ID.</li>
-        <li><strong>delivery_slots.json</strong> – pickup/delivery time windows.</li>
+        <li><strong>delivery_slots.json</strong> – mock pickup and delivery time windows.</li>
         <li><strong>promotions.json</strong> – discounts and featured banners.</li>
-        <li><strong>users.json</strong> – mock users for login, profile, and order history.</li>
+        <li><strong>users.json</strong> – seed data used for the front-end prototype.</li>
+        <li><strong>Supabase tables</strong> – real users, orders, and order line items linked by user ID.</li>
       </ul>
+
+      <p>
+        By the end of Sprint 3, all of these pieces were working together: a shared DataAPI for the
+        catalog, a Supabase-backed order system for more realistic flows, and a mobile-first UI that
+        our team felt confident demoing as part of my portfolio.
+      </p>
     </section>
   </main>
 
