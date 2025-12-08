@@ -267,6 +267,90 @@
       margin-top: 0.35rem;
     }
 
+    /* Carousel */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.9rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 18px var(--card-shadow);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      display: block;
+    }
+
+   .carousel-slide figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 0.6rem 0.9rem 0.8rem;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .carousel-btn:hover {
+      background: rgba(0, 0, 0, 0.65);
+    }
+
+    .carousel-btn--prev {
+      left: 10px;
+    }
+
+    .carousel-btn--next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 0.75rem 0.8rem;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: none;
+      background: var(--border);
+      cursor: pointer;
+    }
+
+    .carousel-dot.is-active {
+      background: var(--accent);
+    }
+
     pre.code-snippet {
       margin-top: 0.9rem;
       padding: 1rem 1.2rem;
@@ -554,13 +638,43 @@
       <div class="section-underline"></div>
 
       <div class="visual-grid">
-        <figure>
-          <img src="../img/demoScreen2.PNG" alt="Whole Foods mobile home screen with category chips and featured products">
-          <figcaption>
-            Final home and shop layout: horizontal category chips, featured items, and a clear path into cart,
-            profile, and order history.
-          </figcaption>
-        </figure>
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <figure class="carousel-slide">
+              <img src="../img/demoScreen2.PNG" alt="Home and shop layout with category chips and featured items">
+              <figcaption>
+                Home &amp; shop layout with featured items, reccomendations based on user preferences, and quick access to cart and profile.
+              </figcaption>
+            </figure>
+
+            <figure class="carousel-slide">
+              <img src="../img/demoNutritionScreen.PNG" alt="Product detail screen with pricing and nutrition">
+              <figcaption>
+                Product detail screen showing price, unit, dietary tags, and basic nutrition information.
+              </figcaption>
+            </figure>
+
+            <figure class="carousel-slide">
+              <img src="../img/demoPreferencesScreen.PNG" alt="User Preferences Editor">
+              <figcaption>
+                Users can edit their preferences to get items relevant to them. 
+              </figcaption>
+            </figure>
+          </div>
+
+          <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Previous screenshot">
+            ‹
+          </button>
+          <button class="carousel-btn carousel-btn--next" type="button" aria-label="Next screenshot">
+            ›
+          </button>
+
+          <div class="carousel-dots">
+            <button class="carousel-dot is-active" type="button" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+          </div>
+        </div>
 
         <div>
           <p>
@@ -628,5 +742,42 @@ const { data: orders } = await supabase
   </main>
 
   <div data-include="../partials/footer.html"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousel = document.querySelector('[data-carousel]');
+      if (!carousel) return;
+
+      const track = carousel.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const prevBtn = carousel.querySelector('.carousel-btn--prev');
+      const nextBtn = carousel.querySelector('.carousel-btn--next');
+      const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+
+      let currentIndex = 0;
+
+      function updateCarousel(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        const offset = -currentIndex * 100;
+        track.style.transform = `translateX(${offset}%)`;
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === currentIndex);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        updateCarousel(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        updateCarousel(currentIndex + 1);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => updateCarousel(i));
+      });
+    });
+  </script>
 </body>
 </html>
