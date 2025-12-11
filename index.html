@@ -47,111 +47,127 @@
       </div>
     </div>
 
-    <!-- Foreground content -->
+    <!-- Foreground content: two cards -->
     <div class="parallax-layer layer-foreground" data-depth="0">
-      <section class="intro-content" aria-labelledby="intro-title">
-        <p class="eyebrow">Computer Science · HCI · Software Engineering</p>
+      <div class="intro-shell">
+        <!-- Primary intro card -->
+        <section class="intro-card intro-card-primary" aria-labelledby="intro-title">
+          <p class="eyebrow">CS (HCI) · Graduating Spring 2026</p>
 
-        <h1 id="intro-title">Devin Washington</h1>
+          <h1 id="intro-title">Devin Washington</h1>
 
-        <p class="subtitle">
-          I'm a CS student at UNC Charlotte who likes building things people actually enjoy using. My work sits between human–computer interaction, Android apps, and practical software that explains complex ideas in a simple way.
-        </p>
+          <p class="subtitle">
+            I’m a CS (HCI) major graduating in Spring 2026, actively looking for full-time roles in UX/product design, front-end engineering, human-centered AI, full-stack development, and more. I love solving complex problems by translating them into clear, trustworthy user experiences supported by scalable technical systems.
+          </p>
 
-        <!-- Quick skills + contact -->
-        <div class="quick-section">
+          <!-- Quick skills + contact -->
+          <div class="quick-section">
 
-          <div class="quick-group">
-            <p class="quick-label">Skills at a glance</p>
+            <div class="quick-group">
+              <p class="quick-label">Skills at a glance</p>
 
-            <div class="quick-items">
-              <div class="quick-item">
-                <span class="quick-title">HCI &amp; UX</span>
-                <span class="quick-desc">Interaction design • Usability</span>
-              </div>
+              <div class="quick-items">
+                <div class="quick-item">
+                  <span class="quick-title">HCI &amp; UX</span>
+                  <span class="quick-desc">User flows · Prototyping · Usability thinking</span>
+                </div>
 
-              <div class="quick-item">
-                <span class="quick-title">Android</span>
-                <span class="quick-desc">Kotlin • Jetpack • Mobile UI</span>
-              </div>
+                <div class="quick-item">
+                  <span class="quick-title">Android</span>
+                  <span class="quick-desc">Kotlin · Jetpack · App architecture</span>
+                </div>
 
-              <div class="quick-item">
-                <span class="quick-title">Frontend</span>
-                <span class="quick-desc">HTML • CSS • JS</span>
-              </div>
+                <div class="quick-item">
+                  <span class="quick-title">Frontend</span>
+                  <span class="quick-desc">HTML/CSS/JS · Responsive layouts</span>
+                </div>
 
-              <div class="quick-item">
-                <span class="quick-title">Accessibility</span>
-                <span class="quick-desc">Inclusive patterns • WCAG</span>
+                <div class="quick-item">
+                  <span class="quick-title">Accessibility</span>
+                  <span class="quick-desc">Inclusive patterns · WCAG-informed decisions</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="quick-group">
-            <p class="quick-label">Contact</p>
+            <div class="quick-group">
+              <p class="quick-label">Contact</p>
 
-            <div class="quick-contact">
-              <a href="mailto:devin.washington.eto@gmail.com" class="contact-link">devin.washington.eto@gmail.com</a>
-              <span class="contact-sep">·</span>
-              <a href="https://github.com" target="_blank" rel="noreferrer" class="contact-link">GitHub</a>
-              <span class="contact-sep">·</span>
-              <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" class="contact-link">LinkedIn</a>
+              <div class="quick-contact">
+                <a href="mailto:devin.washington.eto@gmail.com" class="contact-link">
+                  devin.washington.eto@gmail.com
+                </a>
+                <span class="contact-sep">·</span>
+                <a href="https://github.com" target="_blank" rel="noreferrer" class="contact-link">GitHub</a>
+                <span class="contact-sep">·</span>
+                <a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" rel="noreferrer" class="contact-link">
+                  LinkedIn
+                </a>
+              </div>
             </div>
+
           </div>
 
-        </div>
+          <div class="button-row">
+            <a href="main.html" class="btn btn-primary">
+              Enter portfolio
+            </a>
+            <button class="btn btn-ghost" type="button" id="toggle-motion">
+              Toggle motion
+            </button>
+          </div>
 
-        <div class="button-row">
-          <a href="main.html" class="btn btn-primary">
-            Enter portfolio
+          <p class="meta">
+            I’m excited to bring a hybrid skill set—UX thinking + front-end engineering + full-stack fundamentals—to teams building products that aim to be both intelligent and genuinely user-centered.
+          </p>
+
+          <div class="social-inline">
+            <span class="social-label">Elsewhere</span>
+            <a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://github.com/DevinW2304" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </section>
+
+        <!-- Skills + resume preview card (no long paragraphs) -->
+        <section class="intro-card intro-card-secondary" aria-labelledby="skills-resume-title">
+          <h2 id="skills-resume-title" class="card-heading">Skills &amp; resume</h2>
+
+          <!-- Skills pill cloud (with subtle motion) -->
+          <p class="skills-label">What I work with most</p>
+          <div class="skills-pill-cloud">
+            <span class="skill-pill">Human–Computer Interaction</span>
+            <span class="skill-pill">User Experience</span>
+            <span class="skill-pill">Android (Kotlin)</span>
+            <span class="skill-pill">Prototyping</span>
+            <span class="skill-pill">Accessibility</span>
+            <span class="skill-pill">Information Architecture</span>
+            <span class="skill-pill">HTML/CSS/JS</span>
+            <span class="skill-pill">Usability Testing</span>
+            <span class="skill-pill">Supabase · Postgres</span>
+            <span class="skill-pill">Full-Stack Fundamentals</span>
+          </div>
+
+          <!-- Resume preview (click to open full PDF) -->
+          <a
+            href="assets/Devin_Washington_Resume.pdf"
+            class="resume-preview"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="resume-preview-inner">
+              <!-- Needs to be an image file, not the PDF -->
+              <img
+                src="assets/resume-preview.png"
+                alt="Preview thumbnail of Devin Washington's resume"
+                class="resume-preview-image"
+              />
+            </div>
+            <p class="resume-preview-hint">
+              Click to open the full resume (PDF)
+            </p>
           </a>
-          <button class="btn btn-ghost" type="button" id="toggle-motion">
-            Toggle motion
-          </button>
-        </div>
-
-        <p class="meta">
-          Motion is subtle here, and it follows your system “reduce motion” settings. You can also turn it down manually.
-        </p>
-
-        <!-- "Right now" card -->
-        <div class="now-card" aria-label="What I'm focused on right now">
-          <div class="now-label">Right now</div>
-          <div class="now-body">
-            Prototyping an accessibility-focused gift guide app and tightening up my portfolio case studies.
-          </div>
-        </div>
-
-        <!-- Skills carousel -->
-        <div class="skills-carousel" aria-label="Key skills">
-          <div class="skills-track">
-            <span class="skill-pill">HCI &amp; UX</span>
-            <span class="skill-pill">Android (Kotlin)</span>
-            <span class="skill-pill">UI Design</span>
-            <span class="skill-pill">Prototyping</span>
-            <span class="skill-pill">Accessibility</span>
-            <span class="skill-pill">Web Development</span>
-            <span class="skill-pill">Data Structures &amp; Algorithms</span>
-
-            <!-- duplicate for seamless loop -->
-            <span class="skill-pill">HCI &amp; UX</span>
-            <span class="skill-pill">Android (Kotlin)</span>
-            <span class="skill-pill">UI Design</span>
-            <span class="skill-pill">Prototyping</span>
-            <span class="skill-pill">Accessibility</span>
-            <span class="skill-pill">Web Development</span>
-            <span class="skill-pill">Data Structures &amp; Algorithms</span>
-          </div>
-        </div>
-
-        <!-- Socials -->
-        <div class="social-inline">
-          <span class="social-label">Elsewhere</span>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-          <span aria-hidden="true">·</span>
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </main>
 
