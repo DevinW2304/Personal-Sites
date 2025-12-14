@@ -33,7 +33,7 @@
     <h2>About Me</h2>
     <div class="section-underline"></div>
     <p>
-      I'm a senior studying Computer Science with a concentration in Human-Computer Interaction at UNC Charlotte. 
+      I'm a senior studying Computer Science with a concentration in Human-Computer Interaction at UNC Charlotte.
       I enjoy working across the stack—from Android and web apps to small ML experiments—but I care most about how
       the experience feels for the person using it.
     </p>
@@ -51,19 +51,18 @@
 
     <div class="featured-layout">
 
-      <!-- 3D card -->
+      <!-- Featured card -->
       <div class="card-3d-wrapper">
         <article class="card-3d" id="feature3DCard">
           <div class="card-3d-inner">
             <header class="card-3d-header">
               <p class="card-label">Android · UX</p>
-              <h3>🎁 Gift Guide</h3>
+              <h3 class="feature-title">Gift Guide</h3>
             </header>
 
-            <!-- Summary content inside the card -->
             <div class="card-3d-summary">
               <p class="card-3d-tagline">
-                A calm little app that turns "I have no idea what to get them" into a short, guided flow and a handful of concrete gift ideas.
+                A calm little app that turns “I have no idea what to get them” into a short guided flow and a few solid gift options.
               </p>
               <p class="card-3d-pills">
                 <span class="stamp">Recipient intake</span>
@@ -72,13 +71,16 @@
               </p>
             </div>
 
+            <!-- Gradient cover (no icon/image) -->
             <div class="card-3d-image">
               <a
                 href="projects/giftguide.html"
                 class="card-3d-image-link"
                 aria-label="View the Gift Guide case study"
               >
-                <img src="img/giftguidelogo.png" alt="Gift Guide App icon">
+                <div class="card-3d-cover card-3d-cover--gift">
+                  <span>Gift Guide</span>
+                </div>
               </a>
             </div>
 
@@ -111,7 +113,7 @@
 
         <div class="featured-links" style="margin-top: 1.5rem;">
           <a href="projects/giftguide.html" class="button">View Case Study</a>
-          <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost">
+          <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost" rel="noreferrer">
             Repository
           </a>
         </div>
@@ -125,13 +127,12 @@
     <div class="section-underline"></div>
     <p class="section-tagline">Selected Work · Interfaces &amp; Experiments</p>
 
-    <!-- Horizontal card stack -->
     <div class="card-stack" aria-label="Featured projects">
 
-      <!-- Project: Plant AI -->
+      <!-- Plant AI -->
       <article class="project-card">
-        <div class="project-card-media">
-          <img src="img/plantai-mockup.png" alt="Plant AI mockups" loading="lazy">
+        <div class="project-card-media gradient-cover gradient-plant" aria-hidden="true">
+          <span class="cover-label">Plant AI</span>
         </div>
         <div class="project-card-body">
           <p class="project-card-label">Android · Product Thinking</p>
@@ -146,7 +147,7 @@
             readable schedules, and lightweight intelligence.
           </p>
           <p class="project-card-meta">
-            <a href="https://github.com/DevinWashington/PlantAi2.0" target="_blank" class="button">
+            <a href="https://github.com/DevinWashington/PlantAi2.0" target="_blank" class="button" rel="noreferrer">
               View Repository
             </a>
           </p>
@@ -155,8 +156,8 @@
 
       <!-- UX Dashboard -->
       <article class="project-card">
-        <div class="project-card-media">
-          <img src="img/project-ux-dashboard.png" alt="UX Dashboard mockups" loading="lazy">
+        <div class="project-card-media gradient-cover gradient-dashboard" aria-hidden="true">
+          <span class="cover-label">UX Analytics</span>
         </div>
         <div class="project-card-body">
           <p class="project-card-label">Web · Analytics</p>
@@ -173,8 +174,8 @@
 
       <!-- ML Playground -->
       <article class="project-card">
-        <div class="project-card-media">
-          <img src="img/project-ml.png" alt="ML Playground UI" loading="lazy">
+        <div class="project-card-media gradient-cover gradient-ml" aria-hidden="true">
+          <span class="cover-label">ML Playground</span>
         </div>
         <div class="project-card-body">
           <p class="project-card-label">ML · Sandbox</p>
@@ -191,8 +192,8 @@
 
       <!-- Accessibility Lab -->
       <article class="project-card">
-        <div class="project-card-media">
-          <img src="img/project-accessibility.png" alt="Accessibility Lab UI" loading="lazy">
+        <div class="project-card-media gradient-cover gradient-a11y" aria-hidden="true">
+          <span class="cover-label">Accessibility Lab</span>
         </div>
         <div class="project-card-body">
           <p class="project-card-label">Accessibility · HCI</p>
@@ -209,8 +210,8 @@
 
       <!-- Whole Foods Flow -->
       <article class="project-card">
-        <div class="project-card-media">
-          <img src="img/project-wholefoods.png" alt="Whole Foods mobile prototype" loading="lazy">
+        <div class="project-card-media gradient-cover gradient-wholefoods" aria-hidden="true">
+          <span class="cover-label">Whole Foods Flow</span>
         </div>
         <div class="project-card-body">
           <p class="project-card-label">UX · Mobile Web</p>
@@ -230,6 +231,7 @@
           </p>
         </div>
       </article>
+
     </div>
   </section>
 
