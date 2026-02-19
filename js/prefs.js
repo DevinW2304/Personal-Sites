@@ -45,3 +45,14 @@ window.initShared = function initShared() {
     a.classList.toggle('active', here === path);
   });
 };
+(function () {
+  const storedTheme = localStorage.getItem("theme");
+
+  if (storedTheme) {
+    document.documentElement.setAttribute("data-theme", storedTheme);
+  } else {
+    // Default to dark if nothing saved
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+})();
+
