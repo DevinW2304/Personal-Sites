@@ -9,199 +9,258 @@
   <link rel="stylesheet" href="css/default.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+
   <script defer src="js/prefs.js"></script>
   <script defer src="js/includes.js"></script>
   <script defer src="js/motion.js"></script>
+  <script defer src="js/a11y-global.js"></script>
+
 </head>
-<body>
+
+<body class="preload">
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div data-include="partials/header.html"></div>
 
   <!-- HERO -->
-  <header class="hero">
+  <header class="hero hero--split">
     <div class="hero-inner">
-      <h1>Devin Washington</h1>
-      <p>CS @ UNC Charlotte · Android &amp; UX · Human-centered design</p>
-      <div class="hero-actions">
-        <a href="#featured-project" class="button">View My Work</a>
-        <a href="#contact" class="button button-ghost">Get In Touch</a>
+      <div class="hero-left" data-reveal="up">
+        <p class="hero-kicker">CS @ UNC Charlotte · Android & UX</p>
+        <h1>Devin Washington</h1>
+        <p class="hero-sub">
+          Human-centered software projects across mobile, web, and small ML experiments.
+          Looking for full-time roles as a <strong>2026 graduate</strong>.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#featured-project" class="button">View My Work</a>
+          <a href="#contact" class="button button-ghost">Get In Touch</a>
+        </div>
+
+        <div class="hero-meta" data-reveal="up" data-delay="120">
+          <span class="meta-chip"><i class="fa-solid fa-location-dot"></i> Charlotte, NC</span>
+          <span class="meta-chip"><i class="fa-solid fa-code"></i> Kotlin · Web · UX</span>
+          <span class="meta-chip"><i class="fa-solid fa-graduation-cap"></i> HCI Concentration</span>
+        </div>
       </div>
+
+      <aside class="hero-right" aria-label="Highlights" data-reveal="up" data-delay="180">
+        <div class="hero-card">
+          <p class="hero-card-label">Featured</p>
+          <p class="hero-card-title">Gift Guide</p>
+          <p class="hero-card-text">A calm guided flow → thoughtful gift ideas.</p>
+          <a class="hero-card-link" href="#featured-project">Jump to case study →</a>
+        </div>
+
+        <div class="hero-card hero-card--soft">
+          <p class="hero-card-label">Focus</p>
+          <p class="hero-card-title">Mobile UX</p>
+          <p class="hero-card-text">Clear hierarchy, accessible patterns, practical UI.</p>
+        </div>
+      </aside>
     </div>
   </header>
 
-  <!-- ABOUT -->
-  <section id="about" class="fade-in">
-    <h2>About Me</h2>
-    <div class="section-underline"></div>
-    <p>
-      I'm a senior studying Computer Science with a concentration in Human-Computer Interaction at UNC Charlotte.
-      I enjoy working across the stack—from Android and web apps to small ML experiments. I am looking for work as a 2026 graduate!
-    </p>
+  <main id="main">
 
-    <p class="pullquote">
-     I enjoy putting ideas together, creating new features that integrate seamlessly with existing systems.
-    </p>
-  </section>
+    <!-- ABOUT -->
+    <section id="about">
+      <header class="section-head" data-reveal="up">
+        <h2>About Me</h2>
+        <div class="section-underline"></div>
+      </header>
 
-  <!-- FEATURED PROJECT (Gift Guide) -->
-  <section id="featured-project" class="fade-in">
-    <h2>Featured Project</h2>
-    <div class="section-underline"></div>
-    <p class="section-tagline">Spotlight · Case Study</p>
+      <div class="two-col">
+        <div data-reveal="up">
+          <p>
+            I'm a senior studying Computer Science with a concentration in Human-Computer Interaction at UNC Charlotte.
+            I enjoy working across the stack—from Android and web apps to small ML experiments.
+            I’m looking for work as a 2026 graduate!
+          </p>
 
-    <div class="featured-layout">
+          <p class="pullquote">
+            I enjoy putting ideas together, creating new features that integrate seamlessly with existing systems.
+          </p>
+        </div>
 
-      <!-- Featured card -->
-      <div class="card-3d-wrapper">
-        <article class="card-3d" id="feature3DCard">
-          <div class="card-3d-inner">
-            <header class="card-3d-header">
-              <p class="card-label">Android · UX</p>
-              <h3 class="feature-title">Gift Guide</h3>
-            </header>
+        <div class="about-panel" data-reveal="up" data-delay="120">
+          <h3 class="about-panel-title">Quick snapshot</h3>
+          <ul class="about-list">
+            <li><span class="stamp">Android</span> Compose-first UI</li>
+            <li><span class="stamp">UX</span> flows, wireframes, testing</li>
+            <li><span class="stamp">Web</span> HTML/CSS/JS + APIs</li>
+            <li><span class="stamp">A11y</span> practical accessibility</li>
+          </ul>
 
-            <div class="card-3d-summary">
-              <p class="card-3d-tagline">
-                A calm little app that turns “I have no idea what to get them” into a short guided flow and a few solid gift options.
-              </p>
-              <p class="card-3d-pills">
-                <span class="stamp">Recipient intake</span>
-                <span class="stamp">Curated suggestions</span>
-                <span class="stamp">Saved lists</span>
-              </p>
+          <div style="margin-top: 1rem;">
+            <a href="#projects" class="button button-ghost">Browse projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECT -->
+    <section id="featured-project">
+      <header class="section-head" data-reveal="up">
+        <h2>Featured Project</h2>
+        <div class="section-underline"></div>
+        <p class="section-tagline">Spotlight · Case Study</p>
+      </header>
+
+      <div class="featured-layout">
+        <!-- Featured card -->
+        <div class="card-3d-wrapper" data-reveal="up">
+          <article class="card-3d" id="feature3DCard">
+            <div class="card-3d-inner">
+              <header class="card-3d-header">
+                <p class="card-label">Android · UX</p>
+                <h3 class="feature-title">Gift Guide</h3>
+              </header>
+
+              <div class="card-3d-summary">
+                <p class="card-3d-tagline">
+                  A calm little app that turns “I have no idea what to get them” into a short guided flow and a few solid gift options.
+                </p>
+                <p class="card-3d-pills">
+                  <span class="stamp">Recipient intake</span>
+                  <span class="stamp">Curated suggestions</span>
+                  <span class="stamp">Saved lists</span>
+                </p>
+              </div>
+
+              <div class="card-3d-image">
+                <a href="projects/giftguide.html" class="card-3d-image-link" aria-label="View the Gift Guide case study">
+                  <div class="card-3d-cover card-3d-cover--gift">
+                    <span>Gift Guide</span>
+                  </div>
+                </a>
+              </div>
+
+              <footer class="card-3d-footer">
+                <span>Personalized recommendations · Guided input · Saved lists</span>
+                <span class="card-3d-chip">Case Study</span>
+              </footer>
             </div>
+          </article>
+        </div>
 
-          
-            <div class="card-3d-image">
-              <a
-                href="projects/giftguide.html"
-                class="card-3d-image-link"
-                aria-label="View the Gift Guide case study"
-              >
-                <div class="card-3d-cover card-3d-cover--gift">
-                  <span>Gift Guide</span>
-                </div>
+        <!-- Text content -->
+        <div class="featured-text" data-reveal="up" data-delay="120">
+          <p>
+            Gift Guide is a Kotlin/Jetpack Compose Android app that helps people find thoughtful gift ideas—
+            not generic lists. Users describe who they're shopping for, including interests, occasion, and budget,
+            and the app turns that into personalized suggestions that actually feel relevant.
+          </p>
+          <p>
+            The focus is on keeping the experience calm and human: conversational inputs, clear hierarchy,
+            and saved lists that support real-world planning instead of endless scrolling.
+          </p>
+
+          <p>
+            <span class="stamp">Android</span>
+            <span class="stamp">Jetpack Compose</span>
+            <span class="stamp">Interaction Design</span>
+            <span class="stamp">HCI</span>
+          </p>
+
+          <div class="featured-links" style="margin-top: 1.5rem;">
+            <a href="projects/giftguide.html" class="button">View Case Study</a>
+            <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost" rel="noreferrer">
+              Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (UPDATED: 2-COLUMN GRID) -->
+    <section id="projects">
+      <header class="section-head" data-reveal="up">
+        <h2>Projects</h2>
+        <div class="section-underline"></div>
+        <p class="section-tagline">Selected Work · Interfaces &amp; Experiments</p>
+      </header>
+
+      <div class="projects-grid" aria-label="Featured projects">
+        <!-- Accessibility Lab -->
+        <article class="project-card" data-reveal="up">
+          <div class="project-card-media gradient-cover gradient-a11y" aria-hidden="true">
+            <span class="cover-label">Accessibility Lab</span>
+          </div>
+          <div class="project-card-body">
+            <p class="project-card-label">Accessibility · HCI</p>
+            <h3>Accessibility Lab</h3>
+            <p class="project-card-meta">
+              <span class="stamp">A11y</span>
+              <span class="stamp">Education</span>
+            </p>
+            <p class="project-card-meta">
+              An interactive lab that simulates color vision differences, blur, and motion settings to help developers design more empathetically.
+            </p>
+          </div>
+        </article>
+
+        <!-- Whole Foods Flow -->
+        <article class="project-card" data-reveal="up" data-delay="80">
+          <div class="project-card-media gradient-cover gradient-wholefoods" aria-hidden="true">
+            <span class="cover-label">Whole Foods Flow</span>
+          </div>
+          <div class="project-card-body">
+            <p class="project-card-label">UX · Mobile Web</p>
+            <h3>Whole Foods Mobile Experience</h3>
+            <p class="project-card-meta">
+              <span class="stamp">UX Case Study</span>
+              <span class="stamp">HTML/JS</span>
+              <span class="stamp">Data Modeling</span>
+            </p>
+            <p class="project-card-meta">
+              A mobile-first grocery shopping flow with browsing, cart management, and a JSON-backed DataAPI.
+            </p>
+            <p class="project-card-meta" style="margin-top: 1rem;">
+              <a href="projects/wholefoods-case-study.html" class="button">
+                View Case Study &amp; Demo
               </a>
-            </div>
-
-            <footer class="card-3d-footer">
-              <span>Personalized recommendations · Guided input · Saved lists</span>
-              <span class="card-3d-chip">Case Study</span>
-            </footer>
+            </p>
           </div>
         </article>
       </div>
+    </section>
 
-      <!-- Text content -->
-      <div class="featured-text">
-        <p>
-          Gift Guide is a Kotlin/Jetpack Compose Android app that helps people find thoughtful gift ideas—
-          not generic lists. Users describe who they're shopping for, including interests, occasion, and budget,
-          and the app turns that into personalized suggestions that actually feel relevant.
-        </p>
-        <p>
-          The focus is on keeping the experience calm and human: conversational inputs, clear hierarchy,
-          and saved lists that support real-world planning instead of endless scrolling.
-        </p>
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <header class="section-head" data-reveal="up">
+        <h2>Certifications</h2>
+        <div class="section-underline"></div>
+      </header>
 
-        <p>
-          <span class="stamp">Android</span>
-          <span class="stamp">Jetpack Compose</span>
-          <span class="stamp">Interaction Design</span>
-          <span class="stamp">HCI</span>
-        </p>
-
-        <div class="featured-links" style="margin-top: 1.5rem;">
-          <a href="projects/giftguide.html" class="button">View Case Study</a>
-          <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost" rel="noreferrer">
-            Repository
-          </a>
+      <div class="certifications-grid" data-reveal="up" data-delay="80">
+        <div class="cert-card">
+          <h3>Google UX Design</h3>
+          <p>Credential ID: 12345</p>
+          <a href="#" class="button">View Certificate</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="fade-in">
-    <h2>Projects</h2>
-    <div class="section-underline"></div>
-    <p class="section-tagline">Selected Work · Interfaces &amp; Experiments</p>
+    <!-- CONTACT -->
+    <section id="contact">
+      <header class="section-head" data-reveal="up">
+        <h2>Contact</h2>
+        <div class="section-underline"></div>
+      </header>
 
-    <div class="card-stack" aria-label="Featured projects">
+      <p data-reveal="up" data-delay="80">
+        If you'd like to chat about a project, internship, or collaboration, feel free to reach out.
+      </p>
 
-      
-
-      
-
-     
-      <!-- Accessibility Lab -->
-      <article class="project-card">
-        <div class="project-card-media gradient-cover gradient-a11y" aria-hidden="true">
-          <span class="cover-label">Accessibility Lab</span>
-        </div>
-        <div class="project-card-body">
-          <p class="project-card-label">Accessibility · HCI</p>
-          <h3>Accessibility Lab</h3>
-          <p class="project-card-meta">
-            <span class="stamp">A11y</span>
-            <span class="stamp">Education</span>
-          </p>
-          <p class="project-card-meta">
-            An interactive lab that simulates color vision differences, blur, and motion settings to help developers design more empathetically.
-          </p>
-        </div>
-      </article>
-
-      <!-- Whole Foods Flow -->
-      <article class="project-card">
-        <div class="project-card-media gradient-cover gradient-wholefoods" aria-hidden="true">
-          <span class="cover-label">Whole Foods Flow</span>
-        </div>
-        <div class="project-card-body">
-          <p class="project-card-label">UX · Mobile Web</p>
-          <h3>Whole Foods Mobile Experience</h3>
-          <p class="project-card-meta">
-            <span class="stamp">UX Case Study</span>
-            <span class="stamp">HTML/JS</span>
-            <span class="stamp">Data Modeling</span>
-          </p>
-          <p class="project-card-meta">
-            A mobile-first grocery shopping flow with browsing, cart management, and a JSON-backed DataAPI.
-          </p>
-          <p class="project-card-meta" style="margin-top: 1rem;">
-            <a href="projects/wholefoods-case-study.html" class="button">
-              View Case Study &amp; Demo
-            </a>
-          </p>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="certifications" class="fade-in">
-    <h2>Certifications</h2>
-    <div class="section-underline"></div>
-    <div class="certifications-grid">
-      <div class="cert-card">
-        <h3>Google UX Design</h3>
-        <p>Credential ID: 12345</p>
-        <a href="#" class="button">View Certificate</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <div class="section-underline"></div>
-    <p>If you'd like to chat about a project, internship, or collaboration, feel free to reach out.</p>
-    <ul class="socials">
-      <li><a href="https://www.linkedin.com/in/devin-washington-8a73111b8/"  target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-      <li><a href="https://github.com/DevinW2304" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-      <li><a href="mailto:devin.washington.eto@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
-    </ul>
-  </section>
+      <ul class="socials" data-reveal="up" data-delay="120">
+        <li><a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="https://github.com/DevinW2304" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+        <li><a href="mailto:devin.washington.eto@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+      </ul>
+    </section>
+  </main>
 
   <div data-include="partials/footer.html"></div>
 </body>

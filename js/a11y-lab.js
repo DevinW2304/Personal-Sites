@@ -1,58 +1,86 @@
 (function () {
-  const form = document.getElementById('a11y-form');
+  const form = document.getElementById("a11y-form");
   if (!form) return;
 
-  const status = document.querySelector('.sr-status');
-  const RESET_BTN = document.getElementById('a11y-reset');
-  const KEY = 'a11y-settings-v1';
-  const body = document.body;
+  const status = document.querySelector(".sr-status");
+  const RESET_BTN = document.getElementById("a11y-reset");
+  const KEY = "a11y-settings-v1";
 
-  function apply(settings, announce = false) {
-    body.dataset.cvd = settings.cvd || 'none';
-    body.dataset.blur = settings.blur ? 'on' : 'off';
-    body.dataset.largerText = settings.largerText ? 'on' : 'off';
-    body.dataset.highContrast = settings.highContrast ? 'on' : 'off';
-    body.dataset.reducedMotion = settings.reducedMotion ? 'on' : 'off';
-    body.dataset.dyslexiaFont = settings.dyslexiaFont ? 'on' : 'off';
-    localStorage.setItem(KEY, JSON.stringify(settings));
-    if (announce && status) {
-      status.textContent = 'Accessibility settings updated.';
-      setTimeout(() => (status.textContent = ''), 1200);
-    }
+  function announce(msg) {
+    if (!status) return;
+    status.textContent = msg;
+    setTimeout(() => (status.textContent = ""), 1200);
   }
 
   function readForm() {
     const fd = new FormData(form);
     return {
-      cvd: (fd.get('cvd') || 'none'),
-      blur: !!fd.get('blur'),
-      largerText: !!fd.get('largerText'),
-      highContrast: !!fd.get('highContrast'),
-      reducedMotion: !!fd.get('reducedMotion'),
-      dyslexiaFont: !!fd.get('dyslexiaFont'),
+      cvd: fd.get("cvd") || "none",
+      blur: !!fd.get("blur"),
+      largerText: !!fd.get("largerText"),
+      highContrast: !!fd.get("highContrast"),
+      reducedMotion: !!fd.get("reducedMotion"),
+      dyslexiaFont: !!fd.get("dyslexiaFont"),
     };
   }
 
   function load() {
-    try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch { return null; }
+    try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch { return null; }
+  }
+
+  function apply(settings, shouldAnnounce = false) {
+    // ✅ Save + apply globally
+    localStorage.setItem(KEY, JSON.stringify(settings));
+
+    // Prefer global applier if present
+    if (typeof window.__applyA11y === "function") {
+      window.__applyA11y(settings);
+    } else {
+      // fallback
+      document.body.dataset.cvd = settings.cvd || "none";
+      document.body.dataset.blur = settings.blur ? "on" : "off";
+      document.body.dataset.largerText = settings.largerText ? "on" : "off";
+      document.body.dataset.highContrast = settings.highContrast ? "on" : "off";
+      document.body.dataset.reducedMotion = settings.reducedMotion ? "on" : "off";
+      document.body.dataset.dyslexiaFont = settings.dyslexiaFont ? "on" : "off";
+    }
+
+    if (shouldAnnounce) announce("Accessibility settings updated.");
   }
 
   // init from saved
   const saved = load();
   if (saved) {
-    form.querySelectorAll('input[name="cvd"]').forEach(r => r.checked = (r.value === saved.cvd));
-    form.querySelector('input[name="blur"]').checked = !!saved.blur;
-    form.querySelector('input[name="largerText"]').checked = !!saved.largerText;
-    form.querySelector('input[name="highContrast"]').checked = !!saved.highContrast;
-    form.querySelector('input[name="reducedMotion"]').checked = !!saved.reducedMotion;
-    form.querySelector('input[name="dyslexiaFont"]').checked = !!saved.dyslexiaFont;
+    form.querySelectorAll('input[name="cvd"]').forEach((r) => {
+      r.checked = r.value === (saved.cvd || "none");
+    });
+
+    const setChecked = (name, val) => {
+      const el = form.querySelector(`input[name="${name}"]`);
+      if (el) el.checked = !!val;
+    };
+
+    setChecked("blur", saved.blur);
+    setChecked("largerText", saved.largerText);
+    setChecked("highContrast", saved.highContrast);
+    setChecked("reducedMotion", saved.reducedMotion);
+    setChecked("dyslexiaFont", saved.dyslexiaFont);
+
     apply(saved);
+  } else {
+    // Ensure defaults applied
+    apply({ cvd: "none", blur: false, largerText: false, highContrast: false, reducedMotion: false, dyslexiaFont: false });
   }
 
-  form.addEventListener('change', () => apply(readForm(), true));
-  RESET_BTN.addEventListener('click', () => {
-    form.reset();
-    form.querySelector('input[name="cvd"][value="none"]').checked = true;
-    apply({ cvd:'none', blur:false, largerText:false, highContrast:false, reducedMotion:false, dyslexiaFont:false }, true);
-  });
+  form.addEventListener("change", () => apply(readForm(), true));
+
+  if (RESET_BTN) {
+    RESET_BTN.addEventListener("click", () => {
+      form.reset();
+      const none = form.querySelector('input[name="cvd"][value="none"]');
+      if (none) none.checked = true;
+      const defaults = { cvd: "none", blur: false, largerText: false, highContrast: false, reducedMotion: false, dyslexiaFont: false };
+      apply(defaults, true);
+    });
+  }
 })();
