@@ -14,7 +14,6 @@
   <script defer src="js/includes.js"></script>
   <script defer src="js/motion.js"></script>
   <script defer src="js/a11y-global.js"></script>
-
 </head>
 
 <body class="preload">
@@ -48,15 +47,15 @@
       <aside class="hero-right" aria-label="Highlights" data-reveal="up" data-delay="180">
         <div class="hero-card">
           <p class="hero-card-label">Featured</p>
-          <p class="hero-card-title">Gift Guide</p>
-          <p class="hero-card-text">A calm guided flow → thoughtful gift ideas.</p>
+          <p class="hero-card-title">Klipper Kings</p>
+          <p class="hero-card-text">Real client website → barber selection + booking-focused UX.</p>
           <a class="hero-card-link" href="#featured-project">Jump to case study →</a>
         </div>
 
         <div class="hero-card hero-card--soft">
           <p class="hero-card-label">Focus</p>
-          <p class="hero-card-title">Mobile UX</p>
-          <p class="hero-card-text">Clear hierarchy, accessible patterns, practical UI.</p>
+          <p class="hero-card-title">Product UI</p>
+          <p class="hero-card-text">Clear hierarchy, responsive systems, accessibility-first patterns.</p>
         </div>
       </aside>
     </div>
@@ -93,7 +92,7 @@
             <li><span class="stamp">A11y</span> practical accessibility</li>
           </ul>
 
-          <div style="margin-top: 1rem;">
+          <div class="hero-actions" style="margin-top: 1rem;">
             <a href="#projects" class="button button-ghost">Browse projects</a>
           </div>
         </div>
@@ -105,7 +104,7 @@
       <header class="section-head" data-reveal="up">
         <h2>Featured Project</h2>
         <div class="section-underline"></div>
-        <p class="section-tagline">Spotlight · Case Study</p>
+        <p class="section-tagline">Spotlight · Real Client Build</p>
       </header>
 
       <div class="featured-layout">
@@ -114,32 +113,42 @@
           <article class="card-3d" id="feature3DCard">
             <div class="card-3d-inner">
               <header class="card-3d-header">
-                <p class="card-label">Android · UX</p>
-                <h3 class="feature-title">Gift Guide</h3>
+                <p class="card-label">Client Work · Web · UX</p>
+                <h3 class="feature-title">Klipper Kings Barbershop Website</h3>
               </header>
 
               <div class="card-3d-summary">
                 <p class="card-3d-tagline">
-                  A calm little app that turns “I have no idea what to get them” into a short guided flow and a few solid gift options.
+                  A modern, booking-focused website for a Charlotte barbershop—built around choosing the right barber fast.
                 </p>
                 <p class="card-3d-pills">
-                  <span class="stamp">Recipient intake</span>
-                  <span class="stamp">Curated suggestions</span>
-                  <span class="stamp">Saved lists</span>
+                  <span class="stamp">Barber profiles</span>
+                  <span class="stamp">Mobile-first UI</span>
+                  <span class="stamp">Booking flow</span>
                 </p>
               </div>
 
               <div class="card-3d-image">
-                <a href="projects/giftguide.html" class="card-3d-image-link" aria-label="View the Gift Guide case study">
-                  <div class="card-3d-cover card-3d-cover--gift">
-                    <span>Gift Guide</span>
-                  </div>
+                <a
+                  href="https://klipper-test-site-01.vercel.app/"
+                  class="card-3d-image-link"
+                  aria-label="View the Klipper Kings project page"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="assets/klipper-preview.png"
+                    alt="Klipper Kings website preview"
+                    class="card-3d-preview"
+                    loading="lazy"
+                  />
+                  <span class="card-3d-preview-label">Klipper Kings</span>
                 </a>
               </div>
 
               <footer class="card-3d-footer">
-                <span>Personalized recommendations · Guided input · Saved lists</span>
-                <span class="card-3d-chip">Case Study</span>
+                <span>Client delivery · Responsive layout · Conversion-focused CTA</span>
+                <span class="card-3d-chip">Client Project</span>
               </footer>
             </div>
           </article>
@@ -148,33 +157,47 @@
         <!-- Text content -->
         <div class="featured-text" data-reveal="up" data-delay="120">
           <p>
-            Gift Guide is a Kotlin/Jetpack Compose Android app that helps people find thoughtful gift ideas—
-            not generic lists. Users describe who they're shopping for, including interests, occasion, and budget,
-            and the app turns that into personalized suggestions that actually feel relevant.
+            Klipper Kings is a real-world client website I designed and built to help customers quickly
+            understand the shop, view barber work, and reach booking without confusion.
+            The UX centers on a clear primary action—<strong>Choose a barber</strong>—then supports the decision with
+            galleries, service context, and location details.
           </p>
+
+          <!-- NEW: clean “case study meta” block -->
+          <div class="about-panel" data-reveal="up" data-delay="140">
+            <h3 class="about-panel-title">What I did</h3>
+            <ul class="about-list">
+              <li><span class="stamp">Role</span> Designer + Developer</li>
+              <li><span class="stamp">Goal</span> Reduce booking friction + clarify navigation</li>
+              <li><span class="stamp">Work</span> Responsive UI, barber pages, booking CTA cleanup</li>
+              <li><span class="stamp">Focus</span> Mobile hierarchy, tap targets, accessibility contrast</li>
+            </ul>
+          </div>
+
           <p>
-            The focus is on keeping the experience calm and human: conversational inputs, clear hierarchy,
-            and saved lists that support real-world planning instead of endless scrolling.
+            I iterated on layout structure to reduce clutter and prevent mobile overflow issues.
+            The final experience prioritizes scannability: clear sections, fewer competing CTAs,
+            and a straightforward path from landing → barber → book.
           </p>
 
           <p>
-            <span class="stamp">Android</span>
-            <span class="stamp">Jetpack Compose</span>
-            <span class="stamp">Interaction Design</span>
-            <span class="stamp">HCI</span>
+            <span class="stamp">Next.js</span>
+            <span class="stamp">TypeScript</span>
+            <span class="stamp">Responsive UI</span>
+            <span class="stamp">Accessibility</span>
           </p>
 
-          <div class="featured-links" style="margin-top: 1.5rem;">
-            <a href="projects/giftguide.html" class="button">View Case Study</a>
-            <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost" rel="noreferrer">
-              Repository
+          <div class="hero-actions">
+            <a href="https://klipper-test-site-01.vercel.app/" class="button" target="_blank" rel="noreferrer">
+              View Live Project
             </a>
+            <a href="#projects" class="button button-ghost">More projects</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS (UPDATED: 2-COLUMN GRID) -->
+    <!-- PROJECTS -->
     <section id="projects">
       <header class="section-head" data-reveal="up">
         <h2>Projects</h2>
@@ -183,6 +206,54 @@
       </header>
 
       <div class="projects-grid" aria-label="Featured projects">
+        <!-- Klipper Kings -->
+        <article class="project-card" data-reveal="up">
+          <div class="project-card-media gradient-cover gradient-klipper" aria-hidden="true">
+            <span class="cover-label">Klipper Kings</span>
+          </div>
+          <div class="project-card-body">
+            <p class="project-card-label">Client Work · Web</p>
+            <h3>Klipper Kings Barbershop Website</h3>
+            <p class="project-card-meta">
+              <span class="stamp">Next.js</span>
+              <span class="stamp">UI/UX</span>
+              <span class="stamp">Mobile-first</span>
+              <span class="stamp">A11y</span>
+            </p>
+            <p class="project-card-meta">
+              Real client build focused on a cleaner booking flow: choose a barber, preview work, then book.
+            </p>
+            <p class="project-card-meta">
+              <a href="https://klipper-test-site-01.vercel.app/" class="button" target="_blank" rel="noreferrer">View Live</a>
+            </p>
+          </div>
+        </article>
+
+        <!-- Gift Guide -->
+        <article class="project-card" data-reveal="up" data-delay="80">
+          <div class="project-card-media gradient-cover gradient-gift" aria-hidden="true">
+            <span class="cover-label">Gift Guide</span>
+          </div>
+          <div class="project-card-body">
+            <p class="project-card-label">Android · UX</p>
+            <h3>Gift Guide</h3>
+            <p class="project-card-meta">
+              <span class="stamp">Jetpack Compose</span>
+              <span class="stamp">Interaction Design</span>
+              <span class="stamp">HCI</span>
+            </p>
+            <p class="project-card-meta">
+              A calm guided flow that turns “I have no idea what to get them” into a few relevant gift options.
+            </p>
+            <p class="project-card-meta">
+              <a href="projects/giftguide.html" class="button">View Case Study</a>
+              <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost" rel="noreferrer">
+                Repository
+              </a>
+            </p>
+          </div>
+        </article>
+
         <!-- Accessibility Lab -->
         <article class="project-card" data-reveal="up">
           <div class="project-card-media gradient-cover gradient-a11y" aria-hidden="true">
@@ -217,7 +288,7 @@
             <p class="project-card-meta">
               A mobile-first grocery shopping flow with browsing, cart management, and a JSON-backed DataAPI.
             </p>
-            <p class="project-card-meta" style="margin-top: 1rem;">
+            <p class="project-card-meta">
               <a href="projects/wholefoods-case-study.html" class="button">
                 View Case Study &amp; Demo
               </a>
@@ -227,18 +298,31 @@
       </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
+    <!-- CERTIFICATIONS (polished so it doesn’t feel empty) -->
     <section id="certifications">
       <header class="section-head" data-reveal="up">
         <h2>Certifications</h2>
         <div class="section-underline"></div>
+        <p class="section-tagline">Credentials · Learning</p>
       </header>
 
       <div class="certifications-grid" data-reveal="up" data-delay="80">
         <div class="cert-card">
           <h3>Google UX Design</h3>
-          <p>Credential ID: 12345</p>
-          <a href="#" class="button">View Certificate</a>
+          <p style="margin-top:.25rem; opacity:.85;">Coursera · Credential</p>
+          <p style="margin:.75rem 0 1rem; opacity:.92;">
+            End-to-end UX process: research → wireframes → prototyping → testing.
+          </p>
+          <a href="#" class="button button-ghost">Add certificate link</a>
+        </div>
+
+        <div class="cert-card">
+          <h3>In Progress</h3>
+          <p style="margin-top:.25rem; opacity:.85;">More coming soon</p>
+          <p style="margin:.75rem 0 1rem; opacity:.92;">
+            I’m actively adding new credentials—this section stays updated as I complete them.
+          </p>
+          <a href="#contact" class="button">Ask for details</a>
         </div>
       </div>
     </section>
@@ -255,8 +339,8 @@
       </p>
 
       <ul class="socials" data-reveal="up" data-delay="120">
-        <li><a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="https://github.com/DevinW2304" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="https://github.com/DevinW2304" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
         <li><a href="mailto:devin.washington.eto@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
       </ul>
     </section>
