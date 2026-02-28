@@ -4,11 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Devin Washington | Portfolio</title>
-  <meta name="description" content="CS @ UNC Charlotte • Android & UX • Human-centered software projects." />
+  <meta
+    name="description"
+    content="CS @ UNC Charlotte • Android & UX • Human-centered software projects."
+  />
+
   <link rel="icon" href="img/favicon.ico" />
   <link rel="stylesheet" href="css/default.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+    crossorigin="anonymous"
+  ></script>
 
   <script defer src="js/prefs.js"></script>
   <script defer src="js/includes.js"></script>
@@ -22,11 +33,12 @@
   <div data-include="partials/header.html"></div>
 
   <!-- HERO -->
-  <header class="hero hero--split">
+  <header class="hero hero--split" aria-label="Intro">
     <div class="hero-inner">
       <div class="hero-left" data-reveal="up">
         <p class="hero-kicker">CS @ UNC Charlotte · Android & UX</p>
         <h1>Devin Washington</h1>
+
         <p class="hero-sub">
           Human-centered software projects across mobile, web, and small ML experiments.
           Looking for full-time roles as a <strong>2026 graduate</strong>.
@@ -37,10 +49,19 @@
           <a href="#contact" class="button button-ghost">Get In Touch</a>
         </div>
 
-        <div class="hero-meta" data-reveal="up" data-delay="120">
-          <span class="meta-chip"><i class="fa-solid fa-location-dot"></i> Charlotte, NC</span>
-          <span class="meta-chip"><i class="fa-solid fa-code"></i> Kotlin · Web · UX</span>
-          <span class="meta-chip"><i class="fa-solid fa-graduation-cap"></i> HCI Concentration</span>
+        <div class="hero-meta" data-reveal="up" data-delay="120" aria-label="Quick details">
+          <span class="meta-chip">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            Charlotte, NC
+          </span>
+          <span class="meta-chip">
+            <i class="fa-solid fa-code" aria-hidden="true"></i>
+            Kotlin · Web · UX
+          </span>
+          <span class="meta-chip">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+            HCI Concentration
+          </span>
         </div>
       </div>
 
@@ -48,26 +69,29 @@
         <div class="hero-card">
           <p class="hero-card-label">Featured</p>
           <p class="hero-card-title">Klipper Kings</p>
-          <p class="hero-card-text">Real client website → barber selection + booking-focused UX.</p>
+          <p class="hero-card-text">
+            Real client website → barber selection + booking-focused UX.
+          </p>
           <a class="hero-card-link" href="#featured-project">Jump to case study →</a>
         </div>
 
         <div class="hero-card hero-card--soft">
           <p class="hero-card-label">Focus</p>
           <p class="hero-card-title">Product UI</p>
-          <p class="hero-card-text">Clear hierarchy, responsive systems, accessibility-first patterns.</p>
+          <p class="hero-card-text">
+            Clear hierarchy, responsive systems, accessibility-first patterns.
+          </p>
         </div>
       </aside>
     </div>
   </header>
 
   <main id="main">
-
     <!-- ABOUT -->
-    <section id="about">
+    <section id="about" aria-labelledby="about-title">
       <header class="section-head" data-reveal="up">
-        <h2>About Me</h2>
-        <div class="section-underline"></div>
+        <h2 id="about-title">About Me</h2>
+        <div class="section-underline" aria-hidden="true"></div>
       </header>
 
       <div class="two-col">
@@ -92,7 +116,7 @@
             <li><span class="stamp">A11y</span> practical accessibility</li>
           </ul>
 
-          <div class="hero-actions" style="margin-top: 1rem;">
+          <div class="hero-actions hero-actions--tight">
             <a href="#projects" class="button button-ghost">Browse projects</a>
           </div>
         </div>
@@ -100,17 +124,17 @@
     </section>
 
     <!-- FEATURED PROJECT -->
-    <section id="featured-project">
+    <section id="featured-project" aria-labelledby="featured-title">
       <header class="section-head" data-reveal="up">
-        <h2>Featured Project</h2>
-        <div class="section-underline"></div>
+        <h2 id="featured-title">Featured Project</h2>
+        <div class="section-underline" aria-hidden="true"></div>
         <p class="section-tagline">Spotlight · Real Client Build</p>
       </header>
 
       <div class="featured-layout">
         <!-- Featured card -->
         <div class="card-3d-wrapper" data-reveal="up">
-          <article class="card-3d" id="feature3DCard">
+          <article class="card-3d" id="feature3DCard" aria-label="Klipper Kings featured case study">
             <div class="card-3d-inner">
               <header class="card-3d-header">
                 <p class="card-label">Client Work · Web · UX</p>
@@ -121,26 +145,28 @@
                 <p class="card-3d-tagline">
                   A modern, booking-focused website for a Charlotte barbershop—built around choosing the right barber fast.
                 </p>
-                <p class="card-3d-pills">
+
+                <div class="card-3d-pills" aria-label="Key features">
                   <span class="stamp">Barber profiles</span>
                   <span class="stamp">Mobile-first UI</span>
                   <span class="stamp">Booking flow</span>
-                </p>
+                </div>
               </div>
 
               <div class="card-3d-image">
                 <a
                   href="https://klipper-test-site-01.vercel.app/"
                   class="card-3d-image-link"
-                  aria-label="View the Klipper Kings project page"
+                  aria-label="Open the live Klipper Kings project in a new tab"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   <img
                     src="assets/klipper-preview.png"
                     alt="Klipper Kings website preview"
                     class="card-3d-preview"
                     loading="lazy"
+                    decoding="async"
                   />
                   <span class="card-3d-preview-label">Klipper Kings</span>
                 </a>
@@ -163,7 +189,7 @@
             galleries, service context, and location details.
           </p>
 
-          <!--  “case study meta”  -->
+          <!-- Case study meta -->
           <div class="about-panel" data-reveal="up" data-delay="140">
             <h3 class="about-panel-title">What I did</h3>
             <ul class="about-list">
@@ -180,15 +206,20 @@
             and a straightforward path from landing → barber → book.
           </p>
 
-          <p>
+          <div class="pills" aria-label="Stack">
             <span class="stamp">Next.js</span>
             <span class="stamp">TypeScript</span>
             <span class="stamp">Responsive UI</span>
             <span class="stamp">Accessibility</span>
-          </p>
+          </div>
 
           <div class="hero-actions">
-            <a href="https://klipper-test-site-01.vercel.app/" class="button" target="_blank" rel="noreferrer">
+            <a
+              href="https://klipper-test-site-01.vercel.app/"
+              class="button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View Live Project
             </a>
             <a href="#projects" class="button button-ghost">More projects</a>
@@ -198,34 +229,45 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects">
+    <section id="projects" aria-labelledby="projects-title">
       <header class="section-head" data-reveal="up">
-        <h2>Projects</h2>
-        <div class="section-underline"></div>
+        <h2 id="projects-title">Projects</h2>
+        <div class="section-underline" aria-hidden="true"></div>
         <p class="section-tagline">Selected Work · Interfaces &amp; Experiments</p>
       </header>
 
-      <div class="projects-grid" aria-label="Featured projects">
+      <div class="projects-grid" aria-label="Project list">
         <!-- Klipper Kings -->
         <article class="project-card" data-reveal="up">
           <div class="project-card-media gradient-cover gradient-klipper" aria-hidden="true">
             <span class="cover-label">Klipper Kings</span>
           </div>
+
           <div class="project-card-body">
             <p class="project-card-label">Client Work · Web</p>
             <h3>Klipper Kings Barbershop Website</h3>
-            <p class="project-card-meta">
+
+            <div class="project-card-meta" aria-label="Tags">
               <span class="stamp">Next.js</span>
               <span class="stamp">UI/UX</span>
               <span class="stamp">Mobile-first</span>
               <span class="stamp">A11y</span>
-            </p>
+            </div>
+
             <p class="project-card-meta">
               Real client build focused on a cleaner booking flow: choose a barber, preview work, then book.
             </p>
-            <p class="project-card-meta">
-              <a href="https://klipper-test-site-01.vercel.app/" class="button" target="_blank" rel="noreferrer">View Live</a>
-            </p>
+
+            <div class="project-card-actions">
+              <a
+                href="https://klipper-test-site-01.vercel.app/"
+                class="button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Live
+              </a>
+            </div>
           </div>
         </article>
 
@@ -234,23 +276,32 @@
           <div class="project-card-media gradient-cover gradient-gift" aria-hidden="true">
             <span class="cover-label">Gift Guide</span>
           </div>
+
           <div class="project-card-body">
             <p class="project-card-label">Android · UX</p>
             <h3>Gift Guide</h3>
-            <p class="project-card-meta">
+
+            <div class="project-card-meta" aria-label="Tags">
               <span class="stamp">Jetpack Compose</span>
               <span class="stamp">Interaction Design</span>
               <span class="stamp">HCI</span>
-            </p>
+            </div>
+
             <p class="project-card-meta">
               A calm guided flow that turns “I have no idea what to get them” into a few relevant gift options.
             </p>
-            <p class="project-card-meta">
+
+            <div class="project-card-actions">
               <a href="projects/giftguide.html" class="button">View Case Study</a>
-              <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost" rel="noreferrer">
+              <a
+                href="https://github.com/DevinWashington/GiftGuide"
+                target="_blank"
+                class="button button-ghost"
+                rel="noopener noreferrer"
+              >
                 Repository
               </a>
-            </p>
+            </div>
           </div>
         </article>
 
@@ -259,13 +310,16 @@
           <div class="project-card-media gradient-cover gradient-a11y" aria-hidden="true">
             <span class="cover-label">Accessibility Lab</span>
           </div>
+
           <div class="project-card-body">
             <p class="project-card-label">Accessibility · HCI</p>
             <h3>Accessibility Lab</h3>
-            <p class="project-card-meta">
+
+            <div class="project-card-meta" aria-label="Tags">
               <span class="stamp">A11y</span>
               <span class="stamp">Education</span>
-            </p>
+            </div>
+
             <p class="project-card-meta">
               An interactive lab that simulates color vision differences, blur, and motion settings to help developers design more empathetically.
             </p>
@@ -277,42 +331,44 @@
           <div class="project-card-media gradient-cover gradient-wholefoods" aria-hidden="true">
             <span class="cover-label">Whole Foods Flow</span>
           </div>
+
           <div class="project-card-body">
             <p class="project-card-label">UX · Mobile Web</p>
             <h3>Whole Foods Mobile Experience</h3>
-            <p class="project-card-meta">
+
+            <div class="project-card-meta" aria-label="Tags">
               <span class="stamp">UX Case Study</span>
               <span class="stamp">HTML/JS</span>
               <span class="stamp">Data Modeling</span>
-            </p>
+            </div>
+
             <p class="project-card-meta">
               A mobile-first grocery shopping flow with browsing, cart management, and a JSON-backed DataAPI.
             </p>
-            <p class="project-card-meta">
+
+            <div class="project-card-actions">
               <a href="projects/wholefoods-case-study.html" class="button">
                 View Case Study &amp; Demo
               </a>
-            </p>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
     <!-- CERTIFICATIONS -->
-    <section id="certifications">
+    <section id="certifications" aria-labelledby="certs-title">
       <header class="section-head" data-reveal="up">
-        <h2>Certifications</h2>
-        <div class="section-underline"></div>
+        <h2 id="certs-title">Certifications</h2>
+        <div class="section-underline" aria-hidden="true"></div>
         <p class="section-tagline">Credentials · Learning</p>
       </header>
 
       <div class="certifications-grid" data-reveal="up" data-delay="80">
-       
-
         <div class="cert-card">
           <h3>In Progress</h3>
-          <p style="margin-top:.25rem; opacity:.85;">More coming soon</p>
-          <p style="margin:.75rem 0 1rem; opacity:.92;">
+          <p class="cert-note">More coming soon</p>
+          <p class="cert-body">
             I’m actively adding new credentials—this section stays updated as I complete them.
           </p>
           <a href="#contact" class="button">Ask for details</a>
@@ -321,20 +377,44 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
+    <section id="contact" aria-labelledby="contact-title">
       <header class="section-head" data-reveal="up">
-        <h2>Contact</h2>
-        <div class="section-underline"></div>
+        <h2 id="contact-title">Contact</h2>
+        <div class="section-underline" aria-hidden="true"></div>
       </header>
 
       <p data-reveal="up" data-delay="80">
         If you'd like to chat about a project, internship, or collaboration, feel free to reach out.
       </p>
 
-      <ul class="socials" data-reveal="up" data-delay="120">
-        <li><a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="https://github.com/DevinW2304" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-        <li><a href="mailto:devin.washington.eto@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+      <ul class="socials" data-reveal="up" data-delay="120" aria-label="Social links">
+        <li>
+          <a
+            href="https://www.linkedin.com/in/devin-washington-8a73111b8/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://github.com/DevinW2304"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="mailto:devin.washington.eto@example.com" aria-label="Email">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
+        </li>
       </ul>
     </section>
   </main>
