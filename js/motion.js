@@ -59,6 +59,8 @@
       return;
     }
 
+    document.body.classList.add("reveal-ready");
+
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -80,9 +82,11 @@
 })();
 
 // ---------- Navbar: mobile toggle (NO persistent highlight) ----------
-(function () {
+function bindNavbar() {
   const navbar = document.querySelector(".navbar");
   if (!navbar) return;
+  if (navbar.dataset.bound === "true") return;
+  navbar.dataset.bound = "true";
 
   const toggle = navbar.querySelector(".nav-toggle");
   const linksWrap = navbar.querySelector(".nav-links");
@@ -135,4 +139,12 @@
 
   // If focus gets stuck on a link (keyboard nav), don't leave it looking "selected"
   navbar.addEventListener("focusin", () => clearActiveStates());
-})();
+}
+
+bindNavbar();
+
+const previousInitShared = window.initShared;
+window.initShared = function initSharedWithNavbar() {
+  if (typeof previousInitShared === "function") previousInitShared();
+  bindNavbar();
+};
