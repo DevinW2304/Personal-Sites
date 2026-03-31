@@ -56,64 +56,6 @@ body::before {
   z-index: -1;
 }
 
-/* =========================
-   Accessibility effects (FIXED + composable)
-   ========================= */
-/* Compose effects with CSS variables so CVD + blur can stack */
-body{
-  --cvd-filter: none;
-  --blur-filter: none;
-  filter: var(--cvd-filter) var(--blur-filter);
-}
-
-/* Optional: keep some UI readable (matches your original intent) */
-.navbar, .modal, #accessibility-lab, main.container {
-  filter: none !important;
-}
-
-/* Color Vision Simulations */
-body[data-cvd="protanopia"] { --cvd-filter: saturate(0.6) sepia(0.6) hue-rotate(-15deg) contrast(1.05); }
-body[data-cvd="deuteranopia"] { --cvd-filter: saturate(0.6) sepia(0.55) hue-rotate(-10deg) contrast(1.05); }
-body[data-cvd="tritanopia"] { --cvd-filter: saturate(0.7) sepia(0.35) hue-rotate(170deg) contrast(1.05); }
-body[data-cvd="none"] { --cvd-filter: none; }
-
-/* Low Vision (blur) */
-body[data-blur="on"] { --blur-filter: blur(1.5px); }
-body[data-blur="off"] { --blur-filter: none; }
-
-/* Larger Text */
-body[data-largerText="on"] { font-size: 18px; line-height: 1.7; }
-
-/* High Contrast */
-body[data-highContrast="on"] {
-  --bg: #ffffff;
-  --text: #000000;
-  --card-bg: #ffffff;
-  --accent: #0000ff;
-  --border: rgba(0, 0, 0, 0.2);
-}
-[data-theme="dark"][data-highContrast="on"] {
-  --bg: #000000;
-  --text: #ffffff;
-  --card-bg: #000000;
-  --accent: #7da7ff;
-  --border: rgba(255, 255, 255, 0.2);
-}
-
-/* Reduced Motion */
-body[data-reducedMotion="on"] *,
-body[data-reducedMotion="on"] *::before,
-body[data-reducedMotion="on"] *::after {
-  animation: none !important;
-  transition: none !important;
-  scroll-behavior: auto !important;
-}
-
-/* Dyslexia font */
-body[data-dyslexiaFont="on"] {
-  font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
 /* Skip link */
 .skip-link{
   position:absolute;
@@ -621,6 +563,23 @@ section a:not(.button):hover::after { width: 100%; }
   border-color: rgba(244, 233, 221, 0.6);
 }
 
+.button.button-outline {
+  background: transparent;
+  color: var(--heading);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.button.button-outline::before {
+  display: none;
+}
+
+.button.button-outline:hover {
+  background: color-mix(in oklab, var(--subtle-accent) 70%, transparent);
+  color: var(--heading);
+  box-shadow: 0 4px 12px var(--card-shadow);
+}
+
 /* Stamp labels */
 .stamp {
   display: inline-block;
@@ -785,8 +744,6 @@ section a:not(.button):hover::after { width: 100%; }
   margin-bottom: .25rem;
 }
 
-/* Featured media: Gradient cover */
-
 .card-3d-image-link{
   position: relative;
 }
@@ -828,7 +785,6 @@ section a:not(.button):hover::after { width: 100%; }
   border-color: rgba(255,249,245,0.16);
 }
 
-/* Optional: subtle darkening for readability */
 .card-3d-image-link::after{
   content:"";
   position:absolute;
@@ -895,7 +851,6 @@ section a:not(.button):hover::after { width: 100%; }
 .card-3d-image-link:hover .card-3d-cover,
 .card-3d:hover .card-3d-cover{ transform: translateY(-2px) scale(1.01); }
 
-/* Existing gift cover */
 .card-3d-cover--gift{
   background: linear-gradient(135deg, #F3E2D5, #E6C8B2, #F8EFE8);
 }
@@ -903,7 +858,6 @@ section a:not(.button):hover::after { width: 100%; }
   background: linear-gradient(135deg, #3A251C, #2B1B14, #4B2F22);
 }
 
-/* ✅ NEW: Klipper Kings featured cover */
 .card-3d-cover--klipper{
   background: linear-gradient(135deg, #EAD8CA, #D7B49E, #F6EEE8);
 }
@@ -939,7 +893,7 @@ section a:not(.button):hover::after { width: 100%; }
   box-shadow: 0 2px 4px rgba(184, 101, 58, 0.3);
 }
 
-/* PROJECTS: UPDATED 2-COLUMN GRID */
+/* PROJECTS */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1000,7 +954,6 @@ section a:not(.button):hover::after { width: 100%; }
   position: relative;
 }
 
-/* Gradient placeholders */
 .project-card-media.gradient-cover{
   display: flex;
   align-items: flex-end;
@@ -1041,15 +994,12 @@ section a:not(.button):hover::after { width: 100%; }
   border-color: rgba(255,249,245,0.16);
 }
 
-/* Per-project gradients */
 .gradient-a11y{
   background: linear-gradient(135deg, #F2EFE6, #E3DEC8, #FAF8F2);
 }
 .gradient-wholefoods{
   background: linear-gradient(135deg, #E8EFEF, #CFE0E0, #F4FAFA);
 }
-
-/* ✅ NEW: Klipper Kings project gradient */
 .gradient-klipper{
   background: linear-gradient(135deg, #F1E3D7, #D9BCA7, #FFF4EC);
 }
@@ -1060,12 +1010,9 @@ section a:not(.button):hover::after { width: 100%; }
 [data-theme="dark"] .gradient-wholefoods{
   background: linear-gradient(135deg, #1E2E2E, #152222, #2B3F3F);
 }
-
 [data-theme="dark"] .gradient-gift{
   background: linear-gradient(135deg, #38241B, #281914, #493025);
 }
-
-/* ✅ NEW: Klipper Kings project gradient (dark) */
 [data-theme="dark"] .gradient-klipper{
   background: linear-gradient(135deg, #2B1B14, #1B120F, #3A261D);
 }
@@ -1257,14 +1204,12 @@ section {
   position: relative;
 }
 
-/* Add visible separator between sections */
 section + section {
   margin-top: 4rem;
   padding-top: 5rem;
   border-top: 1px solid var(--border);
 }
 
-/* Add centered accent dash above the border */
 section + section::before {
   content: "";
   position: absolute;
@@ -1293,5 +1238,3 @@ section + section::before {
     align-items: flex-start;
   }
 }
-
-

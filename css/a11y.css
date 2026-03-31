@@ -1,0 +1,324 @@
+/* =========================
+   Accessibility behavior
+   Keep this separate from site layout CSS
+   ========================= */
+
+/* Compose filters with valid identity functions */
+html,
+body {
+  --cvd-filter: saturate(1) sepia(0) hue-rotate(0deg) contrast(1);
+  --blur-filter: blur(0);
+}
+
+body {
+  filter: var(--cvd-filter) var(--blur-filter);
+}
+
+/* Exempt fixed UI chrome only */
+.navbar,
+.modal {
+  filter: none !important;
+}
+
+/* -------------------------
+   Color Vision Simulations
+   ------------------------- */
+html[data-cvd="protanopia"],
+body[data-cvd="protanopia"] {
+  --cvd-filter: saturate(0.6) sepia(0.6) hue-rotate(-15deg) contrast(1.05);
+}
+
+html[data-cvd="deuteranopia"],
+body[data-cvd="deuteranopia"] {
+  --cvd-filter: saturate(0.6) sepia(0.55) hue-rotate(-10deg) contrast(1.05);
+}
+
+html[data-cvd="tritanopia"],
+body[data-cvd="tritanopia"] {
+  --cvd-filter: saturate(0.7) sepia(0.35) hue-rotate(170deg) contrast(1.05);
+}
+
+html[data-cvd="none"],
+body[data-cvd="none"] {
+  --cvd-filter: saturate(1) sepia(0) hue-rotate(0deg) contrast(1);
+}
+
+/* -------------------------
+   Low Vision
+   ------------------------- */
+html[data-blur="on"],
+body[data-blur="on"] {
+  --blur-filter: blur(1.5px);
+}
+
+html[data-blur="off"],
+body[data-blur="off"] {
+  --blur-filter: blur(0);
+}
+
+/* -------------------------
+   Larger Text
+   ------------------------- */
+html[data-largerText="on"],
+body[data-largerText="on"],
+html.a11y-larger-text,
+body.a11y-larger-text {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+html[data-largerText="on"] p,
+body[data-largerText="on"] p,
+html.a11y-larger-text p,
+body.a11y-larger-text p,
+html[data-largerText="on"] li,
+body[data-largerText="on"] li,
+html.a11y-larger-text li,
+body.a11y-larger-text li,
+html[data-largerText="on"] label,
+body[data-largerText="on"] label,
+html.a11y-larger-text label,
+body.a11y-larger-text label {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+html[data-largerText="on"] h1,
+body[data-largerText="on"] h1,
+html.a11y-larger-text h1,
+body.a11y-larger-text h1 {
+  font-size: clamp(2.7rem, 5vw, 3.75rem);
+  line-height: 1.2;
+}
+
+html[data-largerText="on"] h2,
+body[data-largerText="on"] h2,
+html.a11y-larger-text h2,
+body.a11y-larger-text h2 {
+  font-size: clamp(2.15rem, 4vw, 2.5rem);
+  line-height: 1.3;
+}
+
+html[data-largerText="on"] h3,
+body[data-largerText="on"] h3,
+html.a11y-larger-text h3,
+body.a11y-larger-text h3 {
+  font-size: clamp(1.55rem, 3vw, 1.8rem);
+  line-height: 1.4;
+}
+
+html[data-largerText="on"] .button,
+body[data-largerText="on"] .button,
+html.a11y-larger-text .button,
+body.a11y-larger-text .button,
+html[data-largerText="on"] .meta-chip,
+body[data-largerText="on"] .meta-chip,
+html.a11y-larger-text .meta-chip,
+body.a11y-larger-text .meta-chip,
+html[data-largerText="on"] .stamp,
+body[data-largerText="on"] .stamp,
+html.a11y-larger-text .stamp,
+body.a11y-larger-text .stamp {
+  font-size: 1rem;
+}
+
+/* -------------------------
+   High Contrast
+   ------------------------- */
+html[data-highContrast="on"],
+body[data-highContrast="on"],
+html.a11y-high-contrast,
+body.a11y-high-contrast {
+  --bg: #ffffff;
+  --text: #000000;
+  --heading: #000000;
+  --card-bg: #ffffff;
+  --accent: #0000ff;
+  --muted: #222222;
+  --btn-text: #ffffff;
+  --subtle-accent: #f2f2f2;
+  --border: rgba(0, 0, 0, 0.34);
+  --text-overlay: rgba(0, 0, 0, 0.85);
+  --card-shadow: rgba(0, 0, 0, 0.12);
+  --hover-shadow: rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"][data-highContrast="on"],
+body[data-theme="dark"][data-highContrast="on"],
+html[data-theme="dark"].a11y-high-contrast,
+body[data-theme="dark"].a11y-high-contrast {
+  --bg: #000000;
+  --text: #ffffff;
+  --heading: #ffffff;
+  --card-bg: #000000;
+  --accent: #7da7ff;
+  --muted: #e6e6e6;
+  --btn-text: #000000;
+  --subtle-accent: #141414;
+  --border: rgba(255, 255, 255, 0.34);
+  --text-overlay: rgba(255, 255, 255, 0.92);
+  --card-shadow: rgba(255, 255, 255, 0.08);
+  --hover-shadow: rgba(255, 255, 255, 0.12);
+}
+
+/* Stronger contrast for common UI surfaces */
+html[data-highContrast="on"] .card,
+body[data-highContrast="on"] .card,
+html.a11y-high-contrast .card,
+body.a11y-high-contrast .card,
+html[data-highContrast="on"] .project-card,
+body[data-highContrast="on"] .project-card,
+html.a11y-high-contrast .project-card,
+body.a11y-high-contrast .project-card,
+html[data-highContrast="on"] .about-panel,
+body[data-highContrast="on"] .about-panel,
+html.a11y-high-contrast .about-panel,
+body.a11y-high-contrast .about-panel,
+html[data-highContrast="on"] .cert-card,
+body[data-highContrast="on"] .cert-card,
+html.a11y-high-contrast .cert-card,
+body.a11y-high-contrast .cert-card,
+html[data-highContrast="on"] fieldset,
+body[data-highContrast="on"] fieldset,
+html.a11y-high-contrast fieldset,
+body.a11y-high-contrast fieldset {
+  border-width: 2px;
+  box-shadow: none;
+}
+
+html[data-highContrast="on"] a,
+body[data-highContrast="on"] a,
+html.a11y-high-contrast a,
+body.a11y-high-contrast a {
+  text-decoration-thickness: 2px;
+}
+
+html[data-highContrast="on"] .button,
+body[data-highContrast="on"] .button,
+html.a11y-high-contrast .button,
+body.a11y-high-contrast .button {
+  border-width: 2px;
+  box-shadow: none;
+}
+
+/* -------------------------
+   Reduced Motion
+   ------------------------- */
+html[data-reducedMotion="on"],
+body[data-reducedMotion="on"],
+html.a11y-reduced-motion,
+body.a11y-reduced-motion {
+  scroll-behavior: auto !important;
+}
+
+html[data-reducedMotion="on"] *,
+html[data-reducedMotion="on"] *::before,
+html[data-reducedMotion="on"] *::after,
+body[data-reducedMotion="on"] *,
+body[data-reducedMotion="on"] *::before,
+body[data-reducedMotion="on"] *::after,
+html.a11y-reduced-motion *,
+html.a11y-reduced-motion *::before,
+html.a11y-reduced-motion *::after,
+body.a11y-reduced-motion *,
+body.a11y-reduced-motion *::before,
+body.a11y-reduced-motion *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+  transform: none;
+}
+
+/* -------------------------
+   Dyslexia-friendly font
+   ------------------------- */
+html[data-dyslexiaFont="on"],
+body[data-dyslexiaFont="on"],
+html.a11y-dyslexia-font,
+body.a11y-dyslexia-font {
+  font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+html[data-dyslexiaFont="on"] p,
+body[data-dyslexiaFont="on"] p,
+html.a11y-dyslexia-font p,
+body.a11y-dyslexia-font p,
+html[data-dyslexiaFont="on"] li,
+body[data-dyslexiaFont="on"] li,
+html.a11y-dyslexia-font li,
+body.a11y-dyslexia-font li,
+html[data-dyslexiaFont="on"] label,
+body[data-dyslexiaFont="on"] label,
+html.a11y-dyslexia-font label,
+body.a11y-dyslexia-font label {
+  letter-spacing: 0.015em;
+  word-spacing: 0.05em;
+}
+
+/* =========================
+   Accessibility Lab UI
+   ========================= */
+
+#a11y-form.a11y-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+#a11y-form fieldset {
+  margin: 0;
+  padding: 1rem 1rem 1.05rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card-bg);
+  box-shadow: 0 6px 20px var(--card-shadow);
+  min-width: 0;
+}
+
+#a11y-form legend {
+  padding: 0 0.45rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+#a11y-form label {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0.7rem 0 0;
+  color: var(--text);
+  cursor: pointer;
+}
+
+#a11y-form input[type="radio"],
+#a11y-form input[type="checkbox"] {
+  accent-color: var(--accent);
+  inline-size: 1rem;
+  block-size: 1rem;
+  flex: 0 0 auto;
+}
+
+.a11y-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.sr-status {
+  min-height: 1.5rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 720px) {
+  #a11y-form.a11y-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .a11y-actions {
+    grid-column: 1 / -1;
+  }
+}
