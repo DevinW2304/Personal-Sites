@@ -962,6 +962,17 @@ section a:not(.button):hover::after { width: 100%; }
   position: relative;
 }
 
+.project-card-media--image {
+  background: var(--subtle-accent);
+}
+
+.project-card-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .project-card::after {
   content: '';
   position: absolute;
