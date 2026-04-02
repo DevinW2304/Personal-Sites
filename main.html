@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/css/a11y.css" />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
     rel="stylesheet"
   />
   <script
@@ -34,14 +34,33 @@
   <div data-include="partials/header.html"></div>
 
   <!-- HERO -->
-  <header class="hero hero--split" aria-label="Intro">
+  <header class="hero" aria-label="Intro">
+
+    <!-- Animated ember particle canvas -->
+    <canvas class="hero-canvas" aria-hidden="true"></canvas>
+
+    <!-- Drifting warm light orbs -->
+    <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--4" aria-hidden="true"></div>
+
+    <div class="hero-lettermark" aria-hidden="true">DW</div>
+
     <div class="hero-inner">
-      <div class="hero-left" data-reveal="up">
-        <p class="hero-kicker">CS @ UNC Charlotte · Android & UX</p>
-        <h1>Devin Washington</h1>
+      <div class="hero-content" data-reveal="up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-line" aria-hidden="true"></span>
+          <span>CS @ UNC Charlotte · HCI</span>
+        </div>
+
+        <h1>
+          Devin<br>
+          <em>Washington</em>
+        </h1>
 
         <p class="hero-sub">
-          Human-centered software projects across mobile, web, and small ML experiments.
+          Human-centered software across mobile, web, and ML.
           Looking for full-time roles as a <strong>2026 graduate</strong>.
         </p>
 
@@ -50,7 +69,7 @@
           <a href="#contact" class="button button-ghost">Get In Touch</a>
         </div>
 
-        <div class="hero-meta" data-reveal="up" data-delay="120" aria-label="Quick details">
+        <div class="hero-meta" aria-label="Quick details">
           <span class="meta-chip">
             <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
             Charlotte, NC
@@ -66,7 +85,7 @@
         </div>
       </div>
 
-      <aside class="hero-right" aria-label="Highlights" data-reveal="up" data-delay="180">
+      <aside class="hero-aside" aria-label="Highlights" data-reveal="up" data-delay="160">
         <div class="hero-card">
           <p class="hero-card-label">Featured</p>
           <p class="hero-card-title">Klipper Kings</p>
@@ -76,31 +95,42 @@
           <a class="hero-card-link" href="#featured-project">Jump to case study →</a>
         </div>
 
-        <div class="hero-card hero-card--soft">
+        <div class="hero-card hero-card--muted">
           <p class="hero-card-label">Focus</p>
           <p class="hero-card-title">Product UI</p>
           <p class="hero-card-text">
-            Clear hierarchy, responsive systems, accessibility-first patterns.
+            Clear hierarchy, responsive systems, accessibility-first.
           </p>
+        </div>
+
+        <div class="availability-badge" role="status">
+          <span class="availability-dot" aria-hidden="true"></span>
+          Open to work · Spring 2026
         </div>
       </aside>
     </div>
   </header>
 
   <main id="main">
+
     <!-- ABOUT -->
     <section id="about" aria-labelledby="about-title">
+      <div class="section-marker" aria-hidden="true">About</div>
+
       <header class="section-head" data-reveal="up">
         <h2 id="about-title">About Me</h2>
-        <div class="section-underline" aria-hidden="true"></div>
+        <svg class="squiggle" viewBox="0 0 120 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 6 C12 2, 22 10, 32 6 S52 2, 62 6 S82 10, 92 6 S112 2, 118 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
       </header>
 
       <div class="two-col">
         <div data-reveal="up">
-          <p>
-            I'm a senior studying Computer Science with a concentration in Human-Computer Interaction at UNC Charlotte.
-            I enjoy working across the stack—from Android and web apps to small ML experiments.
-            I’m looking for work as a 2026 graduate!
+          <p class="about-lede">
+            I'm a senior studying Computer Science with a concentration in
+            Human-Computer Interaction at UNC Charlotte. I enjoy working across
+            the stack—from Android and web apps to small ML experiments.
+            Looking for full-time work as a 2026 graduate.
           </p>
 
           <p class="pullquote">
@@ -116,7 +146,6 @@
             <li><span class="stamp">Web</span> HTML/CSS/JS + APIs</li>
             <li><span class="stamp">A11y</span> practical accessibility</li>
           </ul>
-
           <div class="hero-actions hero-actions--tight">
             <a href="#projects" class="button button-ghost">Browse projects</a>
           </div>
@@ -126,10 +155,14 @@
 
     <!-- FEATURED PROJECT -->
     <section id="featured-project" aria-labelledby="featured-title">
+      <div class="section-marker" aria-hidden="true">Featured</div>
+
       <header class="section-head" data-reveal="up">
         <h2 id="featured-title">Featured Project</h2>
-        <div class="section-underline" aria-hidden="true"></div>
-        <p class="section-tagline">Spotlight · Real Client Build</p>
+        <svg class="squiggle" viewBox="0 0 120 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 6 C12 2, 22 10, 32 6 S52 2, 62 6 S82 10, 92 6 S112 2, 118 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <p class="section-tagline">Real client build · Charlotte, NC</p>
       </header>
 
       <div class="featured-layout">
@@ -145,7 +178,6 @@
                 <p class="card-3d-tagline">
                   A modern, booking-focused website for a Charlotte barbershop—built around choosing the right barber fast.
                 </p>
-
                 <div class="card-3d-pills" aria-label="Key features">
                   <span class="stamp">Barber profiles</span>
                   <span class="stamp">Mobile-first UI</span>
@@ -188,20 +220,20 @@
             galleries, service context, and location details.
           </p>
 
-          <div class="about-panel" data-reveal="up" data-delay="140">
+          <div class="about-panel">
             <h3 class="about-panel-title">What I did</h3>
             <ul class="about-list">
               <li><span class="stamp">Role</span> Designer + Developer</li>
               <li><span class="stamp">Goal</span> Reduce booking friction + clarify navigation</li>
               <li><span class="stamp">Work</span> Responsive UI, barber pages, booking CTA cleanup</li>
-              <li><span class="stamp">Focus</span> Mobile hierarchy, tap targets, accessibility contrast</li>
+              <li><span class="stamp">Focus</span> Mobile hierarchy, tap targets, a11y contrast</li>
             </ul>
           </div>
 
           <p>
-            I iterated on layout structure to reduce clutter and prevent mobile overflow issues.
+            I iterated on layout structure to reduce clutter and prevent mobile overflow.
             The final experience prioritizes scannability: clear sections, fewer competing CTAs,
-            and a straightforward path from landing → barber → book.
+            and a path from landing → barber → book.
           </p>
 
           <div class="pills" aria-label="Stack">
@@ -212,12 +244,7 @@
           </div>
 
           <div class="hero-actions">
-            <a
-              href="https://klipper-test-site-01.vercel.app/"
-              class="button"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://klipper-test-site-01.vercel.app/" class="button" target="_blank" rel="noopener noreferrer">
               View Live Project
             </a>
             <a href="#projects" class="button button-ghost">More projects</a>
@@ -228,324 +255,335 @@
 
     <!-- PROJECTS -->
     <section id="projects" aria-labelledby="projects-title">
+      <div class="section-marker" aria-hidden="true">Work</div>
+
       <header class="section-head" data-reveal="up">
         <h2 id="projects-title">Projects</h2>
-        <div class="section-underline" aria-hidden="true"></div>
-        <p class="section-tagline">Selected Work · Interfaces &amp; Experiments</p>
+        <svg class="squiggle" viewBox="0 0 120 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 6 C12 2, 22 10, 32 6 S52 2, 62 6 S82 10, 92 6 S112 2, 118 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <p class="section-tagline">Selected work · Interfaces &amp; experiments</p>
       </header>
 
       <div class="projects-grid" aria-label="Project list">
-        <!-- Klipper Kings -->
-        <article class="project-card" data-reveal="up">
-          <div class="project-card-media project-card-media--image">
-            <img
-              src="assets/klipper-preview.png"
-              alt="Preview of the Klipper Kings Barbershop Website project"
-              class="project-card-preview"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
 
+        <article class="project-card project-card--client" data-reveal="up">
+          <div class="project-card-media project-card-media--image">
+            <img src="assets/klipper-preview.png" alt="Preview of the Klipper Kings Barbershop Website project" class="project-card-preview" loading="lazy" decoding="async"/>
+            <span class="project-card-type-badge">Client</span>
+          </div>
           <div class="project-card-body">
             <p class="project-card-label">Client Work · Web</p>
             <h3>Klipper Kings Barbershop Website</h3>
-
-            <div class="project-card-meta" aria-label="Tags">
-              <span class="stamp">Next.js</span>
-              <span class="stamp">UI/UX</span>
-              <span class="stamp">Mobile-first</span>
-              <span class="stamp">A11y</span>
+            <div class="project-card-tags" aria-label="Tags">
+              <span class="stamp">Next.js</span><span class="stamp">UI/UX</span><span class="stamp">Mobile-first</span><span class="stamp">A11y</span>
             </div>
-
-            <p class="project-card-meta">
-              Real client build focused on a cleaner booking flow: choose a barber, preview work, then book.
-            </p>
-
+            <p class="project-card-desc">Real client build focused on a cleaner booking flow: choose a barber, preview work, then book.</p>
             <div class="project-card-actions">
-              <a
-                href="https://klipper-test-site-01.vercel.app/"
-                class="button"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Live
-              </a>
+              <a href="https://klipper-test-site-01.vercel.app/" class="button" target="_blank" rel="noopener noreferrer">View Live</a>
             </div>
           </div>
         </article>
 
-
-                <!-- BIQ -->
         <article class="project-card" data-reveal="up" data-delay="40">
           <div class="project-card-media project-card-media--image">
-            <img
-              src="img/biqScreen.png"
-              alt="Preview of the BIQ basketball analytics platform"
-              class="project-card-preview"
-              loading="lazy"
-              decoding="async"
-            />
+            <img src="img/biqScreen.png" alt="Preview of the BIQ basketball analytics platform" class="project-card-preview" loading="lazy" decoding="async"/>
           </div>
-
           <div class="project-card-body">
             <p class="project-card-label">Sports Analytics · Full Stack</p>
             <h3>BIQ — Basketball Intelligence Quotient</h3>
-
-            <div class="project-card-meta" aria-label="Tags">
-              <span class="stamp">Next.js</span>
-              <span class="stamp">FastAPI</span>
-              <span class="stamp">NBA Data</span>
-              <span class="stamp">UI/UX</span>
+            <div class="project-card-tags" aria-label="Tags">
+              <span class="stamp">Next.js</span><span class="stamp">FastAPI</span><span class="stamp">NBA Data</span><span class="stamp">UI/UX</span>
             </div>
-
-            <p class="project-card-meta">
-              A basketball analytics platform I built to turn NBA player data into a sharper read on player value.
-              BIQ combines a custom scoring model, player dashboards, leaderboards, comparison tools, and a polished
-              front-end experience built for analysts rather than casual box-score browsing.
-            </p>
-
+            <p class="project-card-desc">A basketball analytics platform turning NBA data into sharper reads on player value—custom scoring model, dashboards, and comparison tools.</p>
             <div class="project-card-actions">
-              <a
-                href="https://biq-mind.vercel.app/"
-                class="button"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Live
-              </a>
-              <a
-                href="https://github.com/DevinW2304/biq-frontend"
-                target="_blank"
-                class="button button-ghost"
-                rel="noopener noreferrer"
-              >
-                Frontend Repo
-              </a>
+              <a href="https://biq-mind.vercel.app/" class="button" target="_blank" rel="noopener noreferrer">View Live</a>
+              <a href="https://github.com/DevinW2304/biq-frontend" target="_blank" class="button button-ghost" rel="noopener noreferrer">Repo</a>
             </div>
           </div>
         </article>
 
-        <!-- Gift Guide -->
         <article class="project-card" data-reveal="up" data-delay="80">
           <div class="project-card-media project-card-media--image">
-            <img
-              src="img/REPLACE-GIFTGUIDE-IMAGE.png"
-              alt="Preview of the Gift Guide project"
-              class="project-card-preview"
-              loading="lazy"
-              decoding="async"
-            />
+            <img src="img/REPLACE-GIFTGUIDE-IMAGE.png" alt="Preview of the Gift Guide project" class="project-card-preview" loading="lazy" decoding="async"/>
           </div>
-
           <div class="project-card-body">
             <p class="project-card-label">Android · UX</p>
             <h3>Gift Guide</h3>
-
-            <div class="project-card-meta" aria-label="Tags">
-              <span class="stamp">Jetpack Compose</span>
-              <span class="stamp">Interaction Design</span>
-              <span class="stamp">HCI</span>
+            <div class="project-card-tags" aria-label="Tags">
+              <span class="stamp">Jetpack Compose</span><span class="stamp">Interaction Design</span><span class="stamp">HCI</span>
             </div>
-
-            <p class="project-card-meta">
-              A calm guided flow that turns “I have no idea what to get them” into a few relevant gift options.
-            </p>
-
+            <p class="project-card-desc">A calm guided flow that turns "I have no idea what to get them" into a few relevant gift options.</p>
             <div class="project-card-actions">
               <a href="projects/giftguide.html" class="button">View Case Study</a>
-              <a
-                href="https://github.com/DevinWashington/GiftGuide"
-                target="_blank"
-                class="button button-ghost"
-                rel="noopener noreferrer"
-              >
-                Repository
-              </a>
+              <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-ghost" rel="noopener noreferrer">Repo</a>
             </div>
           </div>
         </article>
 
-        <!-- Symbol Table Visualizer -->
         <article class="project-card" data-reveal="up" data-delay="120">
           <div class="project-card-media project-card-media--image">
-            <img
-              src="img/symbolTableDemo.png"
-              alt="Preview of the Symbol Table Visualizer project"
-              class="project-card-preview"
-              loading="lazy"
-              decoding="async"
-            />
+            <img src="img/symbolTableDemo.png" alt="Preview of the Symbol Table Visualizer project" class="project-card-preview" loading="lazy" decoding="async"/>
           </div>
-
           <div class="project-card-body">
             <p class="project-card-label">Programming Languages · Web</p>
             <h3>Symbol Table Visualizer</h3>
-
-            <div class="project-card-meta" aria-label="Tags">
-              <span class="stamp">React</span>
-              <span class="stamp">Visualization</span>
-              <span class="stamp">Compilers</span>
-              <span class="stamp">Dev Tools</span>
+            <div class="project-card-tags" aria-label="Tags">
+              <span class="stamp">React</span><span class="stamp">Visualization</span><span class="stamp">Compilers</span><span class="stamp">Dev Tools</span>
             </div>
-
-            <p class="project-card-meta">
-              A visualizer I built for my Survey of Programming Languages course to make symbol tables,
-              scopes, and runtime frames easier to inspect. It combines static analysis with a graph view
-              and tabular breakdowns of program state.
-            </p>
-
+            <p class="project-card-desc">Visualizes symbol tables, scopes, and runtime frames with a graph view and tabular state breakdown.</p>
             <div class="project-card-actions">
-              <a
-                href="https://symbol-table-site.vercel.app/"
-                class="button"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Live
-              </a>
-              <a
-                href="https://github.com/DevinW2304/symbol-table-site"
-                target="_blank"
-                class="button button-ghost"
-                rel="noopener noreferrer"
-              >
-                Repository
-              </a>
+              <a href="https://symbol-table-site.vercel.app/" class="button" target="_blank" rel="noopener noreferrer">View Live</a>
+              <a href="https://github.com/DevinW2304/symbol-table-site" target="_blank" class="button button-ghost" rel="noopener noreferrer">Repo</a>
             </div>
           </div>
         </article>
 
-        <!-- Accessibility Lab -->
         <article class="project-card" data-reveal="up">
           <div class="project-card-media project-card-media--image">
-            <img
-              src="img/accessibilityPreview.png"
-              alt="Preview of the Accessibility Lab project"
-              class="project-card-preview"
-              loading="lazy"
-              decoding="async"
-            />
+            <img src="img/accessibilityPreview.png" alt="Preview of the Accessibility Lab project" class="project-card-preview" loading="lazy" decoding="async"/>
           </div>
-
           <div class="project-card-body">
             <p class="project-card-label">Accessibility · HCI</p>
             <h3>Accessibility Lab</h3>
-
-            <div class="project-card-meta" aria-label="Tags">
-              <span class="stamp">A11y</span>
-              <span class="stamp">Education</span>
+            <div class="project-card-tags" aria-label="Tags">
+              <span class="stamp">A11y</span><span class="stamp">Education</span>
             </div>
-
-            <p class="project-card-meta">
-              An interactive lab that simulates color vision differences, blur, and motion settings to help developers design more empathetically.
-            </p>
-
+            <p class="project-card-desc">Simulates color vision differences, blur, and motion settings so developers can design more empathetically.</p>
             <div class="project-card-actions">
               <a href="accessibility/index.html" class="button">Open A11y Lab</a>
             </div>
           </div>
         </article>
 
-        <!-- Whole Foods Flow -->
         <article class="project-card" data-reveal="up" data-delay="80">
           <div class="project-card-media project-card-media--image">
-            <img
-              src="img/demoScreenPortfolio.PNG"
-              alt="Preview of the Whole Foods Mobile Experience project"
-              class="project-card-preview"
-              loading="lazy"
-              decoding="async"
-            />
+            <img src="img/demoScreenPortfolio.PNG" alt="Preview of the Whole Foods Mobile Experience project" class="project-card-preview" loading="lazy" decoding="async"/>
           </div>
-
           <div class="project-card-body">
             <p class="project-card-label">UX · Mobile Web</p>
             <h3>Whole Foods Mobile Experience</h3>
-
-            <div class="project-card-meta" aria-label="Tags">
-              <span class="stamp">UX Case Study</span>
-              <span class="stamp">HTML/JS</span>
-              <span class="stamp">Data Modeling</span>
+            <div class="project-card-tags" aria-label="Tags">
+              <span class="stamp">UX Case Study</span><span class="stamp">HTML/JS</span><span class="stamp">Data Modeling</span>
             </div>
-
-            <p class="project-card-meta">
-              A mobile-first grocery shopping flow with browsing, cart management, and a JSON-backed DataAPI.
-            </p>
-
+            <p class="project-card-desc">A mobile-first grocery flow with browsing, cart management, and a JSON-backed DataAPI.</p>
             <div class="project-card-actions">
-              <a href="projects/wholefoods-case-study.html" class="button">
-                View Case Study &amp; Demo
-              </a>
+              <a href="projects/wholefoods-case-study.html" class="button">View Case Study &amp; Demo</a>
             </div>
           </div>
         </article>
+
       </div>
     </section>
 
     <!-- CERTIFICATIONS -->
     <section id="certifications" aria-labelledby="certs-title">
+      <div class="section-marker" aria-hidden="true">Certs</div>
+
       <header class="section-head" data-reveal="up">
         <h2 id="certs-title">Certifications</h2>
-        <div class="section-underline" aria-hidden="true"></div>
+        <svg class="squiggle" viewBox="0 0 120 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 6 C12 2, 22 10, 32 6 S52 2, 62 6 S82 10, 92 6 S112 2, 118 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
         <p class="section-tagline">Credentials · Learning</p>
       </header>
 
       <div class="certifications-grid" data-reveal="up" data-delay="80">
         <div class="cert-card">
-          <h3>In Progress</h3>
-          <p class="cert-note">More coming soon</p>
+          <p class="cert-note">In Progress</p>
+          <h3>More coming soon</h3>
           <p class="cert-body">
-            I’m actively adding new credentials—this section stays updated as I complete them.
+            Actively pursuing new credentials—this section updates as I complete them.
           </p>
-          <a href="#contact" class="button">Ask for details</a>
+          <div style="margin-top: 1.25rem;">
+            <a href="#contact" class="button button-ghost">Ask for details</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" aria-labelledby="contact-title">
-      <header class="section-head" data-reveal="up">
-        <h2 id="contact-title">Contact</h2>
-        <div class="section-underline" aria-hidden="true"></div>
-      </header>
+      <div class="section-marker" aria-hidden="true">Contact</div>
 
-      <p data-reveal="up" data-delay="80">
-        If you'd like to chat about a project, internship, or collaboration, feel free to reach out.
-      </p>
+      <div class="contact-layout" data-reveal="up">
+        <div class="contact-left">
+          <header class="section-head">
+            <h2 id="contact-title">Let's Work!<br><em>Actively Looking For Full-Time Roles</em></h2>
+            <svg class="squiggle" viewBox="0 0 120 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 6 C12 2, 22 10, 32 6 S52 2, 62 6 S82 10, 92 6 S112 2, 118 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </header>
 
-      <ul class="socials" data-reveal="up" data-delay="120" aria-label="Social links">
-        <li>
-          <a
-            href="https://www.linkedin.com/in/devin-washington-8a73111b8/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          <p class="contact-lead">
+            Actively looking for full-time roles starting <strong>Spring / Summer 2026</strong>.
+            Open to SWE, UX, HCI work/research, front-end/full stack development, and freelance work.
+          </p>
+
+          <a href="mailto:devin.washington.eto@gmail.com" class="contact-email-raw" aria-label="Email Devin Washington">
+            devin.washington.eto@gmail.com
           </a>
-        </li>
 
-        <li>
-          <a
-            href="https://github.com/DevinW2304"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github" aria-hidden="true"></i>
-          </a>
-        </li>
+          <ul class="socials" aria-label="Social links">
+            <li>
+              <a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/DevinW2304" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:devin.washington.eto@gmail.com" aria-label="Email">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-        <li>
-          <a href="mailto:devin.washington.eto@gmail.com" aria-label="Email">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-          </a>
-        </li>
-      </ul>
+        <div class="contact-right">
+          <div class="contact-card">
+            <p class="contact-card-label">Currently open to</p>
+            <ul class="contact-open-list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Full-time SWE / UX roles</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> HCI / product design positions</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Front-end &amp; Android engineering</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Contract / freelance projects</li>
+            </ul>
+            <a
+              href="assets/Devin_Washington_Resume.pdf"
+              class="button"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="margin-top: 1.35rem; display: inline-flex; align-items: center; gap: .5rem;"
+            >
+              <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
+
   </main>
 
   <div data-include="partials/footer.html"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO EMBER PARTICLE SYSTEM
+       Tiny warm sparks float upward — no libraries needed.
+       Respects prefers-reduced-motion automatically.
+       ═══════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      // Bail out if the user prefers reduced motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const canvas = document.querySelector('.hero-canvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let animId;
+      let isRunning = false;
+
+      // Warm ember color palette — amber, rust, gold
+      const COLORS = [
+        [210, 120, 50],   // amber
+        [190,  80, 30],   // deep rust
+        [230, 150, 60],   // warm gold
+        [170,  65, 25],   // dark ember
+        [220, 130, 45],   // orange-gold
+      ];
+
+      function resize() {
+        const hero = canvas.parentElement;
+        canvas.width  = hero.offsetWidth;
+        canvas.height = hero.offsetHeight;
+      }
+
+      function randomBetween(min, max) {
+        return min + Math.random() * (max - min);
+      }
+
+      function spawnParticle() {
+        const [r, g, b] = COLORS[Math.floor(Math.random() * COLORS.length)];
+        return {
+          x:       randomBetween(0, canvas.width),
+          y:       canvas.height + randomBetween(5, 20),
+          size:    randomBetween(0.6, 2.2),
+          speedY:  randomBetween(0.18, 0.55),   // upward drift speed
+          speedX:  randomBetween(-0.12, 0.12),  // gentle lateral wobble
+          wobble:  randomBetween(0, Math.PI * 2),
+          wobbleSpeed: randomBetween(0.008, 0.022),
+          opacity: randomBetween(0.25, 0.65),
+          decay:   randomBetween(0.0004, 0.001), // how fast it fades
+          r, g, b,
+        };
+      }
+
+      const TARGET_COUNT = 90;
+
+      function tick() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Top up the pool
+        while (particles.length < TARGET_COUNT) {
+          particles.push(spawnParticle());
+        }
+
+        // Update + draw
+        const alive = [];
+        for (const p of particles) {
+          p.wobble  += p.wobbleSpeed;
+          p.x       += p.speedX + Math.sin(p.wobble) * 0.18;
+          p.y       -= p.speedY;
+          p.opacity -= p.decay;
+
+          if (p.opacity <= 0 || p.y < -10) continue;
+          alive.push(p);
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.r},${p.g},${p.b},${p.opacity.toFixed(3)})`;
+          ctx.fill();
+        }
+        particles = alive;
+
+        animId = requestAnimationFrame(tick);
+      }
+
+      function start() {
+        if (isRunning) return;
+        isRunning = true;
+        resize();
+        tick();
+      }
+
+      function stop() {
+        cancelAnimationFrame(animId);
+        isRunning = false;
+      }
+
+      // Only run while the hero is in view — saves battery on long scrolls
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries[0].isIntersecting ? start() : stop();
+        },
+        { threshold: 0.05 }
+      );
+      observer.observe(canvas.parentElement);
+
+      // Handle window resize
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(resize, 120);
+      });
+    })();
+  </script>
+
 </body>
 </html>
