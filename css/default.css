@@ -645,8 +645,10 @@ section a:not(.button):not(.contact-email-raw):hover {
 
 .hero-aside {
   display: grid;
-  gap: .9rem;
+  gap: .9rem ;
   padding-top: .5rem;
+  background: rgb(0, 0, 0);
+
 }
 
 .hero-card {
