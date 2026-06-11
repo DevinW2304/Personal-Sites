@@ -51,7 +51,8 @@ body {
   color: var(--text);
   font-family: 'DM Sans', system-ui, sans-serif;
   margin: 0;
-  line-height: 1.65;
+  /* FLOW: slightly more generous leading improves paragraph readability */
+  line-height: 1.72;
   transition: background 0.3s ease, color 0.3s ease;
   font-size: 16px;
   position: relative;
@@ -91,7 +92,7 @@ body::after {
 h1, h2, h3 {
   font-family: 'DM Serif Display', Georgia, serif;
   color: var(--heading);
-  margin: 0 0 1rem;
+  margin: 0 0 0.6rem;
   font-weight: 400;
   letter-spacing: -0.01em;
   position: relative;
@@ -118,30 +119,36 @@ h1 em, h2 em {
 }
 
 p {
-  margin: 0 0 1.15rem;
+  /* FLOW: slightly more space after paragraphs for a settled, readable rhythm */
+  margin: 0 0 1.3rem;
   max-width: 68ch;
 }
 
+/* FLOW: squiggles shrunk and dimmed — they now act as a quiet flourish
+   rather than a recurring design element demanding attention every section */
 .squiggle {
   display: block;
-  width: 90px;
-  height: 10px;
+  width: 48px;
+  height: 8px;
   color: var(--accent);
-  margin: 0.3rem 0 2rem;
-  opacity: 0.75;
+  margin: 0.15rem 0 1.4rem;
+  opacity: 0.35;
 }
 
+/* FLOW: section markers made near-invisible — they're watermarks now, not
+   competing labels. Content heading is already the label. */
 .section-marker {
   position: absolute;
   left: -0.5rem;
   top: 5.5rem;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
-  opacity: 0.5;
+  /* was 0.5 — now ghostly so it doesn't fight with content */
+  opacity: 0.12;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   user-select: none;
@@ -151,20 +158,24 @@ p {
   .section-marker { display: none; }
 }
 
+/* FLOW: section taglines converted from uppercase metadata labels into
+   natural italic subtitles — reads as a continuation, not a category badge */
 .section-tagline {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: 0.01em;
   color: var(--muted);
-  margin-top: -0.75rem;
-  margin-bottom: 2rem;
-  font-weight: 500;
+  margin-top: -0.4rem;
+  margin-bottom: 1.75rem;
+  font-weight: 400;
+  font-style: italic;
 }
 
 
 /* ── LAYOUT ───────────────────────────────────────────────── */
+/* FLOW: more vertical breathing room between sections */
 section {
-  padding: 5.5rem 2rem 5rem 3.5rem;
+  padding: 6rem 2rem 5.5rem 3.5rem;
   max-width: 1200px;
   margin: auto;
   text-align: left;
@@ -182,7 +193,7 @@ main { display: grid; gap: 0; }
 .section-head {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 
@@ -538,7 +549,6 @@ section a:not(.button):not(.contact-email-raw):hover {
   pointer-events: none;
   z-index: 1;
   letter-spacing: -0.04em;
-  /* Slow, barely-there drift */
   animation: lettermark-breathe 28s ease-in-out infinite;
 }
 
@@ -576,7 +586,6 @@ section a:not(.button):not(.contact-email-raw):hover {
 .hero h1 em {
   color: #D9845A !important;
   display: block;
-  /* Subtle shimmer on the italic name */
   animation: name-shimmer 8s ease-in-out infinite;
 }
 
@@ -635,38 +644,42 @@ section a:not(.button):not(.contact-email-raw):hover {
   gap: .4rem;
   padding: .38rem .65rem;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(240, 228, 212, 0.85);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(240, 228, 212, 0.75);
   font-size: .8rem;
   font-weight: 500;
   letter-spacing: 0.01em;
 }
 
+/* FLOW: hero-aside background was solid black — now transparent so
+   the ambient orbs read through, making it feel integrated rather
+   than pasted on top */
 .hero-aside {
   display: grid;
-  gap: .9rem ;
+  gap: .9rem;
   padding-top: .5rem;
-  background: rgb(0, 0, 0);
-
+  background: transparent;
 }
 
+/* FLOW: hero cards softened — they're editorial sidebars now, not
+   dashboard tiles. Reduced background opacity and padding. */
 .hero-card {
-  background: rgba(255, 255, 255, 0.065);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  padding: 1rem 1rem;
+  padding: 0.85rem 0.95rem;
   color: #F0E4D4;
   backdrop-filter: blur(14px);
-  transition:  0.25s ease, border-color 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 .hero-card:hover {
-  background: rgba(255, 255, 255, 0.095);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 .hero-card--muted {
-  background: rgba(255, 255, 255, 0.035);
-  border-color: rgba(255,255,255,0.07);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255,255,255,0.05);
 }
 
 .hero-card-label {
@@ -705,12 +718,12 @@ section a:not(.button):not(.contact-email-raw):hover {
   align-items: center;
   gap: .5rem;
   padding: .42rem .8rem .42rem .6rem;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   font-size: .77rem;
   font-weight: 500;
-  color: rgba(240, 228, 212, 0.8);
+  color: rgba(240, 228, 212, 0.75);
   letter-spacing: 0.02em;
 }
 
@@ -819,6 +832,21 @@ section .availability-badge {
   line-height: 1.45;
 }
 
+/* FLOW: stamps inside list items become annotation-style rather than
+   badge-style — they guide the eye without stalling reading rhythm.
+   The reader processes "Android" then flows naturally into the description. */
+.about-list .stamp {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--accent) 45%, transparent);
+  color: var(--accent);
+  padding: 0.1rem 0.2rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  border-radius: 0;
+  margin-right: 0.3rem;
+}
+
 .project-card--client .project-card-type-badge {
   position: absolute;
   top: 12px;
@@ -861,19 +889,23 @@ section .availability-badge {
 }
 @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
 
+/* FLOW: lede slightly larger with more open leading — it's the
+   first prose the reader encounters, give it room to land */
 .about-lede {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  line-height: 1.8;
   color: var(--text);
   max-width: 60ch;
 }
 
+/* FLOW: about panel box-shadow softened — it's a sidebar annotation,
+   not a separate card. Left border remains as a reading guide. */
 .about-panel {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.2rem 1.2rem 1rem;
-  box-shadow: 0 3px 14px var(--card-shadow);
+  box-shadow: 0 2px 10px var(--card-shadow);
   border-left: 3px solid var(--accent);
 }
 
@@ -907,10 +939,16 @@ section .availability-badge {
 }
 @media (max-width: 900px) { .featured-layout { grid-template-columns: 1fr; gap: 2rem; } }
 
+/* FLOW: featured text gets its own line-height pass — this is the
+   main case study copy so it should read most comfortably */
 .featured-text {
   display: grid;
   gap: 1.25rem;
   align-content: start;
+}
+
+.featured-text p {
+  line-height: 1.78;
 }
 
 .pills { display: flex; flex-wrap: wrap; gap: .4rem; }
@@ -920,7 +958,9 @@ section .availability-badge {
   padding: 1.65rem 1.65rem 1.5rem;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  box-shadow: 4px 8px 28px var(--card-shadow), 0 1px 0 var(--border);
+  /* FLOW: lightened shadow so the card reads as part of the section,
+     not a foreign element dropped in */
+  box-shadow: 2px 5px 22px var(--card-shadow), 0 1px 0 var(--border);
   position: relative;
   overflow: hidden;
 }
@@ -937,12 +977,15 @@ section .availability-badge {
 
 .card-3d-header { margin-bottom: 1.15rem; padding-left: 0.75rem; }
 
+/* FLOW: card label softened from accent orange to muted — the heading
+   right below it is already the main signal, the label is metadata */
 .card-3d-header .card-label {
   font-size: 0.67rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--accent);
-  font-weight: 700;
+  color: var(--muted);
+  font-weight: 600;
+  opacity: 0.75;
   margin-bottom: 0.4rem;
 }
 
@@ -956,7 +999,7 @@ section .availability-badge {
 
 .card-3d-tagline {
   font-size: 0.92rem;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--text);
   margin-bottom: .65rem;
   max-width: 52ch;
@@ -1084,7 +1127,7 @@ section .availability-badge {
 .project-card:hover .project-card-preview { transform: scale(1.04); }
 
 .project-card-body {
-  padding: 1.35rem 1.35rem 1.5rem;
+  padding: 1.4rem 1.4rem 1.55rem;
   border-left: 3px solid transparent;
   transition: border-color 0.2s ease;
 }
@@ -1093,26 +1136,29 @@ section .availability-badge {
 .project-card--client .project-card-body { border-color: color-mix(in oklab, var(--accent) 40%, transparent); }
 .project-card--client:hover .project-card-body { border-color: var(--accent); }
 
+/* FLOW: project labels toned down from accent orange to muted —
+   the card title is the real entry point, label is category context */
 .project-card-label {
   margin: 0 0 0.4rem;
   font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--accent);
-  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  font-weight: 500;
+  opacity: 0.7;
 }
 
 .project-card h3 {
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.65rem;
   font-size: 1.1rem;
 }
 
-.project-card-tags { margin-bottom: 0.65rem; }
+.project-card-tags { margin-bottom: 0.7rem; }
 
 .project-card-desc {
   margin: 0;
   font-size: 0.88rem;
-  line-height: 1.62;
+  line-height: 1.68;
   color: var(--muted);
 }
 
@@ -1120,7 +1166,7 @@ section .availability-badge {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
-  margin-top: 1.15rem;
+  margin-top: 1.2rem;
 }
 
 .project-card-media.gradient-cover {
@@ -1173,7 +1219,7 @@ section .availability-badge {
 .cert-body {
   color: var(--muted);
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.68;
 }
 
 
@@ -1193,7 +1239,7 @@ section .availability-badge {
 
 .contact-lead {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.78;
   max-width: 54ch;
   margin-bottom: 1.75rem;
 }
@@ -1239,13 +1285,14 @@ section .availability-badge {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: .6rem;
+  gap: .65rem;
 }
 .contact-open-list li {
   display: flex;
   align-items: center;
   gap: .55rem;
   font-size: 0.875rem;
+  line-height: 1.5;
   color: var(--text);
 }
 .contact-open-list i {
