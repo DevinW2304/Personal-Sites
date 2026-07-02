@@ -1,8 +1,11 @@
-// Apply theme + saved a11y prefs early
+// Single source of truth for the default theme
+const DEFAULT_THEME = 'dark';
+
+// Apply theme + saved a11y prefs early (before first paint)
 (function earlyApply() {
   try {
-    const t = localStorage.getItem('theme');
-    if (t) document.documentElement.dataset.theme = t;
+    const t = localStorage.getItem('theme') || DEFAULT_THEME;
+    document.documentElement.dataset.theme = t;
 
     const raw = localStorage.getItem('a11y-settings-v1');
     if (raw) {
@@ -24,7 +27,7 @@ window.initShared = function initShared() {
   const icon = toggle ? toggle.querySelector('i') : null;
 
   if (toggle && icon) {
-    const current = localStorage.getItem('theme') || 'light';
+    const current = localStorage.getItem('theme') || DEFAULT_THEME;
     document.documentElement.dataset.theme = current;
     icon.className = current === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
 
@@ -45,14 +48,3 @@ window.initShared = function initShared() {
     a.classList.toggle('active', here === path);
   });
 };
-(function () {
-  const storedTheme = localStorage.getItem("theme");
-
-  if (storedTheme) {
-    document.documentElement.setAttribute("data-theme", storedTheme);
-  } else {
-    // Default to dark if nothing saved
-    document.documentElement.setAttribute("data-theme", "dark");
-  }
-})();
-

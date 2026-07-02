@@ -3,191 +3,247 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Devin Washington | Portfolio Intro</title>
+  <title>Devin Washington</title>
+  <meta
+    name="description"
+    content="Devin Washington — developer and designer. Front-end, Android, and UX work. Available for full-time roles and freelance projects."
+  />
 
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="stylesheet" href="css/default.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/a11y.css" />
 
-   <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
-  <script type="importmap">
-{
-  "imports": {
-    "three":          "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-    "three/addons/":  "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-  }
-}
-</script>
- 
-  <link rel="stylesheet" href="css/intro.css" />
-  <link rel="stylesheet" href="css/cosmos-intro.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Archivo:wght@400;500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+    crossorigin="anonymous"
+  ></script>
 
+  <script defer src="js/prefs.js"></script>
+  <script defer src="js/includes.js"></script>
+  <script defer src="js/motion.js"></script>
   <script defer src="js/a11y-global.js"></script>
-<script type="module" src="js/cosmos-bg.js"></script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <!-- Splash overlay -->
-  <div class="splash" aria-hidden="true">
-    <div class="splash-inner">
-      <div class="splash-mark">DW</div>
-      <p class="splash-sub">Portfolio</p>
-    </div>
-  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <a class="skip-link" href="main.html">Skip intro and go to portfolio</a>
+  <div data-include="partials/header.html"></div>
 
-  <main class="intro-viewport">
-    <!-- Parallax layers -->
-    <div class="parallax-layer layer-back" data-depth="0.05" aria-hidden="true"></div>
-    <div class="parallax-layer layer-grid" data-depth="0.12" aria-hidden="true"></div>
+  <main id="main">
 
-    <div class="parallax-layer layer-cards" data-depth="0.22" aria-hidden="true">
-      <div class="device-card device-left">
-        <div class="device-screen">
-          <div class="chip-row">
-            <span class="chip">Plant care</span>
-            <span class="chip">Mobile</span>
-          </div>
-          <div class="screen-block screen-block-large"></div>
-          <div class="screen-block-row">
-            <div class="screen-block small"></div>
-            <div class="screen-block small"></div>
-          </div>
-        </div>
+    <!-- INTRO -->
+    <section class="home-hero" aria-label="Introduction">
+      <p class="hero-kicker">Portfolio, 2026</p>
+      <h1>
+        <span class="hero-line">Devin</span>
+        <span class="hero-line outline">Washington</span>
+      </h1>
+      <div class="hero-columns">
+        <p class="hero-lede">
+          Developer and designer in Blacksburg, Virginia. I have a B.S. in computer
+          science from UNC Charlotte, with a concentration in human-computer
+          interaction and a minor in psychology.
+        </p>
+        <p class="hero-status">
+          Currently looking for full-time work in front-end, UX, or full-stack roles.
+          I also take on freelance projects.
+          <a href="mailto:devin.washington.eto@gmail.com">Email me</a> or read my
+          <a href="assets/Devin_Washington_Resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>.
+        </p>
       </div>
+    </section>
 
-      <div class="device-card device-right">
-        <div class="device-screen">
-          <div class="screen-icon"></div>
-          <div class="screen-title-bar"></div>
-          <div class="screen-block screen-block-list"></div>
-        </div>
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Front-end development</span><span class="tick">✳</span>
+        <span>Android, Kotlin</span><span class="tick">✳</span>
+        <span>UX and interaction design</span><span class="tick">✳</span>
+        <span>Accessibility</span><span class="tick">✳</span>
+        <span>Open to full-time and freelance</span><span class="tick">✳</span>
+        <span>Front-end development</span><span class="tick">✳</span>
+        <span>Android, Kotlin</span><span class="tick">✳</span>
+        <span>UX and interaction design</span><span class="tick">✳</span>
+        <span>Accessibility</span><span class="tick">✳</span>
+        <span>Open to full-time and freelance</span><span class="tick">✳</span>
       </div>
     </div>
 
-    <!-- Foreground content: two cards -->
-    <div class="parallax-layer layer-foreground" data-depth="0">
-      <div class="intro-shell">
-        <!-- Primary intro card -->
-        <section class="intro-card intro-card-primary" aria-labelledby="intro-title">
-          <p class="eyebrow">CS (HCI) · Graduating Spring 2026</p>
+    <!-- WORK -->
+    <section id="work" aria-labelledby="work-title">
+      <h2 id="work-title" class="section-title">Selected work</h2>
 
-          <h1 id="intro-title">Devin Washington</h1>
-
-          <p class="subtitle">
-            I’m a CS (HCI) major graduating in Spring 2026, actively looking for full-time roles in UX/product design, front-end engineering, human-centered AI, full-stack development, and more. I love solving complex problems by translating them into clear, trustworthy user experiences supported by scalable technical systems.
-          </p>
-
-          <!-- Quick skills + contact -->
-          <div class="quick-section">
-
-            <div class="quick-group">
-              <p class="quick-label">Skills at a glance</p>
-
-              <div class="quick-items">
-                <div class="quick-item">
-                  <span class="quick-title">HCI &amp; UX</span>
-                  <span class="quick-desc">User flows · Prototyping · Usability thinking</span>
-                </div>
-
-                <div class="quick-item">
-                  <span class="quick-title">Android</span>
-                  <span class="quick-desc">Kotlin · Jetpack · App architecture</span>
-                </div>
-
-                <div class="quick-item">
-                  <span class="quick-title">Frontend</span>
-                  <span class="quick-desc">HTML/CSS/JS · Responsive layouts</span>
-                </div>
-
-                <div class="quick-item">
-                  <span class="quick-title">Accessibility</span>
-                  <span class="quick-desc">Inclusive patterns · WCAG-informed decisions</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="quick-group">
-              <p class="quick-label">Contact</p>
-
-              <div class="quick-contact">
-                <a href="mailto:devin.washington.eto@gmail.com" class="contact-link">
-                  devin.washington.eto@gmail.com
-                </a>
-                <span class="contact-sep">·</span>
-                <a href="https://github.com" target="_blank" rel="noreferrer" class="contact-link">GitHub</a>
-                <span class="contact-sep">·</span>
-                <a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" rel="noreferrer" class="contact-link">
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="button-row">
-            <a href="main.html" class="btn btn-primary">
-              Enter portfolio
-            </a>
-            <button class="btn btn-ghost" type="button" id="toggle-motion">
-              Toggle motion
-            </button>
-          </div>
-
-          <p class="meta">
-            I’m excited to bring a hybrid skill set—UX thinking + front-end engineering + full-stack fundamentals—to teams building products that aim to be both intelligent and genuinely user-centered.
-          </p>
-
-          <div class="social-inline">
-            <span class="social-label">Elsewhere</span>
-            <a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <span aria-hidden="true">·</span>
-            <a href="https://github.com/DevinW2304" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-        </section>
-
-        <!-- Skills + resume preview card (no long paragraphs) -->
-        <section class="intro-card intro-card-secondary" aria-labelledby="skills-resume-title">
-          <h2 id="skills-resume-title" class="card-heading">Skills &amp; resume</h2>
-
-          <!-- Skills pill cloud (with subtle motion) -->
-          <p class="skills-label">What I work with most</p>
-          <div class="skills-pill-cloud">
-            <span class="skill-pill">Human–Computer Interaction</span>
-            <span class="skill-pill">User Experience</span>
-            <span class="skill-pill">Android (Kotlin)</span>
-            <span class="skill-pill">Prototyping</span>
-            <span class="skill-pill">Accessibility</span>
-            <span class="skill-pill">Information Architecture</span>
-            <span class="skill-pill">HTML/CSS/JS</span>
-            <span class="skill-pill">Usability Testing</span>
-            <span class="skill-pill">Supabase · Postgres</span>
-            <span class="skill-pill">Full-Stack Fundamentals</span>
-          </div>
-
-          <!-- Resume preview (click to open full PDF) -->
-          <a
-            href="assets/Devin_Washington_Resume.pdf"
-            class="resume-preview"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div class="resume-preview-inner">
-              <!-- Needs to be an image file, not the PDF -->
-              <img
-                src="assets/resume-preview.png"
-                alt="Preview thumbnail of Devin Washington's resume"
-                class="resume-preview-image"
-              />
-            </div>
-            <p class="resume-preview-hint">
-              Click to open the full resume (PDF)
+      <ol class="work-list">
+        <li class="work-row work-row--featured">
+          <span class="work-num" aria-hidden="true">01</span>
+          <div class="work-info">
+            <h3>BIQ</h3>
+            <p class="work-kind">Basketball analytics, web</p>
+            <p class="work-desc">
+              A site that scores NBA players with a rating model I built, then lays the
+              results out in dashboards, leaderboards, and side-by-side comparisons.
+              The hard part was making a lot of numbers readable. Next.js front end,
+              FastAPI back end.
             </p>
-          </a>
-        </section>
+            <p class="work-links">
+              <a href="https://biq-mind.vercel.app/" target="_blank" rel="noopener noreferrer">Live site</a>
+              <a href="https://github.com/DevinW2304/biq-frontend" target="_blank" rel="noopener noreferrer">Source</a>
+            </p>
+          </div>
+          <div class="work-media">
+            <img src="img/biqScreen.png" alt="BIQ player dashboard" loading="lazy" decoding="async" />
+          </div>
+        </li>
+
+        <li class="work-row">
+          <span class="work-num" aria-hidden="true">02</span>
+          <div class="work-info">
+            <h3>Whole Foods Mobile Experience</h3>
+            <p class="work-kind">UX case study, mobile web</p>
+            <p class="work-desc">
+              A mobile grocery flow — browsing, cart, checkout, order tracking — backed
+              by a small JSON data API and later a Supabase order system. Built over
+              three sprints with a team.
+            </p>
+            <p class="work-links">
+              <a href="projects/wholefoods-case-study.html">Case study and demo</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="work-row">
+          <span class="work-num" aria-hidden="true">03</span>
+          <div class="work-info">
+            <h3>Symbol Table Visualizer</h3>
+            <p class="work-kind">Developer tool, web</p>
+            <p class="work-desc">
+              Shows how a program's symbol tables, scopes, and runtime frames change as
+              code executes, with a graph view and a tabular breakdown. Built in React
+              for a programming languages course, then kept going.
+            </p>
+            <p class="work-links">
+              <a href="https://symbol-table-site.vercel.app/" target="_blank" rel="noopener noreferrer">Live site</a>
+              <a href="https://github.com/DevinW2304/symbol-table-site" target="_blank" rel="noopener noreferrer">Source</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="work-row">
+          <span class="work-num" aria-hidden="true">04</span>
+          <div class="work-info">
+            <h3>Accessibility Lab</h3>
+            <p class="work-kind">Accessibility, this site</p>
+            <p class="work-desc">
+              A page for trying color-vision simulations, contrast, text size, and
+              motion settings. Whatever you set there carries across the rest of this
+              site.
+            </p>
+            <p class="work-links">
+              <a href="accessibility/index.html">Open the lab</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="work-row">
+          <span class="work-num" aria-hidden="true">05</span>
+          <div class="work-info">
+            <h3>Gift Guide</h3>
+            <p class="work-kind">Android app</p>
+            <p class="work-desc">
+              An Android app for narrowing down gift ideas through a short guided flow
+              instead of endless list-scrolling. Kotlin and Jetpack Compose.
+            </p>
+            <p class="work-links">
+              <a href="projects/giftguide.html">Case study</a>
+              <a href="https://github.com/DevinW2304/GiftGuide" target="_blank" rel="noopener noreferrer">Source</a>
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">About</h2>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I studied computer science because I liked building things, and psychology
+            because I wanted to understand the people using them. Most of my work sits
+            where the two overlap: interfaces, Android apps, and the front end of the
+            web.
+          </p>
+          <p>
+            Accessibility is a standing part of how I build, not a checklist at the
+            end. This site has its own accessibility lab, and the preferences you set
+            there follow you around.
+          </p>
+        </div>
+
+        <dl class="about-facts">
+          <div class="fact">
+            <dt>Based in</dt>
+            <dd>Blacksburg, Virginia</dd>
+          </div>
+          <div class="fact">
+            <dt>Education</dt>
+            <dd>B.S. Computer Science, UNC Charlotte. HCI concentration, psychology minor.</dd>
+          </div>
+          <div class="fact">
+            <dt>Day to day</dt>
+            <dd>HTML/CSS/JS, React, Kotlin and Jetpack Compose, Figma, Supabase and Postgres.</dd>
+          </div>
+          <div class="fact">
+            <dt>Available for</dt>
+            <dd>Full-time roles and freelance projects.</dd>
+          </div>
+        </dl>
       </div>
-    </div>
+    </section>
+
+    <!-- FREELANCE -->
+    <section id="freelance" aria-labelledby="freelance-title">
+      <h2 id="freelance-title" class="section-title">Freelance</h2>
+
+      <div class="freelance-block">
+        <p>
+          I build websites for individuals and small businesses — portfolios, landing
+          pages, sites for a shop or a practice. You get something fast, accessible,
+          and easy to keep updated, on your own domain.
+        </p>
+        <p>
+          If you need one, <a href="mailto:devin.washington.eto@gmail.com?subject=Website%20project">send me an email</a>
+          with a rough idea of what you have in mind, and I'll reply with questions,
+          a plan, and a quote. For a simple 1 page site with no live inventory, expect a quote of 100-150 USD. More complex sites will be quoted individually.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact</h2>
+
+      <p class="contact-line">The fastest way to reach me is email.</p>
+
+      <a class="contact-email" href="mailto:devin.washington.eto@gmail.com">
+        devin.washington.eto@gmail.com
+      </a>
+
+      <ul class="contact-links" aria-label="Other places">
+        <li><a href="https://github.com/DevinW2304" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/devin-washington-8a73111b8/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="assets/Devin_Washington_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a></li>
+      </ul>
+    </section>
+
   </main>
 
-  <script src="js/intro.js"></script>
+  <div data-include="partials/footer.html"></div>
 </body>
 </html>

@@ -7,20 +7,24 @@
   <title>Gift Guide – Project Case Study | Devin Washington</title>
   <meta name="description" content="Gift Guide case study – a Kotlin/Compose app for thoughtful, personalized gift ideas." />
 
-  <!-- Gift Guide standalone styles -->
-  <link rel="stylesheet" href="../css/giftguide.css">
-  
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Shared site styles (navbar/footer) + Gift Guide standalone styles -->
+  <link rel="stylesheet" href="../css/default.css">
+  <link rel="stylesheet" href="../css/giftguide.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+
+  <script defer src="../js/prefs.js"></script>
+  <script defer src="../js/includes.js"></script>
+  <script defer src="../js/motion.js"></script>
+  <script defer src="../js/a11y-global.js"></script>
 </head>
 
 <body class="giftguide-theme">
 
-  <!-- Minimal case study header -->
-  <header class="project-simple-header">
-    <a href="../main.html" class="back-link">← Back to Portfolio</a>
-  </header>
+  <div data-include="../partials/header.html"></div>
 
   <main class="project-detail">
 
@@ -53,7 +57,7 @@
       </div>
 
       <div class="project-hero-actions">
-        <a href="https://github.com/DevinWashington/GiftGuide" target="_blank" class="button button-primary">
+        <a href="https://github.com/DevinW2304/GiftGuide" target="_blank" rel="noopener noreferrer" class="button button-primary">
           View Repository
         </a>
         <a href="../main.html" class="button button-secondary">
@@ -62,7 +66,7 @@
       </div>
 
       <div class="project-hero-image">
-        <img src="../img/project-giftguide.png" alt="Gift Guide Android app mockups">
+        <img src="../img/giftguidelogo.png" alt="Gift Guide Android app mockups">
       </div>
     </section>
 
@@ -296,6 +300,8 @@
     </section>
 
   </main>
+
+  <div data-include="../partials/footer.html"></div>
 
 </body>
 </html>

@@ -7,39 +7,41 @@
 
 /* ── THEME TOKENS ─────────────────────────────────────────── */
 :root {
-  --bg: #F5EFE8;
-  --bg-warm: #EDE5DA;
-  --text: #281C15;
-  --heading: #170F09;
-  --card-bg: #FDFAF6;
-  --accent: #B85C30;
-  --accent-muted: #D4845A;
-  --muted: #6B5040;
-  --btn-text: #FDFAF6;
-  --subtle-accent: #E8D5C0;
-  --border: rgba(120, 80, 55, 0.18);
-  --border-strong: rgba(120, 80, 55, 0.32);
-  --card-shadow: rgba(20, 12, 6, 0.07);
-  --hover-shadow: rgba(20, 12, 6, 0.14);
-  --ink: #170F09;
+  --bg: #F2EBE2;
+  --bg-warm: #EAE0D2;
+  --text: #211710;
+  --heading: #171009;
+  --card-bg: #F7F1E8;
+  --accent: #A63D1E;
+  --accent-muted: #8A331A;
+  --olive: #3E5641;
+  --muted: #6E5B4C;
+  --btn-text: #F7F1E8;
+  --subtle-accent: #E3D5C2;
+  --border: rgba(33, 23, 16, 0.25);
+  --border-strong: #211710;
+  --card-shadow: rgba(20, 12, 6, 0.05);
+  --hover-shadow: rgba(20, 12, 6, 0.1);
+  --ink: #171009;
 }
 
 [data-theme="dark"] {
-  --bg: #160E09;
-  --bg-warm: #1E1410;
-  --text: #EDE5DA;
-  --heading: #FAF6F1;
-  --card-bg: #201510;
-  --accent: #D9845A;
-  --accent-muted: #C07040;
-  --muted: #B08A72;
-  --btn-text: #FAF6F1;
-  --subtle-accent: #2A1C14;
-  --border: rgba(180, 140, 110, 0.22);
-  --border-strong: rgba(180, 140, 110, 0.4);
-  --card-shadow: rgba(0, 0, 0, 0.32);
-  --hover-shadow: rgba(0, 0, 0, 0.52);
-  --ink: #FAF6F1;
+  --bg: #1A130E;
+  --bg-warm: #211812;
+  --text: #E8DFD2;
+  --heading: #F5EFE6;
+  --card-bg: #221913;
+  --accent: #C9633C;
+  --accent-muted: #B4552F;
+  --olive: #7C9070;
+  --muted: #A98F7B;
+  --btn-text: #1A130E;
+  --subtle-accent: #2C2017;
+  --border: rgba(232, 223, 210, 0.28);
+  --border-strong: #E8DFD2;
+  --card-shadow: rgba(0, 0, 0, 0.25);
+  --hover-shadow: rgba(0, 0, 0, 0.35);
+  --ink: #F5EFE6;
 }
 
 
@@ -49,7 +51,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: 'Archivo', system-ui, sans-serif;
   margin: 0;
   /* FLOW: slightly more generous leading improves paragraph readability */
   line-height: 1.72;
@@ -90,7 +92,7 @@ body::after {
 
 /* ── TYPOGRAPHY ───────────────────────────────────────────── */
 h1, h2, h3 {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
   color: var(--heading);
   margin: 0 0 0.6rem;
   font-weight: 400;
@@ -126,14 +128,7 @@ p {
 
 /* FLOW: squiggles shrunk and dimmed — they now act as a quiet flourish
    rather than a recurring design element demanding attention every section */
-.squiggle {
-  display: block;
-  width: 48px;
-  height: 8px;
-  color: var(--accent);
-  margin: 0.15rem 0 1.4rem;
-  opacity: 0.35;
-}
+.squiggle { display: none; }
 
 /* FLOW: section markers made near-invisible — they're watermarks now, not
    competing labels. Content heading is already the label. */
@@ -141,7 +136,7 @@ p {
   position: absolute;
   left: -0.5rem;
   top: 5.5rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Archivo', sans-serif;
   font-size: 0.58rem;
   font-weight: 600;
   letter-spacing: 0.22em;
@@ -217,8 +212,9 @@ section a:not(.button):not(.contact-email-raw):hover {
   position: sticky;
   top: 0;
   z-index: 1200;
-  padding: .6rem 1rem;
-  background: transparent;
+  padding: 0 1.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .nav-inner {
@@ -228,24 +224,14 @@ section a:not(.button):not(.contact-email-raw):hover {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  background: color-mix(in oklab, var(--card-bg) 88%, transparent);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: .55rem .7rem .55rem .9rem;
-  box-shadow: 0 6px 24px var(--card-shadow), inset 0 1px 0 rgba(255,255,255,0.4);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-}
-
-[data-theme="dark"] .nav-inner {
-  box-shadow: 0 6px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+  padding: .7rem 0;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: .45rem;
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 1.15rem;
   font-weight: 400;
   letter-spacing: 0;
@@ -298,14 +284,17 @@ section a:not(.button):not(.contact-email-raw):hover {
   font-weight: 500;
   font-size: .85rem;
   padding: .45rem .62rem;
-  border-radius: 8px;
-  transition: background .15s ease, color .15s ease;
+  transition: color .15s ease, background-size .22s ease;
   letter-spacing: 0.01em;
   display: block;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: .62rem calc(100% - .28rem);
+  background-size: 0 2px;
 }
 .nav-links a:hover {
-  background: color-mix(in oklab, var(--accent) 9%, transparent);
   color: var(--heading);
+  background-size: calc(100% - 1.24rem) 2px;
 }
 .nav-links a:focus-visible {
   outline: 2px solid var(--accent);
@@ -353,7 +342,7 @@ section a:not(.button):not(.contact-email-raw):hover {
   color: var(--btn-text) !important;
   font-size: .82rem;
   font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Archivo', sans-serif;
   padding: .5rem 1rem;
   border-radius: 8px;
   text-decoration: none;
@@ -540,7 +529,7 @@ section a:not(.button):not(.contact-email-raw):hover {
   right: -0.05em;
   top: 50%;
   transform: translateY(-55%);
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: clamp(14rem, 26vw, 24rem);
   font-weight: 400;
   color: rgba(255, 240, 220, 0.032);
@@ -693,7 +682,7 @@ section a:not(.button):not(.contact-email-raw):hover {
 .hero-card-title {
   margin: 0 0 .3rem;
   font-weight: 600;
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 1.05rem;
   color: #F0E4D4 !important;
 }
@@ -755,63 +744,31 @@ section .availability-badge {
   background-color: var(--accent);
   color: var(--btn-text);
   font-size: 0.875rem;
-  padding: 0.72rem 1.4rem;
-  border-radius: 8px;
+  padding: 0.68rem 1.3rem;
+  border-radius: 2px;
   text-decoration: none;
   font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
-  border: 1px solid transparent;
-  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  font-family: 'Archivo', sans-serif;
+  border: 1px solid var(--accent);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   display: inline-block;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(184, 92, 48, 0.22);
   white-space: nowrap;
   letter-spacing: 0.01em;
 }
 
-.button::before {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  left: -80%;
-  width: 55%;
-  background: rgba(255, 255, 255, 0.12);
-  transform: skewX(-18deg);
-  transition: left 0.38s ease;
-}
-.button:hover::before { left: 135%; }
-
 .button:hover {
-  background-color: #9E4A22;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 14px rgba(158, 74, 34, 0.32);
+  background-color: var(--accent-muted);
+  border-color: var(--accent-muted);
 }
-
-[data-theme="dark"] .button:hover { background-color: #C07040; }
 
 .button.button-ghost {
   background: transparent;
   color: var(--heading);
   border: 1px solid var(--border-strong);
-  box-shadow: none;
 }
-.button.button-ghost::before { display: none; }
 .button.button-ghost:hover {
-  background: color-mix(in oklab, var(--subtle-accent) 55%, transparent);
-  border-color: var(--accent);
-  box-shadow: 0 2px 8px var(--card-shadow);
-  transform: translateY(-1px);
-}
-
-.hero .button.button-ghost {
-  background: rgba(255,255,255,0.08);
-  color: #F0E4D4;
-  border-color: rgba(240,228,212,0.28);
-}
-.hero .button.button-ghost:hover {
-  background: rgba(255,255,255,0.14);
-  border-color: rgba(240,228,212,0.5);
+  background: var(--subtle-accent);
+  border-color: var(--border-strong);
 }
 
 
@@ -866,7 +823,7 @@ section .availability-badge {
 
 /* ── PULLQUOTE ────────────────────────────────────────────── */
 .pullquote {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: 1.3rem;
   font-weight: 400;
@@ -912,7 +869,7 @@ section .availability-badge {
 .about-panel-title {
   margin: 0 0 .8rem;
   font-size: 0.95rem;
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-weight: 400;
   color: var(--heading);
 }
@@ -1042,7 +999,7 @@ section .availability-badge {
   left: 12px;
   bottom: 12px;
   z-index: 2;
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 0.92rem;
   color: rgba(255, 249, 245, 0.95);
   background: rgba(0, 0, 0, 0.36);
@@ -1246,7 +1203,7 @@ section .availability-badge {
 
 .contact-email-raw {
   display: block;
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: clamp(0.9rem, 2.2vw, 1.25rem);
   color: var(--heading) !important;
@@ -1338,13 +1295,40 @@ section .availability-badge {
 footer {
   background: var(--bg-warm);
   color: var(--muted);
-  text-align: center;
-  padding: 2rem 2rem;
+  text-align: left;
+  padding: 3rem 1.5rem 2.5rem;
   margin-top: 0;
   font-size: 0.85rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-strong);
 }
 footer p { margin: 0; max-width: none; }
+
+.footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.footer-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.9rem, 8vw, 5.5rem);
+  line-height: 1;
+  color: var(--heading);
+  margin: 0 0 1.2rem !important;
+  user-select: none;
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+  .footer-name {
+    color: transparent;
+    -webkit-text-stroke: 0.016em var(--muted);
+  }
+}
+
+footer a {
+  color: var(--muted);
+  text-underline-offset: 3px;
+}
+footer a:hover { color: var(--accent); }
 
 
 /* ── FOCUS ────────────────────────────────────────────────── */
@@ -1421,4 +1405,12 @@ body.preload section { opacity: 0; transform: translateY(10px); }
   .meta-chip { width: 100%; justify-content: flex-start; }
   .card-3d-footer { flex-direction: column; align-items: flex-start; }
   .contact-email-raw { font-size: 0.95rem; }
+}
+
+
+
+/* ── SELECTION ────────────────────────────────────────────── */
+::selection {
+  background: var(--accent);
+  color: var(--btn-text);
 }
