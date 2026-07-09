@@ -1,0 +1,322 @@
+/* ============================================================
+   CASE-STUDY.CSS — shared layout for project case studies
+   Same editorial system as the homepage: flat blocks, hard
+   rules, serif numerals. Tokens come from default.css.
+   ============================================================ */
+
+.case-main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  display: block;
+}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.case-hero {
+  padding: 4.5rem 0 3.5rem;
+}
+
+.case-kicker {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin: 0 0 1.2rem;
+}
+
+.case-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  line-height: 1.02;
+  margin: 0 0 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.case-lede {
+  font-size: 1.12rem;
+  max-width: 60ch;
+  margin: 0 0 2.5rem;
+}
+
+.case-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin: 0 0 2.5rem;
+}
+
+/* Facts table (same pattern as homepage about section) */
+.case-facts {
+  margin: 0;
+  border-top: 1px solid var(--border-strong);
+  max-width: 46rem;
+}
+
+.case-facts .fact {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+}
+
+.case-facts dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  padding-top: 0.15rem;
+}
+
+.case-facts dd {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ── SECTIONS ─────────────────────────────────────────────── */
+.case-section {
+  border-top: 1px solid var(--border-strong);
+  padding: 3.5rem 0;
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
+
+.case-section > h2 {
+  font-size: 1rem;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin: 0 0 2rem;
+}
+
+.case-section h3 {
+  font-size: 1.4rem;
+  margin: 0 0 0.6rem;
+}
+
+.case-section ul,
+.case-section ol {
+  max-width: 62ch;
+  padding-left: 1.2rem;
+}
+
+.case-section li + li { margin-top: 0.35rem; }
+
+.section-underline { display: none; }
+
+/* ── STEP LIST (numbered, serif numerals) ─────────────────── */
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+  max-width: 46rem;
+}
+
+.step-list > li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 0 1.5rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.step-list > li:first-child { border-top: none; padding-top: 0; }
+
+.step-list > li::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--accent);
+  line-height: 1.4;
+}
+
+.step-list h3 { margin-top: 0; }
+.step-list p:last-child { margin-bottom: 0; }
+.step-list ul { margin: 0.4rem 0 0.8rem; }
+
+/* ── TWO-COLUMN + SIDE NOTES ──────────────────────────────── */
+.case-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.side-note {
+  border: 1px solid var(--border-strong);
+  background: var(--bg-warm);
+  padding: 1.5rem 1.6rem;
+  font-size: 0.95rem;
+}
+
+.side-note h3 {
+  font-size: 0.8rem;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin: 0 0 0.7rem;
+}
+
+.side-note h3 + ul { margin-top: 0; }
+.side-note ul { padding-left: 1.1rem; margin-bottom: 1.4rem; }
+.side-note ul:last-child { margin-bottom: 0; }
+
+/* ── MEDIA ────────────────────────────────────────────────── */
+.case-section figure { margin: 0; }
+
+.case-section figure img,
+.case-figure img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--border-strong);
+}
+
+.case-section figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.45rem;
+}
+
+.visual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 2rem;
+  align-items: flex-start;
+  max-width: 1000px;
+}
+
+/* Screenshot carousel — flat */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  background: var(--card-bg);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel-slide { min-width: 100%; }
+.carousel-slide img { width: 100%; display: block; border: none; }
+
+.carousel-slide figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 0.6rem 0.9rem 0.8rem;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  color: var(--heading);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.carousel-btn:hover { background: var(--subtle-accent); }
+.carousel-btn--prev { left: 10px; }
+.carousel-btn--next { right: 10px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem 0.8rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.carousel-dot.is-active { background: var(--accent); border-color: var(--accent); }
+
+/* Phone demo (rounded on purpose — it depicts a device) */
+.phone-frame {
+  width: 100%;
+  max-width: 375px;
+  aspect-ratio: 375 / 812;
+  border-radius: 32px;
+  border: 10px solid var(--heading);
+  overflow: hidden;
+  background: #000;
+  margin: 0 auto;
+}
+
+.phone-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.demo-links {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.demo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  gap: 3rem;
+  align-items: center;
+  max-width: 1000px;
+  margin-top: 2rem;
+}
+
+.demo-phone { text-align: center; }
+
+/* ── CODE ─────────────────────────────────────────────────── */
+pre.code-snippet {
+  margin-top: 0.9rem;
+  padding: 1rem 1.2rem;
+  background: var(--bg-warm);
+  border: 1px solid var(--border-strong);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  color: var(--text);
+}
+
+pre.code-snippet code {
+  font-family: "JetBrains Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .case-cols,
+  .demo-layout,
+  .visual-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 640px) {
+  .case-hero { padding: 3rem 0 2.5rem; }
+  .case-section { padding: 2.5rem 0; }
+  .case-facts .fact { grid-template-columns: 1fr; gap: 0.2rem; }
+  .step-list > li { grid-template-columns: 1fr; }
+  .step-list > li::before { margin-bottom: 0.3rem; }
+}

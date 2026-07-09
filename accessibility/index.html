@@ -6,14 +6,18 @@
   <title>Accessibility Lab — Devin Washington</title>
   <meta
     name="description"
-    content="Try inclusive modes and simulations: color vision, low vision, high contrast, reduced motion, dyslexia-friendly font."
+    content="Try color-vision simulations and inclusive modes: contrast, text size, motion, and a dyslexia-friendly font. Settings persist across the site."
   />
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+
   <link rel="stylesheet" href="/css/default.css" />
-    <link rel="stylesheet" href="/css/a11y.css" />
+  <link rel="stylesheet" href="/css/case-study.css" />
+  <link rel="stylesheet" href="/css/a11y.css" />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Archivo:wght@400;500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
     rel="stylesheet"
   />
   <script
@@ -23,50 +27,74 @@
 
   <script defer src="/js/prefs.js"></script>
   <script defer src="/js/includes.js"></script>
+  <script defer src="/js/motion.js"></script>
   <script defer src="/js/a11y-global.js"></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div data-include="/partials/header.html"></div>
 
-  <main class="container" id="accessibility-lab">
-    <section>
+  <main class="case-main" id="main">
+
+    <section class="case-hero" id="accessibility-lab">
+      <p class="case-kicker">This site — settings</p>
       <h1>Accessibility Lab</h1>
-      <p>Toggle simulations and inclusive modes below. Preferences persist across the site.</p>
+      <p class="case-lede">
+        Adjust how this site looks and behaves, or try simulations of how it reads
+        with different kinds of color vision. Whatever you set here persists across
+        every page.
+      </p>
 
       <form class="a11y-grid" id="a11y-form">
         <fieldset>
-          <legend>Color Vision Simulation (approx)</legend>
+          <legend>Color vision simulation</legend>
+          <p class="fieldset-note">Approximate filters — useful for a feel, not a diagnosis.</p>
           <label><input type="radio" name="cvd" value="none" checked> None</label>
-          <label><input type="radio" name="cvd" value="protanopia"> Protanopia</label>
-          <label><input type="radio" name="cvd" value="deuteranopia"> Deuteranopia</label>
-          <label><input type="radio" name="cvd" value="tritanopia"> Tritanopia</label>
+          <label><input type="radio" name="cvd" value="protanopia"> Protanopia (reduced red)</label>
+          <label><input type="radio" name="cvd" value="deuteranopia"> Deuteranopia (reduced green)</label>
+          <label><input type="radio" name="cvd" value="tritanopia"> Tritanopia (reduced blue)</label>
         </fieldset>
 
         <fieldset>
-          <legend>Low Vision Aids</legend>
-          <label><input type="checkbox" name="blur" value="on"> Slight Blur</label>
-          <label><input type="checkbox" name="largerText" value="on"> Larger Text</label>
+          <legend>Low vision</legend>
+          <label><input type="checkbox" name="blur" value="on"> Slight blur</label>
+          <label><input type="checkbox" name="largerText" value="on"> Larger text</label>
         </fieldset>
 
         <fieldset>
-          <legend>Contrast & Motion</legend>
-          <label><input type="checkbox" name="highContrast" value="on"> High Contrast</label>
-          <label><input type="checkbox" name="reducedMotion" value="on"> Reduce Motion</label>
+          <legend>Contrast and motion</legend>
+          <label><input type="checkbox" name="highContrast" value="on"> High contrast</label>
+          <label><input type="checkbox" name="reducedMotion" value="on"> Reduce motion</label>
         </fieldset>
 
         <fieldset>
-          <legend>Reading Support</legend>
-          <label><input type="checkbox" name="dyslexiaFont" value="on"> Dyslexia-Friendly Font</label>
+          <legend>Reading</legend>
+          <label><input type="checkbox" name="dyslexiaFont" value="on"> Dyslexia-friendly font (Atkinson Hyperlegible)</label>
         </fieldset>
 
         <div class="a11y-actions">
-          <button type="button" class="button button-outline" id="a11y-reset">Reset</button>
+          <button type="button" class="button button-ghost" id="a11y-reset">Reset everything</button>
         </div>
       </form>
 
       <div class="sr-status" aria-live="polite" aria-atomic="true"></div>
     </section>
+
+    <section class="case-section">
+      <h2>Why this exists</h2>
+      <p>
+        Accessibility settings are usually buried, and simulations usually live in
+        separate developer tools. Putting both on one page makes it easy to check how
+        the site holds up — and since the preferences persist, it doubles as a real
+        settings page, not just a demo.
+      </p>
+      <p style="margin-bottom: 0;">
+        <a href="/index.html#work">Back to all work</a>
+      </p>
+    </section>
+
   </main>
 
   <div data-include="/partials/footer.html"></div>

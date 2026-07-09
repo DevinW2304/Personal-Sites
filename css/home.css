@@ -171,6 +171,57 @@ main > section + section {
   font-size: 0.95rem;
 }
 
+/* ── RESUME ───────────────────────────────────────────────── */
+.resume-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.resume-text p {
+  font-size: 1.05rem;
+  max-width: 58ch;
+  margin-top: 0;
+}
+
+.resume-actions {
+  display: flex;
+  gap: 1.4rem;
+  margin: 1.4rem 0 0;
+}
+
+.resume-actions a { font-weight: 500; }
+
+.resume-preview {
+  display: block;
+  justify-self: end;
+  max-width: 340px;
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-warm);
+  padding: 0.9rem 0.9rem 0.75rem;
+  text-decoration: none;
+}
+
+.resume-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+}
+
+.resume-hint {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--olive);
+}
+
 /* ── FREELANCE ────────────────────────────────────────────── */
 .freelance-block {
   border: 1px solid var(--border-strong);
@@ -218,6 +269,8 @@ main > section + section {
     max-width: 480px;
   }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .resume-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .resume-preview { justify-self: start; }
 }
 
 @media (max-width: 640px) {
@@ -329,6 +382,29 @@ main > section + section {
 }
 
 .work-row:hover .work-media img { filter: none; }
+
+/* ── RESUME: preview hover + action arrows ────────────────── */
+.resume-preview img {
+  filter: grayscale(0.35) contrast(1.02);
+  transition: filter 0.35s ease;
+}
+
+.resume-preview:hover img { filter: none; }
+
+.resume-hint { transition: color 0.2s ease; }
+.resume-preview:hover .resume-hint { color: var(--accent); }
+
+.resume-actions a::after {
+  display: inline-block;
+  margin-left: 0.35em;
+  transition: transform 0.2s ease;
+}
+
+.resume-download::after { content: '\2193'; }
+.resume-download:hover::after { transform: translateY(0.15em); }
+
+.resume-view::after { content: '\2192'; }
+.resume-view:hover::after { transform: translateX(0.25em); }
 
 /* ── ABOUT: drop cap ──────────────────────────────────────── */
 .about-text > p:first-child::first-letter {

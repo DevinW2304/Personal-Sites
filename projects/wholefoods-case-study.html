@@ -6,448 +6,63 @@
   <title>Whole Foods Mobile Experience | Devin Washington</title>
   <meta name="description" content="Case study for a Whole Foods-style mobile web experience: onboarding, browsing, cart, order tracking, and payment flows." />
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../css/default.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="../css/a11y.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Archivo:wght@400;500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
   <script defer src="../js/prefs.js"></script>
   <script defer src="../js/includes.js"></script>
   <script defer src="../js/motion.js"></script>
   <script defer src="../js/a11y-global.js"></script>
-
-
-  <style>
-    main.case-main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 2rem 5rem;
-    }
-
-    .case-hero {
-      padding-top: 2rem;
-      padding-bottom: 1rem;
-    }
-
-    .case-hero h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .case-hero p.lead {
-      max-width: 720px;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-    }
-
-    .case-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem 2rem;
-      margin-top: 1rem;
-    }
-
-    .case-meta-item h4 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .case-meta-item p {
-      margin: 0;
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    .link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.25rem;
-    }
-
-    .link-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--accent);
-      font-size: 0.85rem;
-      text-decoration: none;
-      box-shadow: 0 2px 6px var(--card-shadow);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    .link-pill i {
-      font-size: 0.85rem;
-    }
-
-    .link-pill:hover {
-      background: var(--subtle-accent);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 10px var(--hover-shadow);
-    }
-
-    .case-section {
-      padding-top: 3rem;
-      padding-bottom: 0;
-      text-align: left;
-    }
-
-    .case-section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .case-section .section-underline {
-      margin-top: 0.25rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .case-section p,
-    .case-section ul,
-    .case-section ol {
-      max-width: 900px;
-      margin-left: 0;
-      margin-right: 0;
-      color: var(--text);
-    }
-
-    .case-section ul,
-    .case-section ol {
-      padding-left: 1.2rem;
-    }
-
-    .case-section li + li {
-      margin-top: 0.25rem;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.75rem;
-    }
-
-    .phone-demo-wrapper {
-      max-width: 420px;
-      margin-top: 2rem;
-    }
-
-    .phone-frame {
-      width: 100%;
-      max-width: 375px;
-      aspect-ratio: 375 / 812;
-      border-radius: 32px;
-      border: 10px solid var(--heading);
-      overflow: hidden;
-      box-shadow: 0 10px 25px var(--card-shadow);
-      background: #000;
-      margin: 0 auto;
-    }
-
-    .phone-frame iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .demo-links {
-      text-align: center;
-      margin-top: 0.75rem;
-      font-size: 0.9rem;
-    }
-
-    .demo-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
-      gap: 3rem;
-      justify-content: center;
-      align-items: center;
-      max-width: 1000px;
-      margin-top: 2.5rem;
-    }
-
-    .demo-phone {
-      text-align: center;
-    }
-
-    .demo-info-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 1.8rem 1.6rem;
-      border-radius: 0.9rem;
-      box-shadow: 0 4px 15px var(--card-shadow);
-      transform: translateY(10px);
-    }
-
-    .demo-info-card h3 {
-      margin-top: 0;
-      color: var(--heading);
-      font-size: 1.2rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .demo-info-card ul {
-      margin: 0.75rem 0 0;
-      padding-left: 1.2rem;
-      color: var(--text);
-    }
-
-    @media (max-width: 900px) {
-      .demo-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .demo-info-card {
-        transform: none;
-        max-width: 420px;
-        margin: 0 auto;
-      }
-    }
-
-    .demo-links a {
-      font-weight: 500;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 2.5rem;
-      align-items: flex-start;
-      max-width: 900px;
-    }
-
-    .callout {
-      background: var(--card-bg);
-      border-radius: 0.9rem;
-      border: 1px solid var(--border);
-      padding: 1.25rem 1.4rem;
-      box-shadow: 0 4px 15px var(--card-shadow);
-      font-size: 0.95rem;
-    }
-
-    .callout h3 {
-      font-size: 0.95rem;
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-
-    .callout ul {
-      padding-left: 1.1rem;
-      margin-top: 0.5rem;
-    }
-
-    .visual-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 2rem;
-      align-items: flex-start;
-      max-width: 900px;
-    }
-
-    .visual-grid figure {
-      margin: 0;
-    }
-
-    .visual-grid img {
-      width: 100%;
-      display: block;
-      border-radius: 0.9rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 18px var(--card-shadow);
-    }
-
-    .visual-grid figcaption {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 0.35rem;
-    }
-
-    /* Carousel */
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      border-radius: 0.9rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 18px var(--card-shadow);
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.4s ease;
-    }
-
-    .carousel-slide {
-      min-width: 100%;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      display: block;
-    }
-
-   .carousel-slide figcaption {
-  font-size: 0.85rem;
-  color: var(--muted);
-  padding: 0.6rem 0.9rem 0.8rem;
-  text-align: center;
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border: none;
-      background: rgba(0, 0, 0, 0.45);
-      color: #fff;
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.1rem;
-      backdrop-filter: blur(4px);
-    }
-
-    .carousel-btn:hover {
-      background: rgba(0, 0, 0, 0.65);
-    }
-
-    .carousel-btn--prev {
-      left: 10px;
-    }
-
-    .carousel-btn--next {
-      right: 10px;
-    }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.6rem 0.75rem 0.8rem;
-    }
-
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      border: none;
-      background: var(--border);
-      cursor: pointer;
-    }
-
-    .carousel-dot.is-active {
-      background: var(--accent);
-    }
-
-    pre.code-snippet {
-      margin-top: 0.9rem;
-      padding: 1rem 1.2rem;
-      border-radius: 0.8rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      box-shadow: 0 3px 12px var(--card-shadow);
-      font-size: 0.85rem;
-      overflow-x: auto;
-      color: var(--text);
-    }
-
-    pre.code-snippet code {
-      font-family: "JetBrains Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
-    }
-
-    @media (max-width: 900px) {
-      main.case-main {
-        padding: 3.5rem 1.5rem 4rem;
-      }
-
-      .two-col,
-      .visual-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .case-hero h1 {
-        font-size: 2rem;
-      }
-
-      .case-hero {
-        padding-top: 1.5rem;
-      }
-    }
-  </style>
 </head>
 <body>
   <div data-include="../partials/header.html"></div>
 
   <main class="case-main">
     <section class="case-hero">
-      <span class="stamp">Case Study</span>
+      <p class="case-kicker">Case study — mobile web</p>
       <h1>Whole Foods Mobile Experience</h1>
-      <p class="section-tagline">Mobile web · UX, data modeling &amp; order tracking</p>
-      <p class="lead">
-        Our team designed and built a mobile-first grocery shopping experience modeled after Whole Foods:
-        onboarding, product discovery, cart, and a Supabase-backed order history and tracking flow layered on
-        top of a custom JSON-driven DataAPI.
+      <p class="case-lede">
+        A mobile-first grocery shopping flow modeled after Whole Foods, built with a
+        six-person team: onboarding, browsing, cart, and a Supabase-backed order
+        history on top of a JSON-driven data layer.
       </p>
 
-      <div class="case-meta-grid" aria-label="Project overview">
-        <div class="case-meta-item">
-          <h4>Project Name</h4>
-          <p>Whole Foods Mobile Web Experience</p>
-        </div>
-        <div class="case-meta-item">
-          <h4>My Role</h4>
-          <p>Full-Stack Developer, Team Lead</p>
-        </div>
-        <div class="case-meta-item">
-          <h4>Team Size</h4>
-          <p>6 Person Team</p>
-        </div>
-        <div class="case-meta-item">
-          <h4>Duration</h4>
-          <p>User Research &amp; Prototyping: 11 Weeks</p>
-          <p>Implementation (Sprints 1–3): 3 Weeks</p>
-        </div>
-        <div class="case-meta-item">
-          <h4>Links</h4>
-          <div class="link-row">
-           
-            <a class="link-pill" href="https://itis-4390.vercel.app/" target="_blank" rel="noreferrer">
-              <i class="fa-solid fa-link"></i>
-              Live site
-            </a>
-            <a class="link-pill" href="https://devinwashington.xyz/projects/wholefoods-case-study.html" target="_blank" rel="noreferrer">
-              <i class="fa-solid fa-briefcase"></i>
-              Portfolio entry
-            </a>
-          </div>
-        </div>
+      <div class="case-hero-links">
+        <a href="https://itis-4390.vercel.app/" target="_blank" rel="noreferrer">Live prototype</a>
+        <a href="../index.html#work">Back to all work</a>
       </div>
+
+      <dl class="case-facts">
+        <div class="fact">
+          <dt>Role</dt>
+          <dd>Team lead — data layer, front-end structure, integration</dd>
+        </div>
+        <div class="fact">
+          <dt>Team</dt>
+          <dd>Six people</dd>
+        </div>
+        <div class="fact">
+          <dt>Duration</dt>
+          <dd>11 weeks of research and prototyping, then a 3-week build across three sprints</dd>
+        </div>
+        <div class="fact">
+          <dt>Stack</dt>
+          <dd>HTML, CSS, vanilla JavaScript, JSON data layer, Supabase (Auth + Postgres), Figma</dd>
+        </div>
+      </dl>
     </section>
 
     <section class="case-section">
-      <h2>Live Prototype</h2>
-      <div class="section-underline"></div>
+      <h2>Live prototype</h2>
 
       <p>
-        We built the project as a small mobile web app that runs entirely in the browser. The core browsing and
-        product views are powered by a JSON-based DataAPI, and we layered in Supabase so people can log in,
-        place orders, and later see those orders show up in their profile.
+        The project is a small mobile web app that runs entirely in the browser. The core browsing and
+        product views are powered by a JSON-based DataAPI, and Supabase handles login, order placement,
+        and the order history in each user's profile.
       </p>
 
       <div class="demo-layout">
@@ -472,34 +87,33 @@
         </div>
 
         <!-- LOGIN PANEL -->
-        <div class="demo-info-card">
-          <h3>Demo Login</h3>
-          <p>Use this test account to walk through the full flow the way we intended it:</p>
+        <aside class="side-note">
+          <h3>Demo login</h3>
+          <p>Use this test account to walk through the full flow:</p>
 
           <ul>
             <li><strong>Email:</strong> demo@example.com</li>
             <li><strong>Password:</strong> password123</li>
           </ul>
 
-          <p style="margin-top: 1rem;">
-            This account is wired into Supabase so you can see a realistic flow for login,
-            updating preferences, placing orders, and checking your order history and tracking status.
+          <p style="margin-top: 1rem; margin-bottom: 0;">
+            The account is wired into Supabase, so login, preferences, placing orders,
+            and order history all work end to end.
           </p>
-        </div>
+        </aside>
       </div>
     </section>
 
     <section class="case-section" id="contributions">
-      <h2>Your Contributions</h2>
-      <div class="section-underline"></div>
+      <h2>What we built</h2>
 
-      <div class="two-col">
+      <div class="case-cols">
         <div>
           <p>
-            I worked as a team lead on this project, but everything here is the result of a group effort.
-            Together we moved from rough flows and disconnected screens to an app that actually feels
-            like something you could use on your phone. On my end, I focused on the data layer, front-end
-            structure, and making sure the pieces our team built fit together cleanly.
+            I was the team lead, but everything here was a group effort. Over three sprints we went
+            from rough flows and disconnected screens to an app you could hand someone on a phone.
+            My own work centered on the data layer, front-end structure, and making sure the pieces
+            the team built fit together.
           </p>
 
           <p><strong>What we shipped together:</strong></p>
@@ -522,18 +136,10 @@
             </li>
           </ul>
 
-          <div class="pill-row">
-            <span class="stamp">HTML</span>
-            <span class="stamp">CSS</span>
-            <span class="stamp">Vanilla JS</span>
-            <span class="stamp">JSON</span>
-            <span class="stamp">Supabase</span>
-            <span class="stamp">UX / UI</span>
-          </div>
         </div>
 
-        <aside class="callout">
-          <h3>Tech &amp; Tools</h3>
+        <aside class="side-note">
+          <h3>Tech and tools</h3>
           <ul>
             <li><strong>Front-end:</strong> Semantic HTML, custom CSS, Tailwind-inspired utility patterns.</li>
             <li><strong>Data:</strong> JSON for products, categories, stores, inventory, promotions, and users.</li>
@@ -546,17 +152,15 @@
     </section>
 
     <section class="case-section" id="journey">
-      <h2>Your Journey</h2>
-      <div class="section-underline"></div>
+      <h2>How it went</h2>
 
-      <div class="two-col">
+      <div class="case-cols">
         <div>
           <h3>From rough prototype to connected product</h3>
           <p>
-            At the start, our app was basically a collection of static pages and a small JSON catalog.
-            It definitely felt rough, but that stage helped us nail down the user flow without getting
-            too hung up on implementation details. We could quickly sketch how someone would move from
-            onboarding into browsing, picking items, and checking out.
+            At the start, the app was a collection of static pages and a small JSON catalog. That rough
+            stage helped us settle the user flow without getting hung up on implementation: how someone
+            moves from onboarding into browsing, picking items, and checking out.
           </p>
 
           <p>
@@ -567,7 +171,7 @@
             of separate pages.
           </p>
 
-          <h3>Phased Development</h3>
+          <h3>Sprint by sprint</h3>
           <ol>
             <li>
               <strong>Sprint 1 – Core Flows &amp; IA:</strong>
@@ -591,8 +195,8 @@
           </ol>
         </div>
 
-        <aside class="callout">
-          <h3>What We Learned</h3>
+        <aside class="side-note">
+          <h3>What we learned</h3>
           <ul>
             <li>
               Working in sprints kept the project manageable and gave us clear goals for each week instead
@@ -608,7 +212,7 @@
             </li>
           </ul>
 
-          <h3>Challenges &amp; Skills Gained</h3>
+          <h3>Challenges</h3>
           <ul>
             <li>Balancing realistic order flows with the time and stack constraints of a class project.</li>
             <li>Debugging cross-page issues where one small change broke another part of the journey.</li>
@@ -619,8 +223,7 @@
     </section>
 
     <section class="case-section">
-      <h2>Key Flows</h2>
-      <div class="section-underline"></div>
+      <h2>Key flows</h2>
       <ul>
         <li><strong>Onboarding &amp; Access:</strong> Clear entry into login, sign-up, or continue as guest.</li>
         <li><strong>Browse &amp; Search:</strong> Category chips and search UI that both hit the same JSON product data.</li>
@@ -633,8 +236,7 @@
     </section>
 
     <section class="case-section" id="visuals">
-      <h2>Visuals &amp; Code</h2>
-      <div class="section-underline"></div>
+      <h2>Visuals and code</h2>
 
       <div class="visual-grid">
         <div class="carousel" data-carousel>
@@ -642,7 +244,7 @@
             <figure class="carousel-slide">
               <img src="../img/demoScreen2.PNG" alt="Home and shop layout with category chips and featured items">
               <figcaption>
-                Home &amp; shop layout with featured items, reccomendations based on user preferences, and quick access to cart and profile.
+                Home and shop layout with featured items, recommendations based on user preferences, and quick access to cart and profile.
               </figcaption>
             </figure>
 
@@ -677,7 +279,7 @@
 
         <div>
           <p>
-            The final UI is close to what we planned in Figma, but it definitely evolved in Sprint 3 after we
+            The final UI is close to what we planned in Figma, but it evolved in Sprint 3 after we
             saw things running on an actual phone. We adjusted spacing, fixed clipping and scroll issues, and
             kept the palette calm and neutral so all of the details (prices, units, tags, status) stayed easy
             to scan on a small screen.
@@ -713,8 +315,7 @@ const { data: orders } = await supabase
     </section>
 
     <section class="case-section">
-      <h2>Implementation Details</h2>
-      <div class="section-underline"></div>
+      <h2>Implementation details</h2>
       <p>
         Under the hood, the experience is backed by a set of JSON files for the product catalog and a
         Supabase backend for user-specific data. The DataAPI wrapper handles loading the static content

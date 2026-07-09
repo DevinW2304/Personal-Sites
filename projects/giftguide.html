@@ -4,16 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Gift Guide – Project Case Study | Devin Washington</title>
-  <meta name="description" content="Gift Guide case study – a Kotlin/Compose app for thoughtful, personalized gift ideas." />
+  <title>Gift Guide — Case Study | Devin Washington</title>
+  <meta name="description" content="Case study for Gift Guide, an Android app for narrowing down gift ideas. Kotlin and Jetpack Compose." />
 
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
 
-  <!-- Shared site styles (navbar/footer) + Gift Guide standalone styles -->
-  <link rel="stylesheet" href="../css/default.css">
-  <link rel="stylesheet" href="../css/giftguide.css">
+  <link rel="stylesheet" href="../css/default.css" />
+  <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="../css/a11y.css" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Archivo:wght@400;500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
 
   <script defer src="../js/prefs.js"></script>
@@ -22,281 +24,170 @@
   <script defer src="../js/a11y-global.js"></script>
 </head>
 
-<body class="giftguide-theme">
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <div data-include="../partials/header.html"></div>
 
-  <main class="project-detail">
+  <main class="case-main" id="main">
 
     <!-- HERO -->
-    <section class="project-hero">
-      <p class="eyebrow">Case Study · Android · Kotlin</p>
+    <section class="case-hero">
+      <p class="case-kicker">Case study — Android</p>
       <h1>Gift Guide</h1>
-      <p class="project-subtitle">
-        A Kotlin/Jetpack Compose app that helps people find thoughtful gift ideas through guided prompts and personalized suggestions,
-        instead of endless scrolling through generic lists.
+      <p class="case-lede">
+        An Android app for narrowing down gift ideas. Instead of scrolling generic
+        "gift ideas" lists, you describe the person in a few short prompts and get a
+        small set of suggestions tied to what you said.
       </p>
 
-      <div class="project-meta-grid">
-        <div>
-          <h2 class="project-meta-label">Role</h2>
-          <p>Solo designer &amp; developer</p>
-        </div>
-        <div>
-          <h2 class="project-meta-label">Timeline</h2>
-          <p>Independent project · 2025</p>
-        </div>
-        <div>
-          <h2 class="project-meta-label">Skills</h2>
-          <p>Interaction design, Android, UX writing, state management</p>
-        </div>
-        <div>
-          <h2 class="project-meta-label">Stack</h2>
-          <p>Kotlin, Jetpack Compose, ViewModel, local persistence</p>
-        </div>
+      <div class="case-hero-links">
+        <a href="https://github.com/DevinW2304/GiftGuide" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+        <a href="../index.html#work">Back to all work</a>
       </div>
 
-      <div class="project-hero-actions">
-        <a href="https://github.com/DevinW2304/GiftGuide" target="_blank" rel="noopener noreferrer" class="button button-primary">
-          View Repository
-        </a>
-        <a href="../main.html" class="button button-secondary">
-          Back to Portfolio
-        </a>
-      </div>
+      <dl class="case-facts">
+        <div class="fact">
+          <dt>Role</dt>
+          <dd>Solo — design and development</dd>
+        </div>
+        <div class="fact">
+          <dt>Timeline</dt>
+          <dd>Independent project, 2025</dd>
+        </div>
+        <div class="fact">
+          <dt>Stack</dt>
+          <dd>Kotlin, Jetpack Compose, ViewModel, Room/DataStore</dd>
+        </div>
+      </dl>
+    </section>
 
-      <div class="project-hero-image">
-        <img src="../img/giftguidelogo.png" alt="Gift Guide Android app mockups">
+    <!-- PROBLEM -->
+    <section class="case-section">
+      <h2>The problem</h2>
+      <div class="case-cols">
+        <div>
+          <p>
+            Buying a gift is an open-ended problem. Most people end up bouncing
+            between tabs, searching "gift ideas for mom," and scrolling lists that
+            were written for nobody in particular.
+          </p>
+          <p>
+            Gift Guide narrows the problem instead: it asks a few questions about the
+            recipient — who they are, the occasion, their interests, your budget — and
+            turns the answers into a short list of suggestions that reference what you
+            actually said.
+          </p>
+        </div>
+        <aside class="side-note">
+          <h3>Goals</h3>
+          <ul>
+            <li>Let people describe the recipient in their own words, not just filters.</li>
+            <li>Tie every suggestion visibly back to that description.</li>
+            <li>Support saving and revisiting ideas, not just one-off searches.</li>
+            <li>Keep the interface quiet — it's a planning tool, not a store.</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-    <!-- OVERVIEW (Context + Goals in one layout) -->
-    <section class="project-section overview">
-      <div class="section-header">
-        <h2>Overview</h2>
-        <div class="section-underline"></div>
-      </div>
-
-      <div class="overview-layout">
-        <div class="overview-context">
-          <h3>The problem</h3>
-          <p>
-            Buying gifts is hard because it’s completely open-ended. People bounce between tabs, search “gift ideas,”
-            and scroll through generic lists that rarely match the person they’re shopping for.
-          </p>
-          <p>
-            Gift Guide flips that by asking a few natural questions about the recipient and turning that into a small,
-            focused set of suggestions that feel made for that person.
-          </p>
-        </div>
-
-        <div class="overview-goals">
-          <h3>What I set out to do</h3>
-          <div class="goal-grid">
-            <article class="goal-chip">
-              <h4>Natural input</h4>
-              <p>Let people describe the recipient in their own words, not just filters.</p>
-            </article>
-            <article class="goal-chip">
-              <h4>Specific ideas</h4>
-              <p>Make each suggestion clearly connected to the description they gave.</p>
-            </article>
-            <article class="goal-chip">
-              <h4>Real planning</h4>
-              <p>Support saving and revisiting ideas instead of a one-time search.</p>
-            </article>
-            <article class="goal-chip">
-              <h4>Calm interface</h4>
-              <p>Keep the UI quiet and readable, not noisy or “salesy.”</p>
-            </article>
+    <!-- HOW IT WORKS -->
+    <section class="case-section">
+      <h2>How it works</h2>
+      <ol class="step-list">
+        <li>
+          <div>
+            <h3>Describe the person</h3>
+            <p>
+              The entry screen asks who the gift is for, the occasion, their interests
+              and personality, and a budget range. The prompts are conversational —
+              "How would you describe them to a friend?" — with free-text fields
+              rather than dropdowns.
+            </p>
           </div>
+        </li>
+        <li>
+          <div>
+            <h3>Review suggestions</h3>
+            <p>
+              The description goes to a small recommendation endpoint and comes back
+              as a list of idea cards. Each card has a title, a line or two explaining
+              why it fits the description, and an optional price note. The layout is a
+              plain vertical list — easy to scan, nothing competing for attention.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Save ideas for later</h3>
+            <p>
+              Saved ideas go to a local list on the device, filterable by person or
+              occasion, with a "purchased" state for ideas you've used. There's no
+              account or sync on purpose — the app behaves like a planning notebook.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- DESIGN DECISIONS -->
+    <section class="case-section">
+      <h2>Design decisions</h2>
+      <div class="case-cols">
+        <div>
+          <p>
+            The app is two tabs — <strong>New ideas</strong> and <strong>Saved</strong> —
+            so it's always clear where live results and long-term planning live. No
+            drawers, no deep menus.
+          </p>
+          <p>
+            Suggestion cards are laid out like index cards: title, short explanation,
+            consistent spacing. Saving something uses a small inline confirmation
+            rather than a modal, so you stay in the list while you work through ideas.
+          </p>
+          <p>
+            Empty states do some teaching. Before you've saved anything, the Saved tab
+            explains what will show up there and points you to your first search,
+            instead of sitting blank.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <!-- CORE EXPERIENCE (flows as step cards) -->
-    <section class="project-section flows">
-      <div class="section-header">
-        <h2>Core Experience</h2>
-        <div class="section-underline"></div>
-        <p class="section-intro">
-          The app is built around three simple pieces: describing the person, getting ideas, and saving what resonates.
-        </p>
-      </div>
-
-      <div class="flow-grid">
-        <article class="flow-card">
-          <div class="flow-step-badge">1</div>
-          <h3>Describe the person</h3>
-          <p>
-            The entry screen asks a few short prompts:
-          </p>
-          <ul>
-            <li>Who is this for?</li>
-            <li>Occasion (birthday, graduation, “just because”…)</li>
-            <li>Interests &amp; personality</li>
-            <li>Budget range</li>
-          </ul>
-          <p class="flow-footnote">
-            Inputs use flexible text areas and microcopy like
-            “How would you describe them to a friend?” to keep things casual.
-          </p>
-        </article>
-
-        <article class="flow-card">
-          <div class="flow-step-badge">2</div>
-          <h3>Review suggestions</h3>
-          <p>
-            After submitting, Gift Guide turns the description into a curated set of ideas. Each card shows:
-          </p>
-          <ul>
-            <li>A concise title (e.g., “Custom recipe journal”)</li>
-            <li>A short explanation tied to the description</li>
-            <li>An optional price note or flexibility hint</li>
-          </ul>
-          <p class="flow-footnote">
-            The layout is a vertical list of cards—no clutter, clear spacing, easy to scan.
-          </p>
-        </article>
-
-        <article class="flow-card">
-          <div class="flow-step-badge">3</div>
-          <h3>Save lists for later</h3>
-          <p>
-            Tapping “Save” adds the idea to a local list on the device. Users can:
-          </p>
-          <ul>
-            <li>See all saved ideas across people</li>
-            <li>Filter by person or occasion</li>
-            <li>Mark items as purchased once they’re used</li>
-          </ul>
-          <p class="flow-footnote">
-            There’s no account or sync on purpose—the app behaves more like a planning notebook than a store.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- DESIGN DECISIONS (pillars) -->
-    <section class="project-section design">
-      <div class="section-header">
-        <h2>Design Decisions</h2>
-        <div class="section-underline"></div>
-      </div>
-
-      <div class="pillars-grid">
-        <article class="pillar-card">
-          <h3>Two-tab structure</h3>
-          <p>
-            The app uses a simple “New Ideas / Saved” tab layout so people always know where live results and
-            long-term planning live. No hidden drawers or deep menus.
-          </p>
-        </article>
-
-        <article class="pillar-card">
-          <h3>Readable, quiet cards</h3>
-          <p>
-            Suggestions are designed like small index cards: clear title, one or two lines of explanation,
-            and consistent spacing. The focus is the content, not decorative UI.
-          </p>
-        </article>
-
-        <article class="pillar-card">
-          <h3>Helpful empty states</h3>
-          <p>
-            When there are no saved ideas yet, the app explains what will show up there and gives a direct call to action:
-            “Create your first gift search.” This teaches the feature instead of leaving it blank.
-          </p>
-        </article>
-
-        <article class="pillar-card">
-          <h3>Non-blocking feedback</h3>
-          <p>
-            Saving an item uses a subtle confirmation instead of a modal. The user stays in the flow of exploring ideas
-            instead of being interrupted.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ARCHITECTURE -->
-    <section class="project-section architecture">
-      <div class="section-header">
-        <h2>Architecture &amp; Implementation</h2>
-        <div class="section-underline"></div>
-      </div>
-
-      <div class="architecture-layout">
-        <div class="architecture-column">
+        <aside class="side-note">
           <h3>Under the hood</h3>
           <ul>
-            <li><strong>Jetpack Compose</strong> for the UI, with state hoisted into ViewModels.</li>
-            <li>
-              <strong>ViewModel + state holders</strong> to manage inputs, loading, and suggestion results
-              in a single source of truth.
-            </li>
-            <li>
-              <strong>Local persistence</strong> (Room/DataStore) to store saved ideas, recipients, and simple metadata.
-            </li>
-            <li>
-              A small <strong>recommendation endpoint</strong> that turns the recipient description into a list of ideas.
-            </li>
+            <li>Jetpack Compose UI with state hoisted into ViewModels.</li>
+            <li>A single source of truth per screen for inputs, loading, and results.</li>
+            <li>Room/DataStore for saved ideas, recipients, and metadata.</li>
+            <li>One small recommendation endpoint turns descriptions into idea lists.</li>
           </ul>
-        </div>
-
-        <div class="architecture-column">
-          <h3>Why it’s structured this way</h3>
-          <p>
-            Keeping logic in ViewModels and using a single recommendation endpoint means the UI stays mostly declarative:
-            each screen just renders its current state.
-          </p>
-          <p>
-            Local persistence is intentionally simple—no auth, no accounts—so the app is easy to install, try,
-            and keep as a lightweight tool during holidays or big events.
-          </p>
-        </div>
+          <h3>Why this structure</h3>
+          <ul>
+            <li>Screens stay declarative — each one just renders its current state.</li>
+            <li>No auth or accounts keeps the app easy to install and try.</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-    <!-- NEXT STEPS -->
-    <section class="project-section next">
-      <div class="section-header">
-        <h2>What I’d Explore Next</h2>
-        <div class="section-underline"></div>
-      </div>
-
-      <div class="next-grid">
-        <article class="next-card">
-          <h3>Compare shortlists</h3>
-          <p>
-            Let users pin a few ideas and compare them side by side—pros, cons, and how they connect back
-            to the recipient’s description.
-          </p>
-        </article>
-
-        <article class="next-card">
-          <h3>Lightweight sharing</h3>
-          <p>
-            Generate a simple, shareable shortlist link so people can plan gifts with friends or family
-            without needing full accounts.
-          </p>
-        </article>
-
-        <article class="next-card">
-          <h3>On-device “nudges”</h3>
-          <p>
-            Let users nudge a set of ideas (“more practical”, “more handmade”, “more playful”) without
-            re-entering everything.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- BACK LINK -->
-    <section class="project-section project-nav">
-      <a href="../main.html" class="button button-primary">
-        Back to Portfolio
-      </a>
+    <!-- NEXT -->
+    <section class="case-section">
+      <h2>What I'd build next</h2>
+      <ul>
+        <li>
+          <strong>Compare shortlists.</strong> Pin a few ideas and see them side by
+          side, with how each connects back to the description.
+        </li>
+        <li>
+          <strong>Shareable lists.</strong> A plain link someone can send to family to
+          plan a gift together, without accounts.
+        </li>
+        <li>
+          <strong>Adjustable results.</strong> Nudge a set of ideas — more practical,
+          more handmade — without re-entering the whole description.
+        </li>
+      </ul>
+      <p style="margin-top: 2rem;">
+        <a href="../index.html#work">Back to all work</a>
+      </p>
     </section>
 
   </main>
