@@ -193,6 +193,12 @@ main > section + section {
 
 .resume-actions a { font-weight: 500; }
 
+.resume-skills {
+  margin: 2.4rem 0 0;
+  max-width: 34rem;
+  border-top: 1px solid var(--border-strong);
+}
+
 .resume-preview {
   display: block;
   justify-self: end;
